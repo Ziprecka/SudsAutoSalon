@@ -1,0 +1,98 @@
+<section class="suds-mobile-close">
+  <div class="suds-mobile-close__wrap">
+    <div>
+      <p class="suds-mobile-close__eyebrow">Not sure what to pick?</p>
+      <h2>Text photos before booking and Sam will point you to the right package.</h2>
+      <p>
+        This protects your time and makes the quote more accurate. It also helps identify pet hair, stain extraction,
+        odor treatment, ceramic protection, or paint enhancement before the appointment.
+      </p>
+    </div>
+    <a href="sms:+14253618838">Text Photos to Sam</a>
+  </div>
+</section>
+
+<style>
+  .suds-mobile-close {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .suds-mobile-close__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 20px 58px;
+  }
+
+  .suds-mobile-close__wrap > div {
+    max-width: 780px;
+    padding: 28px;
+    border: 1px solid #e6e0cc;
+    border-radius: 8px;
+    background: #fffaf0;
+  }
+
+  .suds-mobile-close__eyebrow {
+    margin: 0 0 12px;
+    color: #8c6b05;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .suds-mobile-close h2 {
+    margin: 0 0 12px;
+    font-size: clamp(2.6rem, 4vw, 4.6rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .suds-mobile-close p {
+    color: #292929;
+    font-size: 1.65rem;
+    line-height: 1.55;
+  }
+
+  .suds-mobile-close a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 210px;
+    padding: 13px 20px;
+    border-radius: 4px;
+    background: #111111;
+    color: #ffffff;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .suds-mobile-close__wrap {
+      align-items: stretch;
+      flex-direction: column;
+      padding: 20px 18px 44px;
+    }
+
+    .suds-mobile-close a {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Suds mobile details close",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Suds mobile details close"
+    }
+  ]
+}
+{% endschema %}
