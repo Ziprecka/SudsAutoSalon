@@ -441,6 +441,42 @@
   margin-top: 1rem;
 }
 
+/* Suds Auto Salon: keep hero copy readable over vehicle photos. */
+.banner .banner__box {
+  background: rgba(8, 8, 8, 0.88);
+  border: 1px solid rgba(242, 211, 107, 0.38);
+  border-radius: 8px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+  color: #ffffff;
+  max-width: 78rem;
+}
+
+.banner .banner__heading,
+.banner .banner__text,
+.banner .banner__text p,
+.banner .banner__box .rte,
+.banner .banner__box .inline-richtext {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+.banner .banner__heading {
+  letter-spacing: 0;
+}
+
+.banner::after,
+.banner__media::after {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.38));
+  opacity: 1;
+}
+
+@media screen and (max-width: 749px) {
+  .banner:not(.banner--mobile-bottom):not(.email-signup-banner) .banner__box,
+  .banner--mobile-bottom:not(.banner--stacked) .banner__box.color-scheme-1 {
+    background: rgba(8, 8, 8, 0.9);
+  }
+}
+
 .banner__buttons {
   display: inline-flex;
   flex-wrap: wrap;

@@ -1,0 +1,219 @@
+<section class="suds-stack">
+  <div class="suds-stack__wrap">
+    <div class="suds-stack__intro">
+      <p class="suds-stack__eyebrow">Built to book the right service faster</p>
+      <h2>Send photos, get the right package, and get your vehicle handled at home.</h2>
+      <p>
+        The fastest way to book is simple: send the vehicle year, make, model, city, and photos of the interior and exterior.
+        Sam will recommend the correct service before you pay for the wrong level of detail.
+      </p>
+    </div>
+
+    <div class="suds-stack__steps">
+      <article>
+        <span>1</span>
+        <h3>Send the vehicle</h3>
+        <p>Year, make, model, city, and photos. This prevents underquoting and gets the service matched to the actual condition.</p>
+      </article>
+      <article>
+        <span>2</span>
+        <h3>Pick the right package</h3>
+        <p>Basic for upkeep, Signature for most first bookings, Elite Reset for neglected vehicles, Ceramic for protection.</p>
+      </article>
+      <article>
+        <span>3</span>
+        <h3>Book the mobile appointment</h3>
+        <p>Suds Auto Salon comes to your home, office, apartment, or approved service location around the Seattle area.</p>
+      </article>
+    </div>
+
+    <div class="suds-stack__split">
+      <div>
+        <p class="suds-stack__eyebrow">Premium add-ons</p>
+        <h2>Raise the result when the vehicle needs more.</h2>
+        <ul>
+          <li>Pet hair removal for heavy dog hair and trapped debris.</li>
+          <li>Stain extraction for seats, carpets, and family vehicle spills.</li>
+          <li>Odor treatment for lingering cabin smells.</li>
+          <li>Paint enhancement for better gloss and cleaner reflections.</li>
+          <li>Ceramic protection for easier washing and longer-term defense.</li>
+        </ul>
+      </div>
+      <div class="suds-stack__quote">
+        <h3>Best value path</h3>
+        <p><strong>First visit:</strong> Signature Detail or Elite Reset.</p>
+        <p><strong>Upgrade:</strong> Exterior protection or paint enhancement.</p>
+        <p><strong>Aftercare:</strong> Monthly maintenance plan starting at $150+.</p>
+        <a href="/pages/contact">Request a Quote</a>
+      </div>
+    </div>
+
+    <div class="suds-stack__reviews">
+      <article>
+        <p>"He came to my house with all that he needed. Highly recommend Sam and Suds Auto Salon."</p>
+        <strong>Stacy K. - Edmonds, WA</strong>
+      </article>
+      <article>
+        <p>"He got old stains out of the seats and thoroughly cleaned every nook and cranny."</p>
+        <strong>Dane U. - Seattle, WA</strong>
+      </article>
+      <article>
+        <p>"My car interior was done with great detail, it looks better than when I got it at the dealer."</p>
+        <strong>Alinafe M. - Lake Forest Park, WA</strong>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .suds-stack {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .suds-stack__wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 20px;
+  }
+
+  .suds-stack__intro {
+    max-width: 900px;
+  }
+
+  .suds-stack__eyebrow {
+    margin: 0 0 12px;
+    color: #8c6b05;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .suds-stack h2 {
+    margin: 0 0 16px;
+    font-size: clamp(2.8rem, 5vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .suds-stack h3 {
+    margin: 0 0 10px;
+    font-size: 2.1rem;
+    letter-spacing: 0;
+  }
+
+  .suds-stack p,
+  .suds-stack li {
+    color: #292929;
+    font-size: 1.6rem;
+    line-height: 1.55;
+  }
+
+  .suds-stack__steps,
+  .suds-stack__reviews {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 34px;
+  }
+
+  .suds-stack__steps article,
+  .suds-stack__reviews article,
+  .suds-stack__quote {
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    padding: 24px;
+    background: #f7f7f7;
+  }
+
+  .suds-stack__steps span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: #111111;
+    color: #f2d36b;
+    font-weight: 900;
+  }
+
+  .suds-stack__split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+    gap: 22px;
+    align-items: start;
+    margin-top: 44px;
+    padding: 34px;
+    border-radius: 8px;
+    background: #111111;
+    color: #ffffff;
+  }
+
+  .suds-stack__split p,
+  .suds-stack__split li {
+    color: #eeeeee;
+  }
+
+  .suds-stack__split ul {
+    margin: 18px 0 0;
+    padding-left: 20px;
+  }
+
+  .suds-stack__quote {
+    background: #1b170d;
+    border-color: #f2d36b;
+  }
+
+  .suds-stack__quote a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-top: 8px;
+    padding: 13px 20px;
+    border-radius: 4px;
+    background: #f2d36b;
+    color: #090909;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .suds-stack__reviews strong {
+    display: block;
+    margin-top: 14px;
+    color: #111111;
+  }
+
+  @media screen and (max-width: 900px) {
+    .suds-stack__steps,
+    .suds-stack__reviews,
+    .suds-stack__split {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .suds-stack__wrap {
+      padding: 44px 18px;
+    }
+
+    .suds-stack__split {
+      padding: 24px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Suds revenue stack",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Suds revenue stack"
+    }
+  ]
+}
+{% endschema %}
