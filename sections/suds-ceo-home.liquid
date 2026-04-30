@@ -2,11 +2,11 @@
   <div class="suds-home__wrap">
     <div class="suds-home__hero">
       <div>
-        <p class="suds-home__eyebrow">Seattle mobile detailing by appointment</p>
-        <h1>Your car cleaned at home, without the shop drop-off.</h1>
+        <p class="suds-home__eyebrow">Premium mobile detailing in Seattle</p>
+        <h1>Professional auto detailing at your home or office.</h1>
         <p class="suds-home__lead">
           Suds Auto Salon is Sam's private mobile detailing service for busy drivers, families, pet owners,
-          resale prep, and vehicle owners who want a cleaner cabin and a better-looking finish without losing half a day.
+          resale prep, and vehicle owners who want a cleaner interior, a sharper exterior, and a simpler way to care for their car.
         </p>
         <div class="suds-home__actions">
           <a class="suds-home__button suds-home__button--primary" href="{{ routes.collections_url }}/mobile-details">Book a Mobile Detail</a>
@@ -18,12 +18,12 @@
         <p class="suds-package__label">Best first booking</p>
         <h2>Signature Detail</h2>
         <p>
-          The right choice for most vehicles that need both the interior and exterior brought back up without jumping
+          The right choice for most vehicles that need the interior and exterior cleaned up without jumping
           straight into ceramic coating or paint correction.
         </p>
         <ul>
           <li>Interior reset for dust, crumbs, grime, light stains, and glass.</li>
-          <li>Exterior wash, wheels, tires, trim, and finish cleanup.</li>
+          <li>Exterior hand wash, wheels, tires, trim, and finish cleanup.</li>
           <li>Protection, pet hair, odor, and stain upgrades available.</li>
         </ul>
       </aside>
@@ -44,14 +44,14 @@
       <article class="suds-package">
         <p class="suds-package__label">Clean upkeep</p>
         <h2>Basic Detail</h2>
-        <p>For vehicles already in decent shape. Good for upkeep, light mess, and maintenance clients.</p>
+        <p>For vehicles already in good shape. Good for upkeep, light mess, and recurring maintenance.</p>
         <a href="{{ routes.collections_url }}/mobile-details">View Basic</a>
       </article>
 
       <article class="suds-package suds-package--featured">
         <p class="suds-package__label">Most booked</p>
         <h2>Signature Detail</h2>
-        <p>For most first-time bookings. A stronger inside-and-out clean with upgrade room for protection or problem areas.</p>
+        <p>For most first-time bookings. A stronger inside-and-out clean with room for protection or problem-area add-ons.</p>
         <a href="{{ routes.collections_url }}/mobile-details">Book Signature</a>
       </article>
 
@@ -69,10 +69,10 @@
   <div class="suds-money__wrap">
     <div>
       <p class="suds-home__eyebrow">Maintenance plan</p>
-      <h2>Stop waiting until the car gets bad again.</h2>
+      <h2>Keep the car clean after the first reset.</h2>
       <p>
         After the first reset, monthly maintenance keeps the vehicle under control and gives you priority scheduling.
-        Best for commuter cars, family vehicles, luxury cars, and anyone who wants a clean car without rethinking it every month.
+        Best for commuter cars, family vehicles, luxury cars, and anyone who wants a clean car without starting over every few months.
       </p>
     </div>
     <a class="suds-home__button suds-home__button--primary" href="/pages/contact-us">Ask About Maintenance</a>
@@ -81,11 +81,25 @@
 
 <section class="suds-seo">
   <div class="suds-seo__wrap">
-    <h2>Mobile detailing in Seattle, Bellevue, Edmonds, Everett, Marysville, Lake Stevens, and Snohomish.</h2>
+    <h2>Mobile detailing in Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, and Snohomish.</h2>
     <p>
-      Suds Auto Salon provides mobile car detailing, interior detailing, full detail resets, ceramic protection,
-      paint enhancement, pet hair removal, odor treatment, and maintenance detailing across the Seattle area.
+      Suds Auto Salon provides mobile car detailing, interior car detailing, full detail resets, ceramic protection,
+      paint enhancement, pet hair removal, odor treatment, and maintenance detailing across Seattle and nearby Eastside and North Sound areas.
     </p>
+    <div class="suds-faq">
+      <article>
+        <h3>Do you come to my location?</h3>
+        <p>Yes. Suds Auto Salon is mobile and can detail at homes, offices, apartments, and approved service locations.</p>
+      </article>
+      <article>
+        <h3>Which detail should I book?</h3>
+        <p>Basic is for upkeep, Signature is best for most first bookings, and Elite Reset is for heavier interiors or resale prep.</p>
+      </article>
+      <article>
+        <h3>Do photos help with quotes?</h3>
+        <p>Yes. Photos help Sam spot pet hair, stains, odor issues, heavy grime, or paint concerns before recommending a package.</p>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -258,9 +272,34 @@
     color: #292929;
   }
 
+  .suds-faq {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .suds-faq article {
+    padding: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background: #f7f7f7;
+  }
+
+  .suds-faq h3 {
+    margin: 0 0 8px;
+    letter-spacing: 0;
+  }
+
+  .suds-faq p {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
   @media screen and (max-width: 900px) {
     .suds-home__hero,
-    .suds-package-grid {
+    .suds-package-grid,
+    .suds-faq {
       grid-template-columns: 1fr;
     }
   }
