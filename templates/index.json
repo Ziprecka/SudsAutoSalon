@@ -24,7 +24,7 @@
             "button_link_1": "shopify://collections/mobile-details",
             "button_style_secondary_1": false,
             "button_label_2": "Send Photos for Quote",
-            "button_link_2": "shopify://pages/contact",
+            "button_link_2": "shopify://pages/contact-us",
             "button_style_secondary_2": true
           }
         }
@@ -95,7 +95,6 @@
     "suds_ceo_home",
     "featured_mobile_details",
     "suds_revenue_stack",
-    "75a06d26-4997-48f5-85f9-41633b23167a",
     "1774584226460e449e"
   ]
 }

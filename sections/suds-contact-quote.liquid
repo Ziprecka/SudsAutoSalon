@@ -1,0 +1,107 @@
+<section class="suds-contact">
+  <div class="suds-contact__wrap">
+    <p class="suds-contact__eyebrow">Request a mobile detailing quote</p>
+    <h1>Send photos before you book.</h1>
+    <p>
+      For the most accurate recommendation, include your vehicle year, make, model, city, and photos of the interior and exterior.
+      Sam will point you toward the right package instead of making you guess.
+    </p>
+    <div class="suds-contact__grid">
+      <article>
+        <h2>Text Sam</h2>
+        <p>Fastest for photos and scheduling.</p>
+        <a href="sms:+14253618838">(425) 361-8838</a>
+      </article>
+      <article>
+        <h2>Email</h2>
+        <p>Best for detailed requests, ceramic coating, or commercial work.</p>
+        <a href="mailto:sudsautosalon@gmail.com">sudsautosalon@gmail.com</a>
+      </article>
+      <article>
+        <h2>What to send</h2>
+        <p>Vehicle, city, photos, problem areas, and whether you want Basic, Signature, Elite Reset, Ceramic, or maintenance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .suds-contact {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .suds-contact__wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 58px 20px 26px;
+  }
+
+  .suds-contact__eyebrow {
+    margin: 0 0 12px;
+    color: #8c6b05;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .suds-contact h1 {
+    margin: 0;
+    font-size: clamp(3.8rem, 7vw, 7rem);
+    line-height: .95;
+    letter-spacing: 0;
+  }
+
+  .suds-contact h2 {
+    margin: 0 0 8px;
+    letter-spacing: 0;
+  }
+
+  .suds-contact p {
+    max-width: 850px;
+    color: #292929;
+    font-size: 1.7rem;
+    line-height: 1.55;
+  }
+
+  .suds-contact__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .suds-contact article {
+    min-height: 170px;
+    padding: 24px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    background: #f7f7f7;
+  }
+
+  .suds-contact a {
+    color: #111111;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .suds-contact__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Suds contact quote",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Suds contact quote"
+    }
+  ]
+}
+{% endschema %}
