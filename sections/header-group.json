@@ -1,1 +1,52 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement_bar_AreXXV":{"type":"announcement-bar","blocks":{"announcement_bX84xq":{"type":"announcement","settings":{"text":"Use SUDS10 For 10% Off","link":"shopify:\/\/collections\/mobile-details"}}},"block_order":["announcement_bX84xq"],"settings":{"color_scheme":"","show_line_separator":true,"show_social":false,"auto_rotate":false,"change_slides_speed":5,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","settings":{"logo_position":"middle-left","menu":"menu","menu_type_desktop":"dropdown","sticky_header_type":"on-scroll-up","show_line_separator":false,"color_scheme":"accent-1","menu_color_scheme":"","enable_country_selector":false,"enable_language_selector":false,"mobile_logo_position":"center","margin_bottom":0,"padding_top":36,"padding_bottom":12}}},"order":["announcement_bar_AreXXV","header"]}
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement_bar_AreXXV": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_bX84xq": {
+          "type": "announcement",
+          "settings": {
+            "text": "Now booking premium mobile details in Seattle and surrounding areas",
+            "link": "shopify://collections/mobile-details"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_bX84xq"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": false,
+        "color_scheme": "accent-1",
+        "menu_color_scheme": "",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_AreXXV",
+    "header"
+  ]
+}
