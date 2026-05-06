@@ -69,8 +69,8 @@
       assign subheadline = 'Suds Auto Salon is run by Sam for customers who want direct communication, careful work, and mobile service without a shop drop-off.'
     when 'service-areas'
       assign eyebrow = 'Service areas'
-      assign h1 = 'Mobile Detailing Across Seattle, the Eastside, and North Sound'
-      assign subheadline = 'Suds Auto Salon serves Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby areas when route timing works.'
+      assign h1 = 'Mobile Detailing Service Areas'
+      assign subheadline = 'Suds Auto Salon serves Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas when route timing and access work.'
   endcase
 -%}
 
@@ -101,6 +101,9 @@
   .suds-lp-hero__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 32px; align-items: center; }
   .suds-lp-eyebrow { margin: 0 0 12px; color: #f2d36b; font-size: 1.3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0; }
   .suds-lp-hero h1 { max-width: 900px; margin: 0; font-size: clamp(3.8rem, 7vw, 7rem); line-height: .96; letter-spacing: 0; }
+  .suds-lp-hero h1 {
+    text-wrap: balance;
+  }
   .suds-lp-lead { max-width: 780px; margin: 20px 0 0; color: #f0f0f0; font-size: 1.8rem; line-height: 1.55; }
   .suds-lp-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 28px; }
   .suds-lp-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 13px 20px; border-radius: 4px; font-weight: 800; text-decoration: none; }

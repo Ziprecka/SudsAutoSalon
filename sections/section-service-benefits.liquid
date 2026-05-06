@@ -6,8 +6,22 @@
   assign problems = 'Dust, crumbs, grime, dull exterior finish, pet hair, stains, odors, weather buildup, and vehicles that need to feel clean again.'
   assign decision = 'If you are unsure, request a quote with photos. Sam will point you to the lightest package that can still do the job properly.'
   assign expectation = 'After you request a quote, Sam reviews the vehicle details, confirms the right package, and gives you the best booking path.'
+  assign section_heading = page.title | default: 'Mobile Detailing' | append: ' should be matched to the vehicle, not guessed from a menu.'
+  assign card_one_title = 'Who this is for'
+  assign card_two_title = included_title
+  assign card_three_title = 'Common problems solved'
 
   case handle
+    when 'service-areas'
+      assign section_heading = 'Mobile detailing coverage built around real route timing.'
+      assign card_one_title = 'Who this is for'
+      assign card_two_title = 'Where Suds goes'
+      assign card_three_title = 'What route planning solves'
+      assign who = 'Seattle-area drivers who want mobile detailing at home, work, apartments, condos, or approved parking locations without losing time to a shop drop-off.'
+      assign included = 'Primary route areas include Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas when schedule and access make sense.'
+      assign problems = 'Route planning helps avoid wasted travel, unclear service areas, bad parking surprises, and booking the wrong package before Sam sees the vehicle condition.'
+      assign decision = 'Send your city, neighborhood, vehicle, and photos. Sam will confirm whether the location fits the route and recommend the right service level.'
+      assign expectation = 'If the route works, you get the best available booking path. If timing is tight, Sam may suggest a better route day or a nearby service window.'
     when 'basic-detail'
       assign who = 'Vehicles already in decent condition that need light upkeep, not a heavy rescue detail.'
       assign included = 'Light interior cleanup, exterior wash, glass, wheels, tires, and tidy finish work.'
@@ -75,12 +89,12 @@
   <div class="suds-benefits__wrap">
     <div class="suds-benefits__head">
       <p class="suds-benefits__eyebrow">Service fit</p>
-      <h2>{{ page.title | default: 'Mobile Detailing' }} should be matched to the vehicle, not guessed from a menu.</h2>
+      <h2>{{ section_heading }}</h2>
     </div>
     <div class="suds-benefits__grid">
-      <article><h3>Who this is for</h3><p>{{ who }}</p></article>
-      <article><h3>{{ included_title }}</h3><p>{{ included }}</p></article>
-      <article><h3>Common problems solved</h3><p>{{ problems }}</p></article>
+      <article><h3>{{ card_one_title }}</h3><p>{{ who }}</p></article>
+      <article><h3>{{ card_two_title }}</h3><p>{{ included }}</p></article>
+      <article><h3>{{ card_three_title }}</h3><p>{{ problems }}</p></article>
     </div>
     <div class="suds-benefits__decision">
       <article>
