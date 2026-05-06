@@ -1,5 +1,11 @@
 {%- liquid
   assign current_url = canonical_url | default: shop.url
+  assign schema_logo = blank
+  if settings.logo != blank
+    assign schema_logo = settings.logo | image_url: width: 512
+  elsif settings.brand_image != blank
+    assign schema_logo = settings.brand_image | image_url: width: 1200
+  endif
 -%}
 <script type="application/ld+json">
 {
@@ -9,6 +15,10 @@
   "name": "Suds Auto Salon",
   "url": "{{ shop.url }}",
   "description": "Premium private mobile auto detailing at homes and offices across Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas.",
+  {%- if schema_logo != blank %}
+  "logo": "https:{{ schema_logo }}",
+  "image": "https:{{ schema_logo }}",
+  {%- endif %}
   "telephone": "+14253618838",
   "email": "sudsautosalon@gmail.com",
   "areaServed": [
