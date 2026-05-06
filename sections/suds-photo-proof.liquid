@@ -1,0 +1,283 @@
+{%- liquid
+  assign has_images = false
+  for block in section.blocks
+    if block.settings.image != blank
+      assign has_images = true
+    endif
+  endfor
+-%}
+
+<section class="suds-photo-proof">
+  <div class="suds-photo-proof__wrap">
+    <div class="suds-photo-proof__head">
+      <p class="suds-photo-proof__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="suds-photo-proof__grid{% unless has_images %} suds-photo-proof__grid--text{% endunless %}">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <article class="suds-photo-proof__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '360, 540, 720, 960, 1200',
+                  sizes: '(min-width: 990px) 33vw, 100vw',
+                  alt: block.settings.alt_text
+              }}
+            {%- endif -%}
+            <div>
+              <h3>{{ block.settings.heading }}</h3>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <article class="suds-photo-proof__item">
+          <div>
+            <h3>Interior transformations</h3>
+            <p>Show dirty-to-clean cabin work: seats, mats, cupholders, pet hair, crumbs, stains, glass, and touchpoints.</p>
+          </div>
+        </article>
+        <article class="suds-photo-proof__item">
+          <div>
+            <h3>Exterior gloss and protection</h3>
+            <p>Show paint enhancement, hand wash results, wheel cleanup, trim, glass, wax, sealant, or ceramic protection.</p>
+          </div>
+        </article>
+        <article class="suds-photo-proof__item">
+          <div>
+            <h3>Maintenance-ready vehicles</h3>
+            <p>Show the clean baseline that makes recurring monthly detailing feel valuable and easy to understand.</p>
+          </div>
+        </article>
+      {%- endif -%}
+    </div>
+
+    <div class="suds-photo-proof__actions">
+      <a class="suds-photo-proof__button suds-photo-proof__button--primary" href="/pages/contact-us">Request a Quote</a>
+      <a class="suds-photo-proof__button suds-photo-proof__button--secondary" href="/collections/mobile-details">Book Your Mobile Detail</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .suds-photo-proof {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .suds-photo-proof__wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 58px 20px;
+  }
+
+  .suds-photo-proof__head {
+    max-width: 840px;
+  }
+
+  .suds-photo-proof__eyebrow {
+    margin: 0 0 10px;
+    color: #8c6b05;
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .suds-photo-proof h2 {
+    margin: 0;
+    font-size: clamp(2.8rem, 5vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .suds-photo-proof__head p,
+  .suds-photo-proof__item p {
+    color: #292929;
+    font-size: 1.6rem;
+    line-height: 1.55;
+  }
+
+  .suds-photo-proof__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .suds-photo-proof__item {
+    overflow: hidden;
+    border: 1px solid #e0ddcf;
+    border-radius: 8px;
+    background: #f8f7f2;
+  }
+
+  .suds-photo-proof__item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #111111;
+  }
+
+  .suds-photo-proof__item div {
+    padding: 20px;
+  }
+
+  .suds-photo-proof__item h3 {
+    margin: 0 0 8px;
+    letter-spacing: 0;
+  }
+
+  .suds-photo-proof__item p {
+    margin: 0;
+  }
+
+  .suds-photo-proof__grid--text .suds-photo-proof__item {
+    padding: 22px;
+  }
+
+  .suds-photo-proof__grid--text .suds-photo-proof__item div {
+    padding: 0;
+  }
+
+  .suds-photo-proof__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .suds-photo-proof__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    border-radius: 4px;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .suds-photo-proof__button--primary {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+  }
+
+  .suds-photo-proof__button--secondary {
+    background: transparent;
+    color: #111111;
+    border: 1px solid #111111;
+  }
+
+  @media screen and (max-width: 900px) {
+    .suds-photo-proof__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .suds-photo-proof__wrap {
+      padding: 44px 18px;
+    }
+
+    .suds-photo-proof__actions {
+      flex-direction: column;
+    }
+
+    .suds-photo-proof__button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Suds photo proof",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Real Suds results"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Before-and-after proof sells the detail before the quote."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Before-and-after results show interior resets, pet hair removal, exterior gloss, ceramic protection, and the kind of transformation customers are actually booking."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Photo proof item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Image alt text",
+          "default": "Mobile detailing result by Suds Auto Salon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Interior reset"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Show the visible result: cleaner seats, carpets, mats, cupholders, glass, and touchpoints."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Suds photo proof",
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "heading": "Interior transformation",
+            "text": "Best for showing crumbs, dust, stains, pet hair, and neglected daily-driver buildup."
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "heading": "Exterior gloss and protection",
+            "text": "Use clean exterior photos to sell wash, decontamination, paint enhancement, wax, and ceramic protection."
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "heading": "Maintenance-ready finish",
+            "text": "Show the clean baseline that makes monthly maintenance easier to understand and easier to sell."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

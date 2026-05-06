@@ -12,9 +12,23 @@
       "type": "suds-page-content",
       "settings": {}
     },
+    "photo_proof": {
+      "type": "suds-photo-proof",
+      "settings": {
+        "heading": "One mobile detailing standard across every route area.",
+        "subheading": "Interior resets, exterior details, ceramic coating, and maintenance results help show what Suds can deliver across Seattle, the Eastside, and the North Sound."
+      }
+    },
     "process": {
       "type": "section-process",
       "settings": {}
+    },
+    "testimonials": {
+      "type": "suds-testimonials",
+      "settings": {
+        "heading": "Trust signals for a mobile service-area business.",
+        "subheading": "Review excerpts help customers understand the quality and convenience of booking a private mobile detailer."
+      }
     },
     "faq": {
       "type": "section-faq-schema",
@@ -37,7 +51,9 @@
     "hero",
     "benefits",
     "page_content",
+    "photo_proof",
     "process",
+    "testimonials",
     "faq",
     "final_cta",
     "main"

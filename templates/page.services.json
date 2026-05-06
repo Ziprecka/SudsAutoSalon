@@ -8,9 +8,23 @@
       "type": "suds-services-funnel",
       "settings": {}
     },
+    "photo_proof": {
+      "type": "suds-photo-proof",
+      "settings": {
+        "heading": "Use real results to choose the right detail.",
+        "subheading": "Before-and-after results help show whether Basic, Signature, Elite Reset, ceramic coating, or maintenance is the right path."
+      }
+    },
     "page_content": {
       "type": "suds-page-content",
       "settings": {}
+    },
+    "testimonials": {
+      "type": "suds-testimonials",
+      "settings": {
+        "heading": "Proof from customers who already trusted Sam with their vehicles.",
+        "subheading": "Review excerpts help new visitors understand the quality, convenience, and repeat-service value behind Suds Auto Salon."
+      }
     },
     "process": {
       "type": "section-process",
@@ -28,8 +42,10 @@
   "order": [
     "hero",
     "suds_services_funnel",
+    "photo_proof",
     "page_content",
     "process",
+    "testimonials",
     "faq",
     "final_cta"
   ]

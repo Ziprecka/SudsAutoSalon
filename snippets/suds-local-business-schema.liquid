@@ -33,8 +33,16 @@
   ],
   "priceRange": "$$",
   "sameAs": [
+    "https://www.facebook.com/profile.php?id=100092750222276",
     "https://www.instagram.com/sudsautosalon/"
   ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+14253618838",
+    "contactType": "customer service",
+    "areaServed": "US-WA",
+    "availableLanguage": "English"
+  },
   "potentialAction": {
     "@type": "ReserveAction",
     "target": "{{ shop.url }}/pages/contact-us"
@@ -42,3 +50,24 @@
   "mainEntityOfPage": "{{ current_url }}"
 }
 </script>
+
+{%- if request.page_type == 'index' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "{{ shop.url }}/#website",
+  "name": "Suds Auto Salon",
+  "url": "{{ shop.url }}",
+  {%- if schema_logo != blank %}
+  "image": "https:{{ schema_logo }}",
+  {%- endif %}
+  "publisher": { "@id": "{{ shop.url }}/#suds-auto-salon" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ shop.url }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{%- endif -%}

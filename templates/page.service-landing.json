@@ -12,6 +12,13 @@
       "type": "suds-page-content",
       "settings": {}
     },
+    "photo_proof": {
+      "type": "suds-photo-proof",
+      "settings": {
+        "heading": "Photos make the result easier to understand before you book.",
+        "subheading": "Real detailing photos help you see the difference between light upkeep, a deeper reset, targeted add-ons, and finish protection."
+      }
+    },
     "process": {
       "type": "section-process",
       "settings": {}
@@ -19,6 +26,13 @@
     "reviews": {
       "type": "section-reviews",
       "settings": {}
+    },
+    "testimonials": {
+      "type": "suds-testimonials",
+      "settings": {
+        "heading": "Real customer proof before the quote.",
+        "subheading": "Customer excerpts show why drivers trust Sam for careful mobile work, ceramic protection, recurring maintenance, and detail-oriented service."
+      }
     },
     "faq": {
       "type": "section-faq-schema",
@@ -41,8 +55,10 @@
     "hero",
     "benefits",
     "page_content",
+    "photo_proof",
     "process",
     "reviews",
+    "testimonials",
     "faq",
     "final_cta",
     "main"

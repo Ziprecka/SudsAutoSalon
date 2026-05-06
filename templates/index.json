@@ -8,6 +8,13 @@
       "type": "suds-revenue-stack",
       "settings": {}
     },
+    "photo_proof": {
+      "type": "suds-photo-proof",
+      "settings": {
+        "heading": "See the kind of clean Suds is built to deliver.",
+        "subheading": "Before-and-after results make it easier to understand the difference between a quick wash and a proper mobile detail."
+      }
+    },
     "process": {
       "type": "section-process",
       "settings": {}
@@ -15,6 +22,13 @@
     "reviews": {
       "type": "section-reviews",
       "settings": {}
+    },
+    "testimonials": {
+      "type": "suds-testimonials",
+      "settings": {
+        "heading": "Customers book Suds for careful work, not a rushed car wash.",
+        "subheading": "Real review excerpts show the repeat service, ceramic coating, maintenance, and detail-oriented work customers trust Sam for."
+      }
     },
     "faq": {
       "type": "section-faq-schema",
@@ -29,8 +43,10 @@
   "order": [
     "suds_ceo_home",
     "suds_revenue_stack",
+    "photo_proof",
     "process",
     "reviews",
+    "testimonials",
     "faq",
     "final_cta"
   ]

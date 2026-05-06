@@ -8,6 +8,13 @@
       "type": "section-reviews",
       "settings": {}
     },
+    "testimonials": {
+      "type": "suds-testimonials",
+      "settings": {
+        "heading": "Google review excerpts from Suds customers.",
+        "subheading": "Real customer excerpts show the detail-oriented work, convenience, ceramic protection, maintenance service, and repeat bookings behind Suds Auto Salon."
+      }
+    },
     "page_content": {
       "type": "suds-page-content",
       "settings": {}
@@ -32,6 +39,7 @@
   "order": [
     "hero",
     "reviews",
+    "testimonials",
     "page_content",
     "faq",
     "final_cta",

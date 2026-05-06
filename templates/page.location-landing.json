@@ -12,6 +12,13 @@
       "type": "suds-page-content",
       "settings": {}
     },
+    "photo_proof": {
+      "type": "suds-photo-proof",
+      "settings": {
+        "heading": "Mobile detailing results for Seattle-area vehicles.",
+        "subheading": "Interior resets, exterior cleanup, pet hair removal, ceramic protection, and maintenance detailing are easier to understand when the results are visible."
+      }
+    },
     "process": {
       "type": "section-process",
       "settings": {}
@@ -19,6 +26,13 @@
     "reviews": {
       "type": "section-reviews",
       "settings": {}
+    },
+    "testimonials": {
+      "type": "suds-testimonials",
+      "settings": {
+        "heading": "Customers choose Suds for convenience and detail-oriented work.",
+        "subheading": "Review excerpts help local drivers understand the convenience, care, and repeat-service value behind Suds Auto Salon."
+      }
     },
     "faq": {
       "type": "section-faq-schema",
@@ -41,8 +55,10 @@
     "location",
     "benefits",
     "page_content",
+    "photo_proof",
     "process",
     "reviews",
+    "testimonials",
     "faq",
     "final_cta",
     "main"

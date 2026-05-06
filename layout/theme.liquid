@@ -6,9 +6,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    {%- liquid
+      assign suds_page_title = page_title
+      assign suds_page_description = page_description
+      if request.page_type == 'index'
+        assign suds_page_title = 'Mobile Detailing Seattle | Suds Auto Salon'
+        assign suds_page_description = 'Private mobile detailing at your home or office across Seattle, Bellevue, Edmonds, Everett, Marysville, Lake Stevens, Snohomish, and nearby areas.'
+      endif
+    -%}
 
-    {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- liquid
+      assign suds_favicon = settings.favicon
+      if suds_favicon == blank
+        assign suds_favicon = settings.logo
+      endif
+    -%}
+    {%- if suds_favicon != blank -%}
+      <link rel="icon" type="image/png" sizes="96x96" href="{{ suds_favicon | image_url: width: 96, height: 96 }}">
+      <link rel="shortcut icon" type="image/png" href="{{ suds_favicon | image_url: width: 96, height: 96 }}">
+      <link rel="apple-touch-icon" sizes="180x180" href="{{ suds_favicon | image_url: width: 180, height: 180 }}">
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
@@ -16,14 +32,14 @@
     {%- endunless -%}
 
     <title>
-      {{ page_title }}
+      {{ suds_page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless suds_page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    {% if suds_page_description %}
+      <meta name="description" content="{{ suds_page_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}

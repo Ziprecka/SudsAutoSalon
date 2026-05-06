@@ -1,0 +1,243 @@
+<section class="suds-testimonials">
+  <div class="suds-testimonials__wrap">
+    <div class="suds-testimonials__head">
+      <p class="suds-testimonials__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="suds-testimonials__grid">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <article {{ block.shopify_attributes }}>
+            <p class="suds-testimonials__quote">"{{ block.settings.quote }}"</p>
+            <strong>{{ block.settings.name }}</strong>
+            <span>{{ block.settings.detail }}</span>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <article>
+          <p class="suds-testimonials__quote">"We have used Sam 4 or 5 times and will use him again. He's very detail oriented and doesn't miss anything."</p>
+          <strong>Sue C.</strong>
+          <span>Recurring Suds customer</span>
+        </article>
+        <article>
+          <p class="suds-testimonials__quote">"We had ceramic coating applied to our newer car and signed up for monthly exterior washes. It always looks showroom-ready."</p>
+          <strong>Paul P.</strong>
+          <span>Ceramic coating and monthly maintenance customer</span>
+        </article>
+        <article>
+          <p class="suds-testimonials__quote">"Sam demonstrated amazing attention to the small details, and worked very fast and efficiently to get several cars cleaned up for us."</p>
+          <strong>Logan K.</strong>
+          <span>Multi-vehicle detailing customer</span>
+        </article>
+      {%- endif -%}
+    </div>
+
+    <div class="suds-testimonials__actions">
+      <a class="suds-testimonials__button suds-testimonials__button--primary" href="/pages/contact-us">Request a Quote</a>
+      <a class="suds-testimonials__button suds-testimonials__button--secondary" href="/pages/reviews">Read More Reviews</a>
+      {%- if section.settings.google_review_url != blank -%}
+        <a class="suds-testimonials__link" href="{{ section.settings.google_review_url }}">Review Suds on Google</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .suds-testimonials {
+    background: #0b0b0b;
+    color: #ffffff;
+  }
+
+  .suds-testimonials__wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 58px 20px;
+  }
+
+  .suds-testimonials__head {
+    max-width: 860px;
+  }
+
+  .suds-testimonials__eyebrow {
+    margin: 0 0 10px;
+    color: #f2d36b;
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .suds-testimonials h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.8rem, 5vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .suds-testimonials__head p {
+    color: #eeeeee;
+    font-size: 1.65rem;
+    line-height: 1.55;
+  }
+
+  .suds-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .suds-testimonials article {
+    padding: 24px;
+    border: 1px solid rgba(242, 211, 107, .34);
+    border-radius: 8px;
+    background: #141414;
+  }
+
+  .suds-testimonials__quote {
+    margin: 0 0 20px;
+    color: #ffffff;
+    font-size: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .suds-testimonials strong,
+  .suds-testimonials span {
+    display: block;
+  }
+
+  .suds-testimonials strong {
+    color: #f2d36b;
+    font-size: 1.5rem;
+  }
+
+  .suds-testimonials span {
+    margin-top: 4px;
+    color: #dddddd;
+    font-size: 1.35rem;
+  }
+
+  .suds-testimonials__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .suds-testimonials__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    border-radius: 4px;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .suds-testimonials__button--primary {
+    background: #f2d36b;
+    color: #0b0b0b;
+    border: 1px solid #f2d36b;
+  }
+
+  .suds-testimonials__button--secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, .48);
+  }
+
+  .suds-testimonials__link {
+    color: #f2d36b;
+    font-weight: 900;
+    text-underline-offset: 4px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .suds-testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .suds-testimonials__wrap {
+      padding: 44px 18px;
+    }
+
+    .suds-testimonials__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .suds-testimonials__button,
+    .suds-testimonials__link {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Suds testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Customer proof"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real customer reviews from Suds Auto Salon"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Real customer excerpts show the convenience, repeat service, ceramic protection, maintenance value, and detail-oriented work behind Suds Auto Salon."
+    },
+    {
+      "type": "url",
+      "id": "google_review_url",
+      "label": "Google review URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Sam made the car feel clean again without me having to drop it off at a shop."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Detail",
+          "default": "Seattle mobile detailing customer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Suds testimonials"
+    }
+  ]
+}
+{% endschema %}
