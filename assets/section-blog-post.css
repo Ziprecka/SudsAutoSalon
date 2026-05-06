@@ -173,3 +173,213 @@
 .article-template__back:last-child {
   margin-bottom: 3.2rem;
 }
+
+.suds-article {
+  background: #ffffff;
+  color: #111111;
+}
+
+.suds-article > header {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 64px max(20px, calc((100vw - 1180px) / 2)) 34px;
+  background: #080808;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.suds-article .article-template__title {
+  max-width: 960px;
+  color: #ffffff;
+  font-size: clamp(3.6rem, 6vw, 6.8rem);
+  line-height: .98;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.suds-article .circle-divider,
+.suds-article header .caption-with-letter-spacing {
+  display: inline-flex;
+  margin-top: 18px;
+  color: #f2d36b;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.suds-article .article-template__hero-container {
+  max-width: 1040px;
+  margin: 34px auto 0;
+  padding: 0 20px;
+}
+
+.suds-article .article-template__hero-small,
+.suds-article .article-template__hero-medium,
+.suds-article .article-template__hero-large {
+  overflow: hidden;
+  height: clamp(220px, 38vw, 430px);
+  border: 1px solid #e0ddcf;
+  border-radius: 8px;
+  background: #111111;
+}
+
+.suds-article .article-template__hero-adapt {
+  overflow: hidden;
+  height: clamp(220px, 38vw, 430px);
+  padding-bottom: 0 !important;
+  border: 1px solid #e0ddcf;
+  border-radius: 8px;
+  background: #111111;
+}
+
+.suds-article .article-template__hero-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.suds-article .article-template__content {
+  max-width: 820px;
+  margin-top: 42px;
+  margin-bottom: 28px;
+}
+
+.suds-article .article-template__content h2 {
+  margin-top: 4rem;
+  margin-bottom: 1.2rem;
+  color: #111111;
+  font-size: clamp(2.6rem, 4vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.suds-article .article-template__content h3 {
+  margin-top: 2.8rem;
+  color: #111111;
+  letter-spacing: 0;
+}
+
+.suds-article .article-template__content p,
+.suds-article .article-template__content li {
+  color: #292929;
+  font-size: 1.75rem;
+  line-height: 1.7;
+}
+
+.suds-article .article-template__content ul,
+.suds-article .article-template__content ol {
+  padding-left: 2.2rem;
+}
+
+.suds-article .article-template__content hr {
+  margin: 3.2rem 0;
+  border: 0;
+  border-top: 1px solid #e0ddcf;
+}
+
+.suds-article .article-template__social-sharing {
+  max-width: 820px;
+  margin-top: 12px;
+}
+
+.suds-article .article-template__back {
+  margin: 36px 0 0;
+}
+
+.suds-article-cta {
+  margin-top: 44px;
+  background: #0b0b0b;
+  color: #ffffff;
+}
+
+.suds-article-cta__wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 54px 20px;
+  text-align: center;
+}
+
+.suds-article-cta__eyebrow {
+  margin: 0 0 10px;
+  color: #f2d36b;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.suds-article-cta h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.suds-article-cta p {
+  max-width: 720px;
+  margin: 18px auto 0;
+  color: #eeeeee;
+  font-size: 1.7rem;
+  line-height: 1.55;
+}
+
+.suds-article-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.suds-article-cta__button,
+.suds-article-cta__text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 13px 20px;
+  border-radius: 4px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.suds-article-cta__button--primary {
+  background: #f2d36b;
+  color: #0b0b0b;
+  border: 1px solid #f2d36b;
+}
+
+.suds-article-cta__button--secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, .48);
+}
+
+.suds-article-cta__text {
+  color: #f2d36b;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media screen and (max-width: 640px) {
+  .suds-article > header {
+    padding: 46px 18px 28px;
+  }
+
+  .suds-article .article-template__hero-container,
+  .suds-article .article-template__content,
+  .suds-article .article-template__social-sharing {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .suds-article-cta__actions {
+    flex-direction: column;
+  }
+
+  .suds-article-cta__button,
+  .suds-article-cta__text {
+    width: 100%;
+  }
+}

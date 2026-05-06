@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="article-template suds-article" itemscope itemtype="http://schema.org/BlogPosting">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -91,6 +91,19 @@
       {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
     </a>
   </div>
+
+  <section class="suds-article-cta">
+    <div class="suds-article-cta__wrap">
+      <p class="suds-article-cta__eyebrow">Ready for real pricing?</p>
+      <h2>Send your vehicle, city, and photos for a better quote.</h2>
+      <p>Sam will match the detail to your vehicle condition instead of guessing from a generic menu.</p>
+      <div class="suds-article-cta__actions">
+        <a class="suds-article-cta__button suds-article-cta__button--primary" href="/pages/contact-us">Request a Quote</a>
+        <a class="suds-article-cta__button suds-article-cta__button--secondary" href="/collections/mobile-details">Book Your Mobile Detail</a>
+        <a class="suds-article-cta__text" href="sms:+14253618838">Text Photos for a Faster Quote</a>
+      </div>
+    </div>
+  </section>
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
