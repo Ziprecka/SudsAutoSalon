@@ -4,48 +4,70 @@
   assign who = 'Busy drivers, families, commuters, pet owners, and vehicle owners who want mobile service matched to condition.'
   assign included = 'Interior cleaning, exterior hand wash, glass, wheels, tires, trim, and add-ons when the vehicle needs targeted work.'
   assign problems = 'Dust, crumbs, grime, dull exterior finish, pet hair, stains, odors, weather buildup, and vehicles that need to feel clean again.'
+  assign decision = 'If you are unsure, request a quote with photos. Sam will point you to the lightest package that can still do the job properly.'
+  assign expectation = 'After you request a quote, Sam reviews the vehicle details, confirms the right package, and gives you the best booking path.'
 
   case handle
     when 'basic-detail'
       assign who = 'Vehicles already in decent condition that need light upkeep, not a heavy rescue detail.'
       assign included = 'Light interior cleanup, exterior wash, glass, wheels, tires, and tidy finish work.'
       assign problems = 'Light dust, fingerprints, road film, crumbs, and general upkeep before the car gets out of hand.'
+      assign decision = 'Choose Basic when the vehicle is already clean enough that it does not need deep extraction, pet hair removal, odor work, or heavy grime removal.'
+      assign expectation = 'If photos show heavier condition, Sam may recommend Signature instead so the appointment has enough time to get the result you actually want.'
     when 'signature-detail'
       assign who = 'Most first-time customers who want one strong mobile appointment for the interior and exterior.'
       assign included = 'A deeper interior refresh, exterior hand wash, wheels, tires, glass, trim, and protection upgrade options.'
       assign problems = 'Daily-driver buildup, family mess, light stains, dull exterior feel, and vehicles that need a real reset.'
+      assign decision = 'Choose Signature when Basic feels too light but the vehicle does not need the full heavy-reset treatment.'
+      assign expectation = 'This is the package Sam will usually recommend for a first booking because it creates a clean baseline for future maintenance.'
     when 'elite-detail', 'elite-reset'
       assign who = 'Family SUVs, pet vehicles, resale prep, neglected interiors, and vehicles that need more time.'
       assign included = 'A heavier inside-and-out reset with deeper interior attention and add-on room for pet hair, odor, stains, and protection.'
       assign problems = 'Heavy crumbs, grime, pet hair, spills, odor concerns, resale presentation, and neglected cabin areas.'
+      assign decision = 'Choose Elite Reset when the vehicle needs time, patience, and a more complete transformation instead of a quick refresh.'
+      assign expectation = 'Photos matter here. Sam uses them to plan time, add-ons, and whether stains, odor, pet hair, or protection should be handled together.'
     when 'ceramic-coating'
       assign who = 'Drivers who want a cleaner-looking finish, easier washing, stronger protection, and better gloss.'
       assign included = 'Paint preparation, finish improvement as needed, ceramic coating application, and care guidance.'
       assign problems = 'Unprotected paint, weak gloss, difficult washing, road grime sticking quickly, and short-lived wax protection.'
+      assign decision = 'Choose ceramic when you want protection beyond a basic wax and you care about gloss, washability, and long-term appearance.'
+      assign expectation = 'Sam will inspect the paint first because ceramic results depend on preparation, paint condition, and realistic expectations.'
     when 'paint-enhancement'
       assign who = 'Vehicles with dull paint, light defects, haze, or a finish that needs gloss before protection.'
       assign included = 'Wash, decontamination when needed, machine enhancement, gloss improvement, and protection recommendations.'
       assign problems = 'Haze, light swirls, dull paint, weak reflection, and finish issues that make a clean vehicle look tired.'
+      assign decision = 'Choose paint enhancement when the vehicle is clean but the finish still looks flat, hazy, or tired.'
+      assign expectation = 'Paint enhancement improves gloss and clarity, then sets the vehicle up for wax, sealant, or ceramic protection.'
     when 'interior-detailing'
       assign who = 'Drivers who care most about the cabin: families, commuters, pet owners, and anyone tired of a dirty interior.'
       assign included = 'Vacuuming, wipe-downs, cracks and crevices, glass, mats, seats, touchpoints, and add-ons for stains, pet hair, or odor.'
       assign problems = 'Dust, crumbs, grime, spills, sticky controls, dirty mats, pet hair, stale smell, and neglected seating areas.'
+      assign decision = 'Choose interior detailing when the cabin is the main problem and the exterior does not need a larger package.'
+      assign expectation = 'Send photos of seats, carpets, mats, cupholders, cargo areas, and any stains so Sam can price the condition accurately.'
     when 'exterior-detailing'
       assign who = 'Drivers who want the outside cleaned, wheels sharpened, glass cleared, trim dressed, and protection considered.'
       assign included = 'Hand wash, wheels, tires, exterior glass, light trim care, and upgrade paths for wax, ceramic, or paint enhancement.'
       assign problems = 'Road film, brake dust, dirty glass, dull trim, weather buildup, and a finish that no longer looks sharp.'
+      assign decision = 'Choose exterior detailing when the outside needs attention and you want the finish cleaned up without a full interior reset.'
+      assign expectation = 'Sam may recommend paint enhancement or ceramic if the paint needs more than washing to look right.'
     when 'pet-hair-removal'
       assign who = 'Pet owners with hair embedded in seats, carpet, mats, cargo areas, and hard-to-reach interior edges.'
       assign included = 'Targeted pet hair removal with interior detailing support based on how embedded the hair is.'
       assign problems = 'Fur buildup, cargo-area hair, seat fibers holding hair, odor from pet use, and family vehicles that need a reset.'
+      assign decision = 'Choose pet hair removal when hair is embedded enough that a normal vacuum will not solve it.'
+      assign expectation = 'Pet hair is priced by severity because hair type, fabric, cargo areas, and buildup all change the time required.'
     when 'odor-treatment'
       assign who = 'Vehicles with odor from pets, food spills, smoke, moisture, stale cabin air, or unknown interior buildup.'
       assign included = 'Interior inspection, source-focused cleaning, targeted treatment, and recommendations based on severity.'
       assign problems = 'Lingering smell, spill odor, pet odor, smoke smell, mildew-like concerns, and interiors that do not feel fresh.'
+      assign decision = 'Choose odor treatment when the smell is more than normal daily-driver staleness and needs source-focused cleaning.'
+      assign expectation = 'Odor work starts by finding the likely source. Some odors improve quickly; severe contamination can require deeper treatment.'
     when 'maintenance-detailing'
       assign who = 'Customers who have already reset the vehicle and want it kept clean on a recurring mobile route.'
       assign included = 'Recurring upkeep, priority scheduling, route-based service, and clean-vehicle maintenance after Signature or Elite.'
       assign problems = 'Repeated heavy details, messy daily use, family buildup, commuter grime, and losing the clean feel after a reset.'
+      assign decision = 'Choose maintenance after the vehicle has already been reset. It is not a substitute for a first-time heavy detail.'
+      assign expectation = 'Sam keeps route spots limited so recurring clients get consistent service without letting the vehicle slide backward.'
   endcase
 -%}
 
@@ -59,6 +81,16 @@
       <article><h3>Who this is for</h3><p>{{ who }}</p></article>
       <article><h3>{{ included_title }}</h3><p>{{ included }}</p></article>
       <article><h3>Common problems solved</h3><p>{{ problems }}</p></article>
+    </div>
+    <div class="suds-benefits__decision">
+      <article>
+        <h3>How to decide</h3>
+        <p>{{ decision }}</p>
+      </article>
+      <article>
+        <h3>What happens next</h3>
+        <p>{{ expectation }}</p>
+      </article>
     </div>
     <div class="suds-benefits__links" aria-label="Related Suds Auto Salon pages">
       <a href="/pages/services">Services</a>
@@ -98,12 +130,13 @@
   .suds-benefits__eyebrow { margin: 0 0 10px; color: #8c6b05; font-weight: 800; text-transform: uppercase; }
   .suds-benefits h2 { margin: 0; font-size: clamp(2.8rem, 4vw, 4.8rem); line-height: 1; letter-spacing: 0; }
   .suds-benefits__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 30px; }
+  .suds-benefits__decision { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; margin-top: 16px; }
   .suds-benefits article { padding: 24px; border: 1px solid #e0ddcf; border-radius: 8px; background: #f8f7f2; }
   .suds-benefits h3 { margin: 0 0 10px; letter-spacing: 0; }
   .suds-benefits p { margin: 0; color: #292929; font-size: 1.6rem; line-height: 1.55; }
   .suds-benefits__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
   .suds-benefits__links a { padding: 9px 12px; border: 1px solid #d8c47a; border-radius: 999px; color: #4d3a04; background: #fffdf7; font-weight: 800; text-decoration: none; }
-  @media screen and (max-width: 820px) { .suds-benefits__wrap { padding: 44px 18px; } .suds-benefits__grid { grid-template-columns: 1fr; } }
+  @media screen and (max-width: 820px) { .suds-benefits__wrap { padding: 44px 18px; } .suds-benefits__grid, .suds-benefits__decision { grid-template-columns: 1fr; } }
 </style>
 
 {% schema %}
