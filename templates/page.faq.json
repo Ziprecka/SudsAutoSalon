@@ -4,14 +4,6 @@
       "type": "section-hero-service",
       "settings": {}
     },
-    "suds_services_funnel": {
-      "type": "suds-services-funnel",
-      "settings": {}
-    },
-    "process": {
-      "type": "section-process",
-      "settings": {}
-    },
     "faq": {
       "type": "section-faq-schema",
       "settings": {}
@@ -19,13 +11,20 @@
     "final_cta": {
       "type": "section-final-cta",
       "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "hero",
-    "suds_services_funnel",
-    "process",
     "faq",
-    "final_cta"
+    "final_cta",
+    "main"
   ]
 }

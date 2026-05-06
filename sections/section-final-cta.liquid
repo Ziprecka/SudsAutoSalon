@@ -1,0 +1,37 @@
+<section class="suds-final-cta">
+  <div class="suds-final-cta__wrap">
+    <p class="suds-final-cta__eyebrow">Ready for a cleaner vehicle?</p>
+    <h2>Request a quote with your vehicle, city, and photos.</h2>
+    <p>Sam will recommend the right Suds package based on condition: Basic for upkeep, Signature for most first bookings, Elite Reset for heavier condition, and protection or maintenance when it makes sense.</p>
+    <div class="suds-final-cta__actions">
+      <a class="suds-final-cta__button suds-final-cta__button--primary" href="/pages/contact-us">Request a Quote</a>
+      <a class="suds-final-cta__button suds-final-cta__button--secondary" href="/collections/mobile-details">Book Your Mobile Detail</a>
+      <a class="suds-final-cta__link" href="sms:+14253618838">Text Photos for a Faster Quote</a>
+    </div>
+    <nav class="suds-final-cta__links" aria-label="Related Suds Auto Salon pages">
+      <a href="/pages/services">Services</a>
+      <a href="/pages/service-areas">Service Areas</a>
+      <a href="/pages/faq">FAQ</a>
+      <a href="/pages/reviews">Reviews</a>
+      <a href="/pages/about">About</a>
+    </nav>
+  </div>
+</section>
+
+<style>
+  .suds-final-cta { background: #0b0b0b; color: #fff; }
+  .suds-final-cta__wrap { max-width: 980px; margin: 0 auto; padding: 62px 20px; text-align: center; }
+  .suds-final-cta__eyebrow { margin: 0 0 10px; color: #f2d36b; font-weight: 800; text-transform: uppercase; }
+  .suds-final-cta h2 { margin: 0; font-size: clamp(3rem, 5vw, 5.6rem); line-height: 1; letter-spacing: 0; }
+  .suds-final-cta p { margin: 18px auto 0; max-width: 780px; color: #eeeeee; font-size: 1.7rem; line-height: 1.55; }
+  .suds-final-cta__actions, .suds-final-cta__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+  .suds-final-cta__button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 13px 20px; border-radius: 4px; font-weight: 800; text-decoration: none; }
+  .suds-final-cta__button--primary { background: #f2d36b; color: #0b0b0b; border: 1px solid #f2d36b; }
+  .suds-final-cta__button--secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.45); }
+  .suds-final-cta__link, .suds-final-cta__links a { color: #f2d36b; font-weight: 800; text-underline-offset: 4px; }
+  @media screen and (max-width: 640px) { .suds-final-cta__wrap { padding: 46px 18px; } .suds-final-cta__actions { flex-direction: column; } .suds-final-cta__button, .suds-final-cta__link { width: 100%; } }
+</style>
+
+{% schema %}
+{ "name": "Section final CTA", "settings": [], "presets": [{ "name": "Section final CTA" }] }
+{% endschema %}

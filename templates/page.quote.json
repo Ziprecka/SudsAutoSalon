@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "suds_contact_quote": {
+      "type": "suds-contact-quote",
+      "settings": {}
+    },
+    "process": {
+      "type": "section-process",
+      "settings": {}
+    },
+    "faq": {
+      "type": "section-faq-schema",
+      "settings": {}
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Request a quote. Include your vehicle, city, and photos if possible.",
+        "heading_size": "h2",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "suds_contact_quote",
+    "process",
+    "faq",
+    "form",
+    "main"
+  ]
+}

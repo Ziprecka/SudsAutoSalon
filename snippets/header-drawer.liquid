@@ -1,7 +1,8 @@
 {% comment %}
-  Renders the mobile drawer menu with Mobile Details and Contact first,
-  then all remaining menu items grouped under More.
+  Suds mobile drawer navigation. Mirrors the simplified local-service site map.
 {% endcomment %}
+
+{%- assign suds_nav = 'Home|/|Services|/pages/services|Service Areas|/pages/service-areas|Reviews|/pages/reviews|About|/pages/about|Contact|/pages/contact-us|Book Now|/collections/mobile-details' | split: '|' -%}
 
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -19,124 +20,32 @@
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- for link in section.settings.menu.links -%}
-                {%- assign title_downcase = link.title | downcase -%}
-                {%- if title_downcase contains 'mobile' or title_downcase contains 'contact' -%}
+              {%- for item in suds_nav -%}
+                {%- assign mod = forloop.index0 | modulo: 2 -%}
+                {%- if mod == 0 -%}
+                  {%- assign label = item -%}
+                  {%- assign url = suds_nav[forloop.index] -%}
                   <li>
                     <a
-                      id="HeaderDrawer-{{ link.handle }}"
-                      href="{{ link.url }}"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-                      {% if link.current %}
+                      id="HeaderDrawer-suds-{{ label | handleize }}"
+                      href="{{ url }}"
+                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if request.path == url %} menu-drawer__menu-item--active{% endif %}"
+                      {% if request.path == url %}
                         aria-current="page"
                       {% endif %}
                     >
-                      {{ link.title | escape }}
+                      {{ label }}
                     </a>
                   </li>
                 {%- endif -%}
               {%- endfor -%}
-
-              {%- assign has_more_links = false -%}
-              {%- for link in section.settings.menu.links -%}
-                {%- assign title_downcase = link.title | downcase -%}
-                {%- unless title_downcase contains 'mobile' or title_downcase contains 'contact' -%}
-                  {%- assign has_more_links = true -%}
-                {%- endunless -%}
-              {%- endfor -%}
-
-              {%- if has_more_links -%}
-                <li>
-                  <details id="Details-menu-drawer-menu-item-more">
-                    <summary
-                      id="HeaderDrawer-more"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
-                    >
-                      More
-                      {% render 'icon-arrow' %}
-                      {% render 'icon-caret' %}
-                    </summary>
-                    <div
-                      id="link-more"
-                      class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                      tabindex="-1"
-                    >
-                      <div class="menu-drawer__inner-submenu">
-                        <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                          {% render 'icon-arrow' %}
-                          More
-                        </button>
-                        <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
-                          {%- for link in section.settings.menu.links -%}
-                            {%- assign title_downcase = link.title | downcase -%}
-                            {%- unless title_downcase contains 'mobile' or title_downcase contains 'contact' -%}
-                              <li>
-                                <a
-                                  id="HeaderDrawer-more-{{ link.handle }}"
-                                  href="{{ link.url }}"
-                                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-                                  {% if link.current %}
-                                    aria-current="page"
-                                  {% endif %}
-                                >
-                                  {{ link.title | escape }}
-                                </a>
-                              </li>
-                              {%- for childlink in link.links -%}
-                                <li>
-                                  <a
-                                    id="HeaderDrawer-more-{{ link.handle }}-{{ childlink.handle }}"
-                                    href="{{ childlink.url }}"
-                                    class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                    {% if childlink.current %}
-                                      aria-current="page"
-                                    {% endif %}
-                                  >
-                                    {{ childlink.title | escape }}
-                                  </a>
-                                </li>
-                              {%- endfor -%}
-                            {%- endunless -%}
-                          {%- endfor -%}
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                </li>
-              {%- endif -%}
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
-            {%- if shop.customer_accounts_enabled -%}
-              <a
-                href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-                class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
-              >
-                <account-icon>
-                  {%- if customer and customer.has_avatar? -%}
-                    {{ customer | avatar }}
-                  {%- else -%}
-                    {% render 'icon-account' %}
-                  {%- endif -%}
-                </account-icon>
-                {%- liquid
-                  if customer
-                    echo 'customer.account_fallback' | t
-                  else
-                    echo 'customer.log_in' | t
-                  endif
-                -%}
-              </a>
-            {%- endif -%}
+            <a href="sms:+14253618838" class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide">
+              Text Photos for a Faster Quote
+            </a>
             <ul class="list list-social list-unstyled" role="list">
-              {%- if settings.social_facebook_link != blank -%}
-                <li class="list-social__item">
-                  <a href="{{ settings.social_facebook_link }}" class="list-social__link link">
-                    {%- render 'icon-facebook' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
-                  </a>
-                </li>
-              {%- endif -%}
               {%- if settings.social_instagram_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_instagram_link }}" class="list-social__link link">

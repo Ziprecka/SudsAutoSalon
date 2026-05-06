@@ -1,11 +1,11 @@
 {
   "sections": {
-    "suds_ceo_home": {
-      "type": "suds-ceo-home",
+    "location": {
+      "type": "section-location-service-area",
       "settings": {}
     },
-    "suds_revenue_stack": {
-      "type": "suds-revenue-stack",
+    "benefits": {
+      "type": "section-service-benefits",
       "settings": {}
     },
     "process": {
@@ -22,16 +22,24 @@
     },
     "final_cta": {
       "type": "section-final-cta",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
       "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
   "order": [
-    "suds_ceo_home",
-    "suds_revenue_stack",
+    "location",
+    "benefits",
     "process",
     "reviews",
     "faq",
-    "final_cta"
+    "final_cta",
+    "main"
   ]
 }

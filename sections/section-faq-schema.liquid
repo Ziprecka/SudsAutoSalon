@@ -1,0 +1,61 @@
+{%- liquid
+  assign faqs = 'Do you come to my location?|Yes. Suds Auto Salon is mobile and details at homes, offices, apartments, and approved service locations when route timing and access work.|How much does mobile detailing cost?|Pricing depends on the vehicle size, condition, service level, add-ons, and location. Basic is for upkeep, Signature is best for most first bookings, and Elite Reset is for heavier condition.|Which detail should I book?|Book Basic if the vehicle is already in decent condition. Book Signature for most first appointments. Book Elite Reset for heavier interiors, family SUVs, pet vehicles, resale prep, or neglected condition.|Do I need to send photos?|Photos are strongly recommended because they help Sam spot pet hair, stains, odor concerns, heavy grime, or paint issues before recommending a package.|How long does a detail take?|Timing depends on the package, vehicle size, and condition. Basic is shorter, Signature takes longer, and Elite Reset or add-on work may require a larger appointment window.|Do you clean pet hair?|Yes. Pet hair removal is available and is priced by severity because embedded hair can require extra time.|Do you remove stains?|Yes, stain extraction can be added when appropriate. Some stains improve significantly while older or set-in stains may not fully disappear.|Do you offer ceramic coating?|Yes. Ceramic coating and paint enhancement are available for customers who want better gloss, easier washing, and stronger exterior protection.|What areas do you serve?|Suds Auto Salon serves Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas when route timing works.|Is this a car wash or a full detail?|Suds Auto Salon is not a quick automatic car wash. It is a private mobile detailing service focused on interior resets, full details, protection, and maintenance.'
+  assign faq_items = faqs | split: '|'
+  assign last_question_index = faq_items.size | minus: 2
+-%}
+
+<section class="suds-faq-section">
+  <div class="suds-faq-section__wrap">
+    <p class="suds-faq-section__eyebrow">Answers before you book</p>
+    <h2>Mobile detailing FAQ</h2>
+    <div class="suds-faq-section__grid">
+      {%- for item in faq_items -%}
+        {%- assign mod = forloop.index0 | modulo: 2 -%}
+        {%- if mod == 0 -%}
+          <article>
+            <h3>{{ item }}</h3>
+            <p>{{ faq_items[forloop.index] }}</p>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for item in faq_items -%}
+      {%- assign mod = forloop.index0 | modulo: 2 -%}
+      {%- if mod == 0 -%}
+        {
+          "@type": "Question",
+          "name": {{ item | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ faq_items[forloop.index] | json }}
+          }
+        }{% unless forloop.index0 == last_question_index %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+
+<style>
+  .suds-faq-section { background: #fff; color: #111; }
+  .suds-faq-section__wrap { max-width: 1180px; margin: 0 auto; padding: 58px 20px; }
+  .suds-faq-section__eyebrow { margin: 0 0 10px; color: #8c6b05; font-weight: 800; text-transform: uppercase; }
+  .suds-faq-section h2 { margin: 0; font-size: clamp(2.8rem, 4vw, 4.8rem); line-height: 1; letter-spacing: 0; }
+  .suds-faq-section__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 28px; }
+  .suds-faq-section article { padding: 22px; border: 1px solid #e1dfd5; border-radius: 8px; background: #f8f7f2; }
+  .suds-faq-section h3 { margin: 0 0 10px; letter-spacing: 0; }
+  .suds-faq-section p { margin: 0; color: #292929; font-size: 1.55rem; line-height: 1.5; }
+  @media screen and (max-width: 760px) { .suds-faq-section__wrap { padding: 44px 18px; } .suds-faq-section__grid { grid-template-columns: 1fr; } }
+</style>
+
+{% schema %}
+{ "name": "Section FAQ schema", "settings": [], "presets": [{ "name": "Section FAQ schema" }] }
+{% endschema %}

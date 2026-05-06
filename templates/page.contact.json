@@ -32,6 +32,14 @@
         "include_margins": true
       }
     },
+    "process": {
+      "type": "section-process",
+      "settings": {}
+    },
+    "faq": {
+      "type": "section-faq-schema",
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -44,6 +52,8 @@
   "order": [
     "suds_contact_quote",
     "17678125628b80c452",
+    "process",
+    "faq",
     "main"
   ]
 }

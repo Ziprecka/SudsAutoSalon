@@ -1,0 +1,30 @@
+<section class="suds-reviews">
+  <div class="suds-reviews__wrap">
+    <div>
+      <p class="suds-reviews__eyebrow">Why trust Suds Auto Salon</p>
+      <h2>Private mobile detailing with direct communication and careful work.</h2>
+      <p>Use this section for real review excerpts from Google or Judge.me. Until review data is connected, the page avoids fake review schema and focuses on the Suds service standards.</p>
+    </div>
+    <div class="suds-reviews__grid">
+      <article><h3>Private service</h3><p>You are working directly with Sam, not a rotating crew or anonymous volume shop.</p></article>
+      <article><h3>Condition-based recommendations</h3><p>The right service is matched to your vehicle, not forced from a generic product menu.</p></article>
+      <article><h3>Built for convenience</h3><p>Mobile detailing at your home or office saves the shop drop-off and pickup cycle.</p></article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .suds-reviews { background: #f8f7f2; color: #111; }
+  .suds-reviews__wrap { max-width: 1180px; margin: 0 auto; padding: 58px 20px; }
+  .suds-reviews__eyebrow { margin: 0 0 10px; color: #8c6b05; font-weight: 800; text-transform: uppercase; }
+  .suds-reviews h2 { max-width: 840px; margin: 0; font-size: clamp(2.8rem, 4vw, 4.8rem); line-height: 1; letter-spacing: 0; }
+  .suds-reviews p { max-width: 820px; color: #292929; font-size: 1.6rem; line-height: 1.55; }
+  .suds-reviews__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
+  .suds-reviews article { padding: 22px; border: 1px solid #e0ddcf; border-radius: 8px; background: #fff; }
+  .suds-reviews h3 { margin: 0 0 10px; letter-spacing: 0; }
+  @media screen and (max-width: 820px) { .suds-reviews__wrap { padding: 44px 18px; } .suds-reviews__grid { grid-template-columns: 1fr; } }
+</style>
+
+{% schema %}
+{ "name": "Section reviews", "settings": [], "presets": [{ "name": "Section reviews" }] }
+{% endschema %}

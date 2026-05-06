@@ -1,94 +1,29 @@
 {% comment %}
-  Renders a focused Suds header menu: Mobile Details and Contact stay visible,
-  every other Shopify menu item is tucked under More.
+  Suds primary desktop navigation. Landing pages do the selling; Book Now routes to checkout products.
 {% endcomment %}
+
+{%- assign suds_nav = 'Home|/|Services|/pages/services|Service Areas|/pages/service-areas|Reviews|/pages/reviews|About|/pages/about|Contact|/pages/contact-us|Book Now|/collections/mobile-details' | split: '|' -%}
 
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
-    {%- for link in section.settings.menu.links -%}
-      {%- assign title_downcase = link.title | downcase -%}
-      {%- if title_downcase contains 'mobile' or title_downcase contains 'contact' -%}
+    {%- for item in suds_nav -%}
+      {%- assign mod = forloop.index0 | modulo: 2 -%}
+      {%- if mod == 0 -%}
+        {%- assign label = item -%}
+        {%- assign url = suds_nav[forloop.index] -%}
         <li>
           <a
-            id="HeaderMenu-{{ link.handle }}"
-            href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            {% if link.current %}
+            id="HeaderMenu-suds-{{ label | handleize }}"
+            href="{{ url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset{% if request.path == url %} header__active-menu-item{% endif %}"
+            {% if request.path == url %}
               aria-current="page"
             {% endif %}
           >
-            <span
-              {%- if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
-            >
-              {{- link.title | escape -}}
-            </span>
+            <span>{{ label }}</span>
           </a>
         </li>
       {%- endif -%}
     {%- endfor -%}
-
-    {%- assign has_more_links = false -%}
-    {%- for link in section.settings.menu.links -%}
-      {%- assign title_downcase = link.title | downcase -%}
-      {%- unless title_downcase contains 'mobile' or title_downcase contains 'contact' -%}
-        {%- assign has_more_links = true -%}
-      {%- endunless -%}
-    {%- endfor -%}
-
-    {%- if has_more_links -%}
-      <li>
-        <header-menu>
-          <details id="Details-HeaderMenu-More">
-            <summary
-              id="HeaderMenu-more"
-              class="header__menu-item list-menu__item link focus-inset"
-            >
-              <span>More</span>
-              {% render 'icon-caret' %}
-            </summary>
-            <ul
-              id="HeaderMenu-MenuList-More"
-              class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
-              role="list"
-              tabindex="-1"
-            >
-              {%- for link in section.settings.menu.links -%}
-                {%- assign title_downcase = link.title | downcase -%}
-                {%- unless title_downcase contains 'mobile' or title_downcase contains 'contact' -%}
-                  <li>
-                    <a
-                      id="HeaderMenu-more-{{ link.handle }}"
-                      href="{{ link.url }}"
-                      class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if link.current %} list-menu__item--active{% endif %}"
-                      {% if link.current %}
-                        aria-current="page"
-                      {% endif %}
-                    >
-                      {{ link.title | escape }}
-                    </a>
-                  </li>
-                  {%- for childlink in link.links -%}
-                    <li>
-                      <a
-                        id="HeaderMenu-more-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                {%- endunless -%}
-              {%- endfor -%}
-            </ul>
-          </details>
-        </header-menu>
-      </li>
-    {%- endif -%}
   </ul>
 </nav>

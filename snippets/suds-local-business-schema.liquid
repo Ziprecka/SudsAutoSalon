@@ -1,0 +1,34 @@
+{%- liquid
+  assign current_url = canonical_url | default: shop.url
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutomotiveBusiness",
+  "@id": "{{ shop.url }}/#suds-auto-salon",
+  "name": "Suds Auto Salon",
+  "url": "{{ shop.url }}",
+  "description": "Premium private mobile auto detailing at homes and offices across Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas.",
+  "telephone": "+14253618838",
+  "email": "sudsautosalon@gmail.com",
+  "areaServed": [
+    "Seattle WA",
+    "Bellevue WA",
+    "Edmonds WA",
+    "Lynnwood WA",
+    "Everett WA",
+    "Marysville WA",
+    "Lake Stevens WA",
+    "Snohomish WA"
+  ],
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.instagram.com/sudsautosalon/"
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": "{{ shop.url }}/pages/contact-us"
+  },
+  "mainEntityOfPage": "{{ current_url }}"
+}
+</script>

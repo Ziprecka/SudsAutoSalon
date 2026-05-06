@@ -1,0 +1,30 @@
+<section class="suds-process">
+  <div class="suds-process__wrap">
+    <p class="suds-process__eyebrow">How mobile detailing works</p>
+    <h2>Simple booking. Clear recommendation. Mobile service at your location.</h2>
+    <div class="suds-process__grid">
+      <article><span>01</span><h3>Request a quote</h3><p>Send your vehicle, city, goals, and photos if available. Photos help Sam recommend the right package faster.</p></article>
+      <article><span>02</span><h3>Get matched to a service</h3><p>Basic, Signature, Elite Reset, ceramic, paint enhancement, or maintenance is recommended based on actual condition.</p></article>
+      <article><span>03</span><h3>Sam comes to you</h3><p>Your vehicle is detailed at your home, office, or approved location without a shop drop-off.</p></article>
+      <article><span>04</span><h3>Protect the result</h3><p>After the reset, ask about maintenance detailing, wax, ceramic protection, or finish upgrades.</p></article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .suds-process { background: #0b0b0b; color: #fff; }
+  .suds-process__wrap { max-width: 1180px; margin: 0 auto; padding: 58px 20px; }
+  .suds-process__eyebrow { margin: 0 0 10px; color: #f2d36b; font-weight: 800; text-transform: uppercase; }
+  .suds-process h2 { max-width: 860px; margin: 0; font-size: clamp(2.8rem, 4vw, 4.8rem); line-height: 1; letter-spacing: 0; }
+  .suds-process__grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin-top: 30px; }
+  .suds-process article { padding: 22px; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; background: #141414; }
+  .suds-process span { color: #f2d36b; font-weight: 900; }
+  .suds-process h3 { margin: 14px 0 10px; letter-spacing: 0; }
+  .suds-process p { margin: 0; color: #ededed; font-size: 1.5rem; line-height: 1.5; }
+  @media screen and (max-width: 900px) { .suds-process__grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  @media screen and (max-width: 640px) { .suds-process__wrap { padding: 44px 18px; } .suds-process__grid { grid-template-columns: 1fr; } }
+</style>
+
+{% schema %}
+{ "name": "Section process", "settings": [], "presets": [{ "name": "Section process" }] }
+{% endschema %}
