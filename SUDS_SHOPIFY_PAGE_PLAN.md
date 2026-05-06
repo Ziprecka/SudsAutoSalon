@@ -9,7 +9,7 @@ Create these pages and assign templates:
 - Contact / Request Quote: `page.contact` or `page.quote`
 - FAQ: `page.faq`
 - Reviews: `page.reviews`
-- About: `page.about`
+- About: `page.about-us` if the handle is `about-us`, or `page.about` if you create a new `/pages/about` page
 - Service Areas: `page.service-areas`
 - Basic Detail: `page.service-landing`
 - Signature Detail: `page.service-landing`

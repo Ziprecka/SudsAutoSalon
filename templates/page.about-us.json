@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "hero": {
+      "type": "section-hero-service",
+      "settings": {}
+    },
+    "process": {
+      "type": "section-process",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "section-reviews",
+      "settings": {}
+    },
+    "final_cta": {
+      "type": "section-final-cta",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "process",
+    "reviews",
+    "final_cta",
+    "main"
+  ]
+}
