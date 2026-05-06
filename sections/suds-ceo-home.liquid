@@ -3,14 +3,15 @@
     <div class="suds-home__hero">
       <div>
         <p class="suds-home__eyebrow">Premium mobile detailing in Seattle</p>
-        <h1>Professional auto detailing at your home or office.</h1>
+        <h1>Private mobile detailing at your home or office.</h1>
         <p class="suds-home__lead">
           Suds Auto Salon is Sam's private mobile detailing service for busy drivers, families, pet owners,
-          resale prep, and vehicle owners who want a cleaner interior, a sharper exterior, and a simpler way to care for their car.
+          resale prep, and vehicle owners who want a cleaner interior, sharper exterior, and a simpler way to care for their car.
         </p>
         <div class="suds-home__actions">
-          <a class="suds-home__button suds-home__button--primary" href="{{ routes.collections_url }}/mobile-details">Book a Mobile Detail</a>
-          <a class="suds-home__button suds-home__button--secondary" href="/pages/contact-us">Send Photos for a Quote</a>
+          <a class="suds-home__button suds-home__button--primary" href="/pages/contact-us">Request a Quote</a>
+          <a class="suds-home__button suds-home__button--secondary" href="{{ routes.collections_url }}/mobile-details">Book Your Mobile Detail</a>
+          <a class="suds-home__textlink" href="sms:+14253618838">Text Photos for a Faster Quote</a>
         </div>
       </div>
 
@@ -45,21 +46,21 @@
         <p class="suds-package__label">Clean upkeep</p>
         <h2>Basic Detail</h2>
         <p>For vehicles already in good shape. Good for upkeep, light mess, and recurring maintenance.</p>
-        <a href="{{ routes.collections_url }}/mobile-details">View Basic</a>
+        <a href="/pages/basic-detail">View Basic</a>
       </article>
 
       <article class="suds-package suds-package--featured">
         <p class="suds-package__label">Most booked</p>
         <h2>Signature Detail</h2>
         <p>For most first-time bookings. A stronger inside-and-out clean with room for protection or problem-area add-ons.</p>
-        <a href="{{ routes.collections_url }}/mobile-details">Book Signature</a>
+        <a href="/pages/signature-detail">View Signature</a>
       </article>
 
       <article class="suds-package">
         <p class="suds-package__label">Heavy reset</p>
         <h2>Elite Reset</h2>
         <p>For neglected interiors, family SUVs, pet vehicles, resale prep, and cars that need more time.</p>
-        <a href="{{ routes.collections_url }}/mobile-details">View Elite</a>
+        <a href="/pages/elite-detail">View Elite</a>
       </article>
     </div>
   </div>
@@ -104,7 +105,11 @@
 </section>
 
 <style>
-  .suds-home,
+  .suds-home {
+    background: #080808;
+    color: #ffffff;
+  }
+
   .suds-money,
   .suds-seo {
     background: #ffffff;
@@ -129,7 +134,7 @@
   .suds-home__eyebrow,
   .suds-package__label {
     margin: 0 0 12px;
-    color: #8c6b05;
+    color: #f2d36b;
     font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: 0;
@@ -139,12 +144,13 @@
   .suds-home h1 {
     max-width: 780px;
     margin: 0;
+    color: #ffffff;
     font-size: clamp(4rem, 7vw, 7.4rem);
     line-height: .94;
     letter-spacing: 0;
+    text-wrap: balance;
   }
 
-  .suds-home h2,
   .suds-money h2,
   .suds-seo h2 {
     margin: 0 0 16px;
@@ -153,12 +159,25 @@
     letter-spacing: 0;
   }
 
+  .suds-home h2 {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: clamp(2.4rem, 3.2vw, 3.6rem);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
   .suds-home__lead,
-  .suds-money p,
-  .suds-seo p,
   .suds-package p,
   .suds-home__panel p,
   .suds-home__panel li {
+    color: #eeeeee;
+    font-size: 1.7rem;
+    line-height: 1.55;
+  }
+
+  .suds-money p,
+  .suds-seo p {
     color: #292929;
     font-size: 1.7rem;
     line-height: 1.55;
@@ -183,16 +202,16 @@
 
   .suds-home__panel,
   .suds-package {
-    border: 1px solid #e1e1e1;
+    border: 1px solid rgba(255, 255, 255, .16);
     border-radius: 8px;
     padding: 24px;
-    background: #ffffff;
-    box-shadow: 0 14px 36px rgba(17, 17, 17, .06);
+    background: #141414;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
   }
 
   .suds-home__panel {
-    border-color: #b9931b;
-    background: #fffaf0;
+    border-color: rgba(242, 211, 107, .55);
+    background: #15130d;
   }
 
   .suds-home__panel ul {
@@ -217,20 +236,30 @@
     justify-content: center;
     min-height: 48px;
     padding: 13px 20px;
-    border: 1px solid #111111;
+    border: 1px solid rgba(255, 255, 255, .46);
     border-radius: 4px;
     text-decoration: none;
     font-weight: 800;
   }
 
   .suds-home__button--primary {
-    background: #111111;
-    color: #ffffff;
+    background: #f2d36b;
+    color: #080808;
+    border-color: #f2d36b;
   }
 
   .suds-home__button--secondary {
     background: transparent;
-    color: #111111;
+    color: #ffffff;
+  }
+
+  .suds-home__textlink {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    color: #f2d36b;
+    font-weight: 900;
+    text-underline-offset: 4px;
   }
 
   .suds-home__proof {
@@ -241,12 +270,12 @@
   }
 
   .suds-home__proof span {
-    border: 1px solid #d8c47a;
+    border: 1px solid rgba(242, 211, 107, .45);
     border-radius: 999px;
     padding: 8px 12px;
-    color: #5d4704;
+    color: #f8f1d2;
     font-size: 1.3rem;
-    background: #fffdf7;
+    background: #15130d;
   }
 
   .suds-package-grid {
@@ -257,12 +286,12 @@
   }
 
   .suds-package--featured {
-    border-color: #b9931b;
-    background: #fffaf0;
+    border-color: #f2d36b;
+    background: #1b170d;
   }
 
   .suds-package a {
-    color: #6d5206;
+    color: #f2d36b;
     font-weight: 800;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -318,6 +347,11 @@
     }
 
     .suds-home__button {
+      width: 100%;
+    }
+
+    .suds-home__textlink {
+      justify-content: center;
       width: 100%;
     }
   }

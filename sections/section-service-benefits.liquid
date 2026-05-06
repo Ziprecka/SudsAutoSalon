@@ -6,7 +6,7 @@
   assign problems = 'Dust, crumbs, grime, dull exterior finish, pet hair, stains, odors, weather buildup, and vehicles that need to feel clean again.'
   assign decision = 'If you are unsure, request a quote with photos. Sam will point you to the lightest package that can still do the job properly.'
   assign expectation = 'After you request a quote, Sam reviews the vehicle details, confirms the right package, and gives you the best booking path.'
-  assign section_heading = page.title | default: 'Mobile Detailing' | append: ' should be matched to the vehicle, not guessed from a menu.'
+  assign section_heading = page.title | default: 'Mobile Detailing' | append: ' matched to your vehicle, condition, and schedule.'
   assign card_one_title = 'Who this is for'
   assign card_two_title = included_title
   assign card_three_title = 'Common problems solved'
@@ -17,18 +17,18 @@
 
   if handle == 'service-areas' or is_location_page
     if handle == 'service-areas'
-      assign section_heading = 'Mobile detailing coverage built around real route timing.'
+      assign section_heading = 'Mobile detailing coverage across Seattle, the Eastside, and the North Sound.'
       assign card_one_title = 'Who this is for'
       assign card_two_title = 'Where Suds goes'
       assign card_three_title = 'What route planning solves'
       assign who = 'Seattle-area drivers who want mobile detailing at home, work, apartments, condos, or approved parking locations without losing time to a shop drop-off.'
       assign included = 'Primary route areas include Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas when schedule and access make sense.'
-      assign problems = 'Route planning helps avoid wasted travel, unclear service areas, bad parking surprises, and booking the wrong package before Sam sees the vehicle condition.'
+      assign problems = 'Route planning helps avoid wasted travel, unclear service areas, parking surprises, and booking a package before Sam understands the vehicle condition.'
       assign decision = 'Send your city, neighborhood, vehicle, and photos. Sam will confirm whether the location fits the route and recommend the right service level.'
       assign expectation = 'If the route works, you get the best available booking path. If timing is tight, Sam may suggest a better route day or a nearby service window.'
     else
       assign city = page.title | remove: ' Mobile Detailing' | remove: 'Mobile Detailing ' | default: 'your area'
-      assign section_heading = 'Mobile detailing in ' | append: city | append: ' should fit the location, access, and vehicle condition.'
+      assign section_heading = 'Mobile detailing in ' | append: city | append: ' with service matched to your location and vehicle condition.'
       assign card_one_title = 'Who this area is for'
       assign card_two_title = 'Service at your location'
       assign card_three_title = 'What local detailing solves'
