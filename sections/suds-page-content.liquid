@@ -1,0 +1,166 @@
+{%- if page.content != blank -%}
+  <section class="suds-page-copy">
+    <div class="suds-page-copy__wrap">
+      <article class="suds-page-copy__body rte">
+        {{ page.content }}
+      </article>
+      <aside class="suds-page-copy__cta" aria-label="Request a Suds Auto Salon quote">
+        <p class="suds-page-copy__eyebrow">Next step</p>
+        <h2>Get matched to the right detail.</h2>
+        <p>Send your vehicle, city, goals, and photos if possible. Sam will recommend the package that fits the condition instead of guessing from a menu.</p>
+        <div class="suds-page-copy__actions">
+          <a class="suds-page-copy__button suds-page-copy__button--primary" href="/pages/contact-us">Request a Quote</a>
+          <a class="suds-page-copy__button suds-page-copy__button--secondary" href="/collections/mobile-details">Book Your Mobile Detail</a>
+          <a class="suds-page-copy__text" href="sms:+14253618838">Text Photos for a Faster Quote</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+{%- endif -%}
+
+<style>
+  .suds-page-copy {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .suds-page-copy__wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    gap: 28px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 54px 20px;
+    align-items: start;
+  }
+
+  .suds-page-copy__body {
+    max-width: 790px;
+  }
+
+  .suds-page-copy__body h1 {
+    display: none;
+  }
+
+  .suds-page-copy__body h2,
+  .suds-page-copy__body h3 {
+    color: #111111;
+    letter-spacing: 0;
+  }
+
+  .suds-page-copy__body h2 {
+    margin-top: 3.2rem;
+    font-size: clamp(2.6rem, 4vw, 4.2rem);
+    line-height: 1.05;
+  }
+
+  .suds-page-copy__body h3 {
+    margin-top: 2.2rem;
+    font-size: 2rem;
+  }
+
+  .suds-page-copy__body p,
+  .suds-page-copy__body li {
+    color: #292929;
+    font-size: 1.65rem;
+    line-height: 1.62;
+  }
+
+  .suds-page-copy__body a {
+    color: #6d5206;
+    font-weight: 800;
+    text-underline-offset: 4px;
+  }
+
+  .suds-page-copy__cta {
+    position: sticky;
+    top: 100px;
+    padding: 24px;
+    border: 1px solid #d8c47a;
+    border-radius: 8px;
+    background: #0f0f0f;
+    color: #ffffff;
+    box-shadow: 0 18px 42px rgba(17, 17, 17, .12);
+  }
+
+  .suds-page-copy__eyebrow {
+    margin: 0 0 10px;
+    color: #f2d36b;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .suds-page-copy__cta h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2.8rem;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .suds-page-copy__cta p {
+    color: #eeeeee;
+    font-size: 1.55rem;
+    line-height: 1.5;
+  }
+
+  .suds-page-copy__actions {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .suds-page-copy__button,
+  .suds-page-copy__text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .suds-page-copy__button--primary {
+    background: #f2d36b;
+    color: #0f0f0f;
+    border: 1px solid #f2d36b;
+  }
+
+  .suds-page-copy__button--secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,.45);
+  }
+
+  .suds-page-copy__text {
+    color: #f2d36b;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .suds-page-copy__wrap {
+      grid-template-columns: 1fr;
+      padding: 42px 18px;
+    }
+
+    .suds-page-copy__cta {
+      position: static;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Suds page content",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Suds page content"
+    }
+  ]
+}
+{% endschema %}

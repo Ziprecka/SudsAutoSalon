@@ -8,6 +8,10 @@
       "type": "section-faq-schema",
       "settings": {}
     },
+    "page_content": {
+      "type": "suds-page-content",
+      "settings": {}
+    },
     "final_cta": {
       "type": "section-final-cta",
       "settings": {}
@@ -24,6 +28,7 @@
   "order": [
     "hero",
     "faq",
+    "page_content",
     "final_cta",
     "main"
   ]

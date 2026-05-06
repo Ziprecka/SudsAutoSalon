@@ -8,6 +8,10 @@
       "type": "suds-services-funnel",
       "settings": {}
     },
+    "page_content": {
+      "type": "suds-page-content",
+      "settings": {}
+    },
     "process": {
       "type": "section-process",
       "settings": {}
@@ -24,6 +28,7 @@
   "order": [
     "hero",
     "suds_services_funnel",
+    "page_content",
     "process",
     "faq",
     "final_cta"

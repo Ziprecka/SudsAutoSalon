@@ -40,6 +40,14 @@
       "type": "section-faq-schema",
       "settings": {}
     },
+    "page_content": {
+      "type": "suds-page-content",
+      "settings": {}
+    },
+    "final_cta": {
+      "type": "section-final-cta",
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -54,6 +62,8 @@
     "17678125628b80c452",
     "process",
     "faq",
+    "page_content",
+    "final_cta",
     "main"
   ]
 }

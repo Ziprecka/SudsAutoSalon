@@ -8,6 +8,10 @@
       "type": "section-service-benefits",
       "settings": {}
     },
+    "page_content": {
+      "type": "suds-page-content",
+      "settings": {}
+    },
     "process": {
       "type": "section-process",
       "settings": {}
@@ -22,15 +26,17 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
-        "padding_top": 24,
-        "padding_bottom": 24
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
   "order": [
     "hero",
     "benefits",
+    "page_content",
     "process",
     "faq",
     "final_cta",
