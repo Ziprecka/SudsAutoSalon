@@ -14,7 +14,7 @@
   assign heavy_note = 'If the vehicle has heavy pet hair, stains, odor, or neglected areas, send photos first so Sam can confirm the right level.'
 
   case package_key
-    when 'basic-detail'
+    when 'basic-detail', 'mini-detail'
       assign headline = 'Seattle Mobile Detailing for Maintained Cars'
       assign subheadline = 'The Basic Detail is a lighter full inside-and-out mobile detail for vehicles that are already maintained and need clean upkeep.'
       assign position = 'Best for maintained vehicles that need a lighter reset.'
@@ -24,7 +24,7 @@
       assign included_two = 'Exterior wash, wheels, tires, glass, and clean finish presentation.'
       assign included_three = 'A clean mobile appointment for upkeep without paying for deeper reset work you do not need.'
       assign heavy_note = 'If photos show heavier buildup, Sam may recommend Signature or Elite so the appointment has enough time.'
-    when 'signature-detail'
+    when 'signature-detail', 'interior-detail'
       assign headline = 'Seattle Mobile Detailing for a Proper Reset'
       assign subheadline = 'The Signature Detail is the recommended full inside-and-out mobile detail for most daily drivers that need a real refresh.'
       assign position = 'Best for most daily drivers that need a proper interior and exterior reset.'
@@ -34,7 +34,7 @@
       assign included_two = 'Exterior hand wash, wheels, tires, trim attention, glass, and finish cleanup.'
       assign included_three = 'The strongest all-around first booking before maintenance or exterior protection.'
       assign heavy_note = 'If the vehicle has embedded pet hair, odor, or neglected areas, Elite Reset may be the better fit.'
-    when 'elite-detail'
+    when 'elite-detail', 'full-detail'
       assign headline = 'Seattle Mobile Detailing for Cars That Need a Real Reset'
       assign subheadline = 'The Elite Detail is a premium interior and exterior mobile detail for Seattle drivers who want their vehicle cleaned properly - not rushed through a basic wash.'
       assign position = 'Best for vehicles with heavier buildup, rougher exterior feel, or owners who want the strongest non-coating detail.'
@@ -69,6 +69,33 @@
       assign has_app_block = true
     endif
   endfor
+
+  assign basic_product = all_products['basic-detail']
+  if basic_product == blank
+    assign basic_product = all_products['mini-detail']
+  endif
+  assign basic_url = '/products/basic-detail'
+  if basic_product != blank
+    assign basic_url = basic_product.url
+  endif
+
+  assign signature_product = all_products['signature-detail']
+  if signature_product == blank
+    assign signature_product = all_products['interior-detail']
+  endif
+  assign signature_url = '/products/signature-detail'
+  if signature_product != blank
+    assign signature_url = signature_product.url
+  endif
+
+  assign elite_product = all_products['elite-detail']
+  if elite_product == blank
+    assign elite_product = all_products['full-detail']
+  endif
+  assign elite_url = '/products/elite-detail'
+  if elite_product != blank
+    assign elite_url = elite_product.url
+  endif
 -%}
 
 {{ 'section-suds-service-product.css' | asset_url | stylesheet_tag }}
@@ -257,17 +284,17 @@
         <article>
           <h3>Basic Detail</h3>
           <p>Lighter upkeep reset for maintained vehicles.</p>
-          <a href="/products/basic-detail">View / Book</a>
+          <a href="{{ basic_url }}">View / Book</a>
         </article>
         <article class="suds-service-package-grid__featured">
           <h3>Signature Detail</h3>
           <p>Best all-around reset for most daily drivers.</p>
-          <a href="/products/signature-detail">View / Book</a>
+          <a href="{{ signature_url }}">View / Book</a>
         </article>
         <article>
           <h3>Elite Detail</h3>
           <p>Premium deep reset for heavier condition vehicles.</p>
-          <a href="/products/elite-detail">View / Book</a>
+          <a href="{{ elite_url }}">View / Book</a>
         </article>
       </div>
     </div>

@@ -4,7 +4,7 @@
   assign last_question_index = faq_items.size | minus: 2
   assign hide_for_suds_service_product = false
   if request.page_type == 'product'
-    if product.handle == 'basic-detail' or product.handle == 'signature-detail' or product.handle == 'elite-detail'
+    if product.handle == 'basic-detail' or product.handle == 'mini-detail' or product.handle == 'signature-detail' or product.handle == 'interior-detail' or product.handle == 'elite-detail' or product.handle == 'full-detail'
       assign hide_for_suds_service_product = true
     endif
   endif

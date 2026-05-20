@@ -67,7 +67,7 @@
 
   {%- liquid
     assign suds_service_product_page = false
-    if product.handle == 'basic-detail' or product.handle == 'signature-detail' or product.handle == 'elite-detail'
+    if product.handle == 'basic-detail' or product.handle == 'mini-detail' or product.handle == 'signature-detail' or product.handle == 'interior-detail' or product.handle == 'elite-detail' or product.handle == 'full-detail'
       assign suds_service_product_page = true
     endif
   -%}
