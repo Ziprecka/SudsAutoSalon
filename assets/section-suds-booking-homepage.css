@@ -988,6 +988,10 @@
     font-size: clamp(3.1rem, 8.8vw, 3.7rem);
   }
 
+  .suds-home-hero h1 span {
+    display: block;
+  }
+
   .suds-home-review-pill {
     gap: 8px;
     padding: 8px 14px;
