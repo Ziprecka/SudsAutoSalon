@@ -88,7 +88,8 @@
   assign steam_interior_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_fcc641e4-314c-48e8-ad61-9ecdacfcecd9.jpg?v=1779266078'
   assign door_detail_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_ad58bc49-9ae2-42c1-8558-4cf7ea1be591.jpg?v=1779266059'
   assign wheel_towel_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_9cb5a499-13f3-42cd-a162-7b3e5d9b0269.jpg?v=1779266058'
-  assign polisher_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c57cc2fb-eed0-4bdd-ab5a-d5d841232d16.jpg?v=1779266056'
+  assign polisher_image_url = 'https://images.pexels.com/photos/5233258/pexels-photo-5233258.jpeg?auto=compress&cs=tinysrgb&w=2200'
+  assign elite_polish_hero_image_url = 'https://images.pexels.com/photos/5233259/pexels-photo-5233259.jpeg?auto=compress&cs=tinysrgb&w=2200'
   assign vacuum_interior_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6648c2c3-acdf-423f-b835-b6e7f93d2e14.jpg?v=1779266055'
   assign console_brush_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6ecb2b24-4ebc-4baa-872d-352805ac81a7.jpg?v=1779266049'
   assign red_protection_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download.jpg?v=1779266040'
@@ -99,7 +100,7 @@
   assign cabin_service_image_url = steam_interior_image_url
   assign basic_hero_image_url = 'https://images.pexels.com/photos/5288711/pexels-photo-5288711.jpeg?auto=compress&cs=tinysrgb&w=2200'
   assign signature_hero_image_url = 'https://images.pexels.com/photos/4870727/pexels-photo-4870727.jpeg?auto=compress&cs=tinysrgb&w=2200'
-  assign elite_hero_image_url = 'https://images.pexels.com/photos/14231684/pexels-photo-14231684.jpeg?auto=compress&cs=tinysrgb&w=2200'
+  assign elite_hero_image_url = elite_polish_hero_image_url
   assign service_image_url = ''
   assign hero_image_url = ''
   assign service_image_alt = product.title | append: ' mobile detailing service'
@@ -184,24 +185,9 @@
         <p class="suds-service-hero__eyebrow">Seattle Mobile Detailing</p>
         <h1>{{ headline }}</h1>
         <p class="suds-service-hero__lead">{{ subheadline }}</p>
-        <div class="suds-service-booking suds-service-booking--hero" id="suds-service-booking-{{ section.id }}">
-          <div class="suds-service-booking__price">
-            <p>Service price</p>
-            {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
-          </div>
-          <p class="suds-service-booking__fit">{{ position }}</p>
-          <product-info id="ProductInfo-{{ section.id }}" data-section="{{ section.id }}" data-url="{{ product.url }}" class="suds-service-booking__product-info">
-            {%- if variant_picker_block != blank -%}
-              {% render 'product-variant-picker', product: product, block: variant_picker_block, product_form_id: product_form_id %}
-            {%- endif -%}
-            {%- if buy_buttons_block != blank -%}
-              {% render 'buy-buttons', block: buy_buttons_block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: false, force_hide_dynamic_checkout: true, button_label: 'Schedule This Detail' %}
-            {%- endif -%}
-          </product-info>
-        </div>
         <div class="suds-service-hero__actions">
-          <a class="suds-service-button suds-service-button--dark" href="#suds-service-packages">Compare Packages</a>
-          <a class="suds-service-button suds-service-button--ghost" href="#included">See What's Included</a>
+          <a class="suds-service-button suds-service-button--gold" href="#suds-service-booking-{{ section.id }}">Schedule This Detail</a>
+          <a class="suds-service-button suds-service-button--dark" href="#included">See What's Included</a>
         </div>
         <div class="suds-service-proofline">
           <a href="#reviews">Read local reviews</a>
@@ -249,7 +235,21 @@
               <li>Clean tires</li>
             </ul>
             {%- if service_tier == 'basic' -%}
-              <a class="suds-service-premium-card__button" href="#suds-service-booking-{{ section.id }}">Selected Package</a>
+              <div class="suds-service-booking" id="suds-service-booking-{{ section.id }}">
+                <div class="suds-service-booking__price">
+                  <p>Service price</p>
+                  {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
+                </div>
+                <p class="suds-service-booking__fit">{{ position }}</p>
+                <product-info id="ProductInfo-{{ section.id }}" data-section="{{ section.id }}" data-url="{{ product.url }}" class="suds-service-booking__product-info">
+                  {%- if variant_picker_block != blank -%}
+                    {% render 'product-variant-picker', product: product, block: variant_picker_block, product_form_id: product_form_id %}
+                  {%- endif -%}
+                  {%- if buy_buttons_block != blank -%}
+                    {% render 'buy-buttons', block: buy_buttons_block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: false, force_hide_dynamic_checkout: true, button_label: 'Schedule This Detail' %}
+                  {%- endif -%}
+                </product-info>
+              </div>
             {%- else -%}
               <a class="suds-service-premium-card__button" href="{{ basic_url }}">View Basic Detail</a>
             {%- endif -%}
@@ -272,7 +272,21 @@
               <li>Detail rims and tires</li>
             </ul>
             {%- if service_tier == 'signature' -%}
-              <a class="suds-service-premium-card__button" href="#suds-service-booking-{{ section.id }}">Selected Package</a>
+              <div class="suds-service-booking" id="suds-service-booking-{{ section.id }}">
+                <div class="suds-service-booking__price">
+                  <p>Service price</p>
+                  {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
+                </div>
+                <p class="suds-service-booking__fit">{{ position }}</p>
+                <product-info id="ProductInfo-{{ section.id }}" data-section="{{ section.id }}" data-url="{{ product.url }}" class="suds-service-booking__product-info">
+                  {%- if variant_picker_block != blank -%}
+                    {% render 'product-variant-picker', product: product, block: variant_picker_block, product_form_id: product_form_id %}
+                  {%- endif -%}
+                  {%- if buy_buttons_block != blank -%}
+                    {% render 'buy-buttons', block: buy_buttons_block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: false, force_hide_dynamic_checkout: true, button_label: 'Schedule This Detail' %}
+                  {%- endif -%}
+                </product-info>
+              </div>
             {%- else -%}
               <a class="suds-service-premium-card__button" href="{{ signature_url }}">View Signature Detail</a>
             {%- endif -%}
@@ -295,7 +309,21 @@
               <li>Dress trim &amp; tires</li>
             </ul>
             {%- if service_tier == 'elite' -%}
-              <a class="suds-service-premium-card__button" href="#suds-service-booking-{{ section.id }}">Selected Package</a>
+              <div class="suds-service-booking" id="suds-service-booking-{{ section.id }}">
+                <div class="suds-service-booking__price">
+                  <p>Service price</p>
+                  {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
+                </div>
+                <p class="suds-service-booking__fit">{{ position }}</p>
+                <product-info id="ProductInfo-{{ section.id }}" data-section="{{ section.id }}" data-url="{{ product.url }}" class="suds-service-booking__product-info">
+                  {%- if variant_picker_block != blank -%}
+                    {% render 'product-variant-picker', product: product, block: variant_picker_block, product_form_id: product_form_id %}
+                  {%- endif -%}
+                  {%- if buy_buttons_block != blank -%}
+                    {% render 'buy-buttons', block: buy_buttons_block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: false, force_hide_dynamic_checkout: true, button_label: 'Schedule This Detail' %}
+                  {%- endif -%}
+                </product-info>
+              </div>
             {%- else -%}
               <a class="suds-service-premium-card__button" href="{{ elite_url }}">View Elite Detail</a>
             {%- endif -%}
