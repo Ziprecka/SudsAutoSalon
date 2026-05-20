@@ -83,20 +83,29 @@
   endcase
 
   assign featured_image = product.featured_image
-  assign basic_service_image_url = 'https://images.pexels.com/photos/5288711/pexels-photo-5288711.jpeg?auto=compress&cs=tinysrgb&w=1400'
-  assign signature_service_image_url = 'https://images.pexels.com/photos/4870727/pexels-photo-4870727.jpeg?auto=compress&cs=tinysrgb&w=1400'
-  assign elite_service_image_url = 'https://images.pexels.com/photos/5233259/pexels-photo-5233259.jpeg?auto=compress&cs=tinysrgb&w=1400'
-  assign finish_service_image_url = 'https://images.pexels.com/photos/30674510/pexels-photo-30674510.jpeg?auto=compress&cs=tinysrgb&w=1400'
-  assign cabin_service_image_url = 'https://images.pexels.com/photos/18471360/pexels-photo-18471360.jpeg?auto=compress&cs=tinysrgb&w=1400'
+  assign wheel_service_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_b52468ed-4ba5-4ee9-94ba-541c2b16683b.jpg?v=1779266082'
+  assign paint_towel_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c2f80beb-6530-4420-8472-a92faccbe0f9.jpg?v=1779266080'
+  assign steam_interior_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_fcc641e4-314c-48e8-ad61-9ecdacfcecd9.jpg?v=1779266078'
+  assign door_detail_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_ad58bc49-9ae2-42c1-8558-4cf7ea1be591.jpg?v=1779266059'
+  assign wheel_towel_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_9cb5a499-13f3-42cd-a162-7b3e5d9b0269.jpg?v=1779266058'
+  assign polisher_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c57cc2fb-eed0-4bdd-ab5a-d5d841232d16.jpg?v=1779266056'
+  assign vacuum_interior_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6648c2c3-acdf-423f-b835-b6e7f93d2e14.jpg?v=1779266055'
+  assign console_brush_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6ecb2b24-4ebc-4baa-872d-352805ac81a7.jpg?v=1779266049'
+  assign red_protection_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download.jpg?v=1779266040'
+  assign basic_service_image_url = vacuum_interior_image_url
+  assign signature_service_image_url = console_brush_image_url
+  assign elite_service_image_url = polisher_image_url
+  assign finish_service_image_url = red_protection_image_url
+  assign cabin_service_image_url = steam_interior_image_url
   assign service_image_url = ''
   assign service_image_alt = product.title | append: ' mobile detailing service'
   case service_tier
     when 'basic'
       assign service_image_url = basic_service_image_url
-      assign service_image_alt = 'Clean vehicle interior for Basic Detail upkeep'
+      assign service_image_alt = 'Interior vacuum detail work for Basic Detail upkeep'
     when 'signature'
       assign service_image_url = signature_service_image_url
-      assign service_image_alt = 'Foam hand wash for Signature Detail mobile service'
+      assign service_image_alt = 'Interior console brush cleaning for Signature Detail'
     when 'elite'
       assign service_image_url = elite_service_image_url
       assign service_image_alt = 'Machine polish work for Elite Detail mobile service'
@@ -201,7 +210,7 @@
       <div class="suds-service-premium-grid">
         <article class="suds-service-premium-card {% if service_tier == 'basic' %}is-active{% endif %}">
           <div class="suds-service-premium-card__media">
-            <img src="{{ basic_service_image_url }}" loading="lazy" alt="Clean vehicle interior for Basic Detail">
+            <img src="{{ basic_service_image_url }}" loading="lazy" alt="Interior vacuum work for Basic Detail upkeep">
           </div>
           <div class="suds-service-premium-card__body">
             <p class="suds-service-premium-card__label">Light upkeep</p>
@@ -238,7 +247,7 @@
 
         <article class="suds-service-premium-card {% if service_tier == 'signature' %}is-active{% endif %}">
           <div class="suds-service-premium-card__media">
-            <img src="{{ signature_service_image_url }}" loading="lazy" alt="Foam hand wash for Signature Detail">
+            <img src="{{ signature_service_image_url }}" loading="lazy" alt="Interior console detail brush work for Signature Detail">
           </div>
           <div class="suds-service-premium-card__body">
             <p class="suds-service-premium-card__label">Best first booking</p>
@@ -377,8 +386,8 @@
       </div>
       <div class="suds-service-results-grid">
         <figure><img src="{{ service_image_url }}" loading="lazy" alt="{{ service_image_alt | escape }}"></figure>
-        <figure><img src="https://images.pexels.com/photos/18471360/pexels-photo-18471360.jpeg?auto=compress&cs=tinysrgb&w=900" loading="lazy" alt="Clean dashboard vents and interior detail surfaces"></figure>
-        <figure><img src="https://images.pexels.com/photos/30674510/pexels-photo-30674510.jpeg?auto=compress&cs=tinysrgb&w=900" loading="lazy" alt="Glossy black vehicle paint after detail protection"></figure>
+        <figure><img src="{{ cabin_service_image_url }}" loading="lazy" alt="Steam cleaning an interior door panel during mobile detailing"></figure>
+        <figure><img src="{{ finish_service_image_url }}" loading="lazy" alt="Applying protection to glossy red vehicle paint"></figure>
       </div>
     </div>
   </section>
