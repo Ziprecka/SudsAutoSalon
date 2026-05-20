@@ -36,11 +36,11 @@
   assign not_for = 'Heavy pet hair, odor, mold concerns, or restoration-level work without a photo review first.'
   assign included_one = 'Interior surfaces, seats, mats, carpets, glass, and the touchpoints that collect daily grime.'
   assign included_two = 'Exterior hand wash, wheels, tires, glass, trim attention, and a cleaner finish.'
-  assign included_three = 'Straight package guidance from Sam before the appointment when the vehicle needs more than the selected tier.'
+  assign included_three = 'Straight package guidance before the appointment when the vehicle needs more than the selected tier.'
   assign wash_reason = 'A car wash mostly touches the outside. A detail deals with the parts you actually live with: dusty vents, dirty touchpoints, crumbs, body oils, road film, wheels, glass, and a finish that needs more than a rinse.'
-  assign heavy_note = 'If the vehicle is beyond this tier, send photos first. Sam will tell you before you book the wrong appointment.'
-  assign faq_time = 'Timing depends on vehicle size, condition, parking access, and add-ons. Sam confirms the appointment window before the detail.'
-  assign package_question = 'If you are unsure, send photos. Sam will recommend the lightest package that can still do the job properly.'
+  assign heavy_note = 'If the vehicle is beyond this tier, send photos first. Suds will tell you before you book the wrong appointment.'
+  assign faq_time = 'Timing depends on vehicle size, condition, parking access, and add-ons. Suds confirms the appointment window before the detail.'
+  assign package_question = 'If you are unsure, send photos. Suds will recommend the lightest package that can still do the job properly.'
 
   case service_tier
     when 'basic'
@@ -52,7 +52,7 @@
       assign included_one = 'Interior wipe-down of touchpoints, plastics, cupholders, glass, mats, and normal dust.'
       assign included_two = 'Exterior hand wash, wheels, tires, exterior glass, and a clean finished look.'
       assign included_three = 'A lighter appointment that keeps a maintained vehicle sharp without charging for work it does not need.'
-      assign heavy_note = 'If photos show heavier buildup, Sam will point you to Signature or Elite before you waste the appointment.'
+      assign heavy_note = 'If photos show heavier buildup, Suds will point you to Signature or Elite before you waste the appointment.'
       assign faq_time = 'Basic is the shortest Suds package because it is meant for maintained vehicles. Vehicle size and access still affect the appointment window.'
       assign package_question = 'Choose Basic when the car is already decent and needs upkeep, not a rescue detail.'
     when 'signature'
@@ -64,7 +64,7 @@
       assign included_one = 'Interior reset for seats, mats, carpets, glass, panels, cupholders, and dirty touchpoints.'
       assign included_two = 'Exterior hand wash, wheels, tires, trim attention, glass, and road film cleanup.'
       assign included_three = 'A strong all-around detail before moving into maintenance or exterior protection.'
-      assign heavy_note = 'If the vehicle is rougher than a normal daily-driver reset, Sam may recommend Elite.'
+      assign heavy_note = 'If the vehicle is rougher than a normal daily-driver reset, Suds may recommend Elite.'
       assign faq_time = 'Signature takes longer than Basic because it goes deeper inside and out. Vehicle size, condition, and add-ons set the final timing.'
       assign package_question = 'Choose Signature if this is your first Suds booking or the vehicle needs a proper daily-driver reset.'
     when 'elite'
@@ -150,7 +150,7 @@
         </div>
 
         <div class="suds-service-hero__badges" aria-label="Suds Auto Salon trust signals">
-          <span>Detailed by Sam</span>
+          <span>Private mobile detail</span>
           <span>Seattle-area routes</span>
           <span>Interior + exterior</span>
           <span>By appointment</span>
@@ -227,7 +227,7 @@
             {%- endfor -%}
           </div>
         {%- endif -%}
-        <div class="suds-service-hero-media__note">Photos help Sam confirm the right package before the appointment.</div>
+        <div class="suds-service-hero-media__note">Photos help Suds confirm the right package before the appointment.</div>
       </div>
     </div>
   </section>
@@ -329,13 +329,13 @@
     <div class="suds-service-section__wrap">
       <div class="suds-service-section__head">
         <p class="suds-service-kicker">Why Suds Auto Salon</p>
-        <h2>Detailed by Sam, at your location</h2>
-        <p>Suds Auto Salon is a private mobile detailing service. You deal directly with Sam, get the vehicle looked at honestly, and book the level that actually fits the condition.</p>
+        <h2>Owner-operated mobile detailing at your location</h2>
+        <p>Suds Auto Salon is an owner-operated private mobile detailing service. You get direct communication, honest package guidance, and a detail level that actually fits the vehicle condition.</p>
       </div>
       <div class="suds-service-trust-grid">
         <article><h3>Private appointment</h3><p>One detailer, direct communication, and no volume-shop handoff.</p></article>
         <article><h3>Mobile convenience</h3><p>Home, office, or approved parking location when access and routing work.</p></article>
-        <article><h3>Honest package fit</h3><p>If the vehicle needs more or less than this tier, Sam will say so.</p></article>
+        <article><h3>Honest package fit</h3><p>If the vehicle needs more or less than this tier, Suds will say so.</p></article>
         <article><h3>Built for the PNW</h3><p>Rain, road film, pets, commuting, outdoor parking, and family use are normal here.</p></article>
       </div>
     </div>
@@ -363,8 +363,8 @@
       </div>
       <div class="suds-service-steps">
         <article><strong>01</strong><h3>Choose the level</h3><p>Pick Basic, Signature, or Elite based on the current condition.</p></article>
-        <article><strong>02</strong><h3>Share access details</h3><p>Book online and note parking, water/power access, and anything Sam should know.</p></article>
-        <article><strong>03</strong><h3>Sam comes to you</h3><p>The detail is handled at your home, office, or approved location.</p></article>
+        <article><strong>02</strong><h3>Share access details</h3><p>Book online and note parking, water/power access, and anything Suds should know.</p></article>
+        <article><strong>03</strong><h3>Suds comes to you</h3><p>The detail is handled at your home, office, or approved location.</p></article>
         <article><strong>04</strong><h3>Keep it clean</h3><p>After the reset, ask about maintenance or protection if it makes sense.</p></article>
       </div>
     </div>
@@ -409,7 +409,7 @@
       <div class="suds-service-section__head">
         <p class="suds-service-kicker">Reviews</p>
         <h2>What local customers say</h2>
-        <p>Reviews load below through the store review app. Suds also has Google feedback from Seattle-area customers who book Sam for details, coatings, and maintenance.</p>
+        <p>Reviews load below through the store review app. Suds also has Google feedback from Seattle-area customers who book details, coatings, and maintenance.</p>
       </div>
       <div class="suds-service-review-strip" aria-label="Suds Auto Salon customer review excerpts">
         <article>
@@ -449,14 +449,14 @@
       </div>
       <div class="suds-service-faq">
         <details><summary>How long does this detail take?</summary><p>{{ faq_time }}</p></details>
-        <details><summary>Do you come to my location?</summary><p>Yes. Sam details at homes, offices, and approved parking locations when the route and access work.</p></details>
+        <details><summary>Do you come to my location?</summary><p>Yes. Suds details at homes, offices, and approved parking locations when the route and access work.</p></details>
         <details><summary>Is this a maintenance wash?</summary><p>No. This is a detail package. Maintenance is for vehicles that have already been reset and need regular upkeep.</p></details>
         <details><summary>Does this remove scratches?</summary><p>Cleaning, clay, and wax can improve gloss and feel. Actual scratch removal requires paint correction and should be quoted separately.</p></details>
         <details><summary>What if my vehicle has pet hair, stains, or heavy buildup?</summary><p>Send photos before booking. Heavy pet hair, staining, odor, mold concerns, or unusual buildup can require more time or a different package.</p></details>
         <details><summary>What should I remove before the appointment?</summary><p>Remove personal items, valuables, child seats if possible, and anything you do not want moved.</p></details>
-        <details><summary>Do I need water or power available?</summary><p>It depends on the location and setup. Share parking and access details when booking so Sam can confirm what is needed.</p></details>
+        <details><summary>Do I need water or power available?</summary><p>It depends on the location and setup. Share parking and access details when booking so the service setup can be confirmed.</p></details>
         <details><summary>What package should I choose?</summary><p>{{ package_question }}</p></details>
-        <details><summary>Can I add ceramic coating or paint correction?</summary><p>Yes. Coating and correction are separate upgrades and should be quoted after Sam sees the paint condition and your protection goals.</p></details>
+        <details><summary>Can I add ceramic coating or paint correction?</summary><p>Yes. Coating and correction are separate upgrades and should be quoted after the paint condition and your protection goals are reviewed.</p></details>
       </div>
     </div>
   </section>
@@ -464,7 +464,7 @@
   <section class="suds-service-final" id="book">
     <div class="suds-service-final__wrap">
       <h2>Ready to get your vehicle back in shape?</h2>
-      <p>Schedule the detail, or send photos first if you want Sam to confirm the right package before you book.</p>
+      <p>Schedule the detail, or send photos first if you want Suds to confirm the right package before you book.</p>
       <div class="suds-service-final__actions">
         <a href="#suds-service-booking-{{ section.id }}">Schedule This Detail</a>
         <a href="/pages/contact-us">Request a Quote</a>
@@ -538,7 +538,7 @@
       "name": "Do you come to my location?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Sam details at homes, offices, and approved parking locations when the route and access work."
+        "text": "Yes. Suds details at homes, offices, and approved parking locations when the route and access work."
       }
     },
     {
@@ -562,7 +562,7 @@
       "name": "Can I add ceramic coating or paint correction?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Coating and correction are separate upgrades and should be quoted after Sam sees the paint condition and your protection goals."
+        "text": "Yes. Coating and correction are separate upgrades and should be quoted after the paint condition and your protection goals are reviewed."
       }
     }
   ]

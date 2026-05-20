@@ -31,7 +31,7 @@
     "testimonials": {
       "type": "suds-testimonials",
       "settings": {
-        "heading": "Proof from customers who already trusted Sam with their vehicles.",
+        "heading": "Proof from customers who already trusted Suds with their vehicles.",
         "subheading": "Review excerpts help new visitors understand the quality, convenience, and repeat-service value behind Suds Auto Salon."
       }
     },

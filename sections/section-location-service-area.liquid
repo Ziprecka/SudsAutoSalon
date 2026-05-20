@@ -3,7 +3,7 @@
   assign city = page.title | remove: ' Mobile Detailing' | remove: 'Mobile Detailing ' | default: 'Seattle'
   assign intro = 'Suds Auto Salon provides private mobile detailing at homes, offices, and approved locations in this service area.'
   assign use_case = 'Busy drivers, families, commuters, pet owners, and professionals who want the vehicle handled without a shop drop-off.'
-  assign local_note = 'Weather, commuting, parking access, and vehicle condition all affect the right package. Request a quote with photos so Sam can recommend the correct level.'
+  assign local_note = 'Weather, commuting, parking access, and vehicle condition all affect the right package. Request a quote with photos so Suds can recommend the correct level.'
   assign neighborhoods = 'Nearby neighborhoods and route areas are considered when scheduling.'
 
   case handle
@@ -11,7 +11,7 @@
       assign city = 'Seattle'
       assign intro = 'Seattle drivers deal with rain, tight schedules, apartment parking, daily commuting, pet mess, and road film. Suds Auto Salon brings premium mobile detailing to your home, office, or approved location.'
       assign use_case = 'Best for city commuters, families, pet owners, condo and apartment residents, and professionals who want a clean car without losing time at a shop.'
-      assign local_note = 'Seattle appointments often depend on parking access, apartment rules, garage clearance, and route timing. Photos help Sam quote accurately before the appointment.'
+      assign local_note = 'Seattle appointments often depend on parking access, apartment rules, garage clearance, and route timing. Photos help Suds quote accurately before the appointment.'
       assign neighborhoods = 'Common nearby route areas include Ballard, Queen Anne, Capitol Hill, West Seattle, Green Lake, Magnolia, Fremont, South Lake Union, and nearby neighborhoods when access works.'
     when 'bellevue-mobile-detailing', 'mobile-detailing-bellevue'
       assign city = 'Bellevue'
@@ -41,7 +41,7 @@
       assign city = 'Marysville'
       assign intro = 'Marysville mobile detailing is built around convenience, larger vehicles, family use, trucks, commuters, and route-based service without a shop visit.'
       assign use_case = 'Best for family SUVs, trucks, pet vehicles, commuters, and customers who want mobile upkeep after the first reset.'
-      assign local_note = 'Marysville customers often book larger vehicles, trucks, and family SUVs, so photos help Sam plan the right time and quote before arriving.'
+      assign local_note = 'Marysville customers often book larger vehicles, trucks, and family SUVs, so photos help Suds plan the right time and quote before arriving.'
       assign neighborhoods = 'Route fit can include Sunnyside, Kellogg Marsh, Shoultes, Getchell, Whiskey Ridge, and nearby Lake Stevens or Everett stops.'
     when 'lake-stevens-mobile-detailing', 'mobile-detailing-lake-stevens'
       assign city = 'Lake Stevens'
@@ -53,7 +53,7 @@
       assign city = 'Snohomish'
       assign intro = 'Snohomish mobile detailing is ideal for drivers who want careful service at home, especially for trucks, family vehicles, pet vehicles, and rural-road buildup.'
       assign use_case = 'Best for trucks, family vehicles, pet owners, resale prep, and customers who want the convenience of a private mobile detailer.'
-      assign local_note = 'Snohomish vehicles often see rural-road grime, family use, pets, trucks, and seasonal exterior buildup. Sam may recommend Signature or Elite Reset depending on condition.'
+      assign local_note = 'Snohomish vehicles often see rural-road grime, family use, pets, trucks, and seasonal exterior buildup. Suds may recommend Signature or Elite Reset depending on condition.'
       assign neighborhoods = 'Route fit can include Downtown Snohomish, Clearview, Maltby, Cathcart, Three Lakes, and nearby Lake Stevens or Everett stops.'
   endcase
 -%}
