@@ -97,12 +97,13 @@
     </div>
 
     <div class="suds-home-shell suds-home-hero__content">
+      <p class="suds-home-hero__eyebrow">Seattle Mobile Detailing</p>
       <div class="suds-home-review-pill">
-        <strong>Review-backed private mobile detailing</strong>
+        <strong>Review-backed local business</strong>
       </div>
       <h1>Private Mobile Detailing for Seattle Drivers Who Want Their Car Reset Properly</h1>
       <p>
-        Suds Auto Salon brings appointment-based interior and exterior detailing to your home or office &mdash; built for daily-driver buildup, cleaner cabins, sharper finishes, and a simpler way to care for your car.
+        Suds Auto Salon brings appointment-based interior and exterior detailing to your home or office &mdash; built for daily-driver buildup, cleaner cabins, sharper finishes, and a simpler way to care for your vehicle.
       </p>
       <div class="suds-home-actions suds-home-actions--center">
         <a class="suds-home-button suds-home-button--gold" href="{{ quote_url }}">Request a Quote</a>
@@ -137,8 +138,8 @@
   <section class="suds-home-packages" id="packages">
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
-        <h2>Choose the Detail That Fits the Vehicle</h2>
-        <p>Every main Suds package is an inside-and-out mobile detail. The difference is condition, time, and how deep the reset needs to go.</p>
+        <h2>Choose the Detail That Fits Your Vehicle</h2>
+        <p>Every vehicle comes in with a different level of buildup. Start with the package that matches your condition, or send photos for a recommendation.</p>
       </div>
 
       <div class="suds-home-ladder">
@@ -147,11 +148,11 @@
             <img src="{{ stock_basic_image }}" loading="lazy" alt="Interior vacuum detail work for Basic Detail upkeep">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>Clean upkeep</p>
+            <p>Clean upkeep for maintained vehicles.</p>
             <h3>Basic Detail</h3>
-            <span>For maintained vehicles that need a lighter reset.</span>
+            <span>Best for vehicles that already stay fairly clean and need a lighter interior and exterior refresh.</span>
             {%- if basic_product != blank -%}<strong>From {{ basic_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
-            <a href="{{ basic_url }}">View Basic</a>
+            <a href="{{ basic_url }}">View Basic Detail</a>
           </div>
         </article>
 
@@ -160,36 +161,36 @@
             <img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console brush cleaning during Signature Detail service">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>Best first booking / Most booked</p>
+            <p>The best first booking for most daily drivers.</p>
             <h3>Signature Detail</h3>
-            <span>For most vehicles that need a proper inside-and-out reset.</span>
+            <span>Best for vehicles that need a proper inside-and-out reset without jumping into heavy restoration.</span>
             {%- if signature_product != blank -%}<strong>From {{ signature_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
-            <a href="{{ signature_url }}">View Signature</a>
+            <a href="{{ signature_url }}">View Signature Detail</a>
           </div>
         </article>
 
         <article class="suds-home-ladder-card">
           <div class="suds-home-ladder-card__image">
-            <img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint during Elite Reset mobile detailing">
+            <img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint during Elite Detail mobile detailing">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>Heavy reset</p>
-            <h3>Elite Reset</h3>
-            <span>For neglected interiors, family SUVs, pet vehicles, resale prep, and vehicles needing more time.</span>
+            <p>A premium reset for heavier buildup.</p>
+            <h3>Elite Detail</h3>
+            <span>Best for vehicles with more interior grime, rougher exterior feel, pet mess, family use, or resale prep needs.</span>
             {%- if elite_product != blank -%}<strong>From {{ elite_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
-            <a href="{{ elite_url }}">View Elite</a>
+            <a href="{{ elite_url }}">View Elite Detail</a>
           </div>
         </article>
 
         <article class="suds-home-ladder-card">
           <div class="suds-home-ladder-card__image">
-            <img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Interior steam cleaning during a maintenance detail reset">
+            <img src="{{ stock_coating_image }}" loading="lazy" alt="Ceramic coating wipe-on application for longer paint protection">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>Keep it clean</p>
-            <h3>Maintenance Plan</h3>
-            <span>For drivers who want priority scheduling and a clean vehicle without starting over every few months.</span>
-            <a href="{{ maintenance_url }}">Ask About Maintenance</a>
+            <p>Gloss and protection that lasts longer than wax.</p>
+            <h3>Ceramic Coating</h3>
+            <span>Best for drivers who want stronger paint protection, easier washing, and a deeper finish after proper prep.</span>
+            <a href="{{ ceramic_url }}">View Ceramic Coating</a>
           </div>
         </article>
       </div>
@@ -200,7 +201,7 @@
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
         <h2>Real Results From Recent Details</h2>
-        <p>See the kind of interior and exterior reset Suds is built for &mdash; cleaner cabins, sharper finishes, and vehicles that feel cared for again.</p>
+        <p>See the kind of interior and exterior work Suds is built for &mdash; cleaner cabins, sharper finishes, and vehicles that feel cared for again.</p>
       </div>
 
       <div class="suds-home-results-grid" aria-label="Suds Auto Salon detailing result examples">
@@ -214,12 +215,12 @@
             {%- endif -%}
           {%- endfor -%}
         {%- else -%}
-          <figure class="suds-home-result-card"><img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console detailing during an interior reset"><figcaption>Interior reset</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_basic_image }}" loading="lazy" alt="Vacuum detail work removing pet hair and daily debris from a vehicle cabin"><figcaption>Pet hair removal</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint for exterior gloss improvement"><figcaption>Exterior gloss</figcaption></figure>
+          <figure class="suds-home-result-card"><img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console detailing during a daily-driver reset"><figcaption>Interior reset for daily-driver buildup</figcaption></figure>
+          <figure class="suds-home-result-card"><img src="{{ stock_basic_image }}" loading="lazy" alt="Vacuum detail work removing daily debris from a vehicle cabin"><figcaption>Pet hair and interior cleanup</figcaption></figure>
+          <figure class="suds-home-result-card"><img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint for exterior gloss improvement"><figcaption>Gloss and protection upgrade</figcaption></figure>
           <figure class="suds-home-result-card"><img src="{{ stock_vehicle_image }}" loading="lazy" alt="Wheel and tire cleanup on a black vehicle"><figcaption>Wheel and tire cleanup</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Steam cleaning an interior door panel during a family vehicle reset"><figcaption>Family vehicle reset</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_polish_image }}" loading="lazy" alt="Paint polishing for resale prep mobile detailing"><figcaption>Resale prep detail</figcaption></figure>
+          <figure class="suds-home-result-card"><img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Steam cleaning an interior door panel during a family vehicle detail"><figcaption>Family vehicle detail</figcaption></figure>
+          <figure class="suds-home-result-card"><img src="{{ stock_polish_image }}" loading="lazy" alt="Paint polishing for exterior wash, clay, and wax finish work"><figcaption>Exterior wash, clay, and wax finish</figcaption></figure>
         {%- endif -%}
       </div>
     </div>
@@ -230,22 +231,22 @@
       <div>
         <div class="suds-home-section-title">
           <h2>Start With the Reset. Add Only What the Vehicle Actually Needs.</h2>
-          <p>Add-ons should solve a specific problem or protect a result, not turn the booking into a confusing menu.</p>
+          <p>Some vehicles need more than a standard detail. Suds can recommend the right add-ons based on condition, goals, and photos.</p>
         </div>
         <div class="suds-home-addon-grid">
-          <article><h3>Pet Hair Removal</h3><p>For embedded hair that needs more time than a standard vacuum.</p></article>
-          <article><h3>Stain Extraction</h3><p>For targeted fabric and carpet concerns that need extra work.</p></article>
-          <article><h3>Odor Treatment</h3><p>For odor concerns that need a separate plan after inspection.</p></article>
-          <article><h3>Paint Enhancement</h3><p>For a glossier finish when cleaning alone is not enough.</p></article>
-          <article><h3>Ceramic Protection</h3><p>For longer-lasting gloss and easier future washing after prep.</p></article>
-          <article><h3>Maintenance Plan</h3><p>For keeping a reset clean with recurring mobile service.</p></article>
+          <article><h3>Pet Hair Removal</h3><p>For vehicles with embedded pet hair in carpets, seats, or cargo areas.</p></article>
+          <article><h3>Stain Extraction</h3><p>For upholstery and carpets with visible spills, marks, or built-up grime.</p></article>
+          <article><h3>Odor Treatment</h3><p>For interiors that need extra help beyond normal cleaning.</p></article>
+          <article><h3>Paint Enhancement</h3><p>For paint that looks dull and needs more gloss before protection.</p></article>
+          <article><h3>Ceramic Protection</h3><p>For longer-lasting gloss, slickness, and easier maintenance.</p></article>
+          <article><h3>Maintenance Plan</h3><p>For keeping the vehicle clean after the first reset.</p></article>
         </div>
       </div>
 
       <aside class="suds-home-value-path" aria-label="Best value Suds Auto Salon service path">
         <h3>Best-value path</h3>
         <ol>
-          <li><strong>First:</strong> Signature Detail or Elite Reset</li>
+          <li><strong>First:</strong> Signature Detail or Elite Detail</li>
           <li><strong>Then:</strong> Paint enhancement or ceramic protection</li>
           <li><strong>After:</strong> Monthly maintenance plan</li>
         </ol>
@@ -260,10 +261,10 @@
         <h2>How Suds Mobile Detailing Works</h2>
       </div>
       <div class="suds-home-process-grid">
-        <article><span>01</span><h3>Send vehicle details and photos</h3><p>Book directly when you know the package. Send photos when you want help matching the condition.</p></article>
-        <article><span>02</span><h3>Get the right package recommendation</h3><p>Suds points you toward Basic, Signature, Elite, maintenance, or protection based on the vehicle.</p></article>
-        <article><span>03</span><h3>Sam comes to your location</h3><p>Mobile detailing is handled at your home, office, apartment, or approved service location.</p></article>
-        <article><span>04</span><h3>Protect the result with maintenance or upgrades</h3><p>After the reset, ask about ceramic protection, paint enhancement, or recurring maintenance.</p></article>
+        <article><span>01</span><h3>Send your vehicle details</h3><p>Share the vehicle, location, condition, and photos if possible.</p></article>
+        <article><span>02</span><h3>Get the right recommendation</h3><p>Sam helps match your vehicle to the right detail or add-on.</p></article>
+        <article><span>03</span><h3>Get service at your location</h3><p>Suds comes to your home, office, or approved service location.</p></article>
+        <article><span>04</span><h3>Enjoy the reset</h3><p>Cleaner interior, sharper exterior, and a vehicle that feels easier to maintain.</p></article>
       </div>
     </div>
   </section>
@@ -310,6 +311,7 @@
         <a href="/pages/marysville-mobile-detailing">Marysville</a>
         <a href="/pages/lake-stevens-mobile-detailing">Lake Stevens</a>
         <a href="/pages/snohomish-mobile-detailing">Snohomish</a>
+        <a href="/pages/service-areas">Shoreline</a>
       </div>
     </div>
   </section>
@@ -320,11 +322,11 @@
         <h2>Questions Before You Book</h2>
       </div>
       <div class="suds-home-faq">
-        <details><summary>Which detail should I book?</summary><p>Choose Basic for maintained vehicles, Signature for most first bookings, and Elite Reset for heavier buildup, pet use, neglected interiors, rougher exterior feel, or resale prep.</p></details>
+        <details><summary>Which detail should I book?</summary><p>If your vehicle is already maintained, Basic may be enough. If it needs a proper inside-and-out reset, start with Signature. If it has heavier buildup, pet mess, rough paint, or resale prep needs, Elite is usually the better fit.</p></details>
         <details><summary>Do you come to my home or office?</summary><p>Yes. Suds Auto Salon is mobile and details at homes, offices, apartments, and approved service locations when access and route timing work.</p></details>
         <details><summary>How much does mobile detailing cost?</summary><p>Pricing depends on the package, vehicle size, condition, and add-ons. The booking page shows package pricing, and a quote helps when the vehicle needs extra time or special treatment.</p></details>
         <details><summary>Do I need to send photos?</summary><p>No. You can book directly if you know the package. Photos are helpful when you are unsure, when the vehicle has pet hair, stains, odor, or when you want the most accurate recommendation.</p></details>
-        <details><summary>How long does a detail take?</summary><p>Timing depends on vehicle size, condition, access, and add-ons. Basic is lighter, Signature is the best fit for most vehicles, and Elite Reset reserves more time for heavier condition.</p></details>
+        <details><summary>How long does a detail take?</summary><p>Timing depends on vehicle size, condition, access, and add-ons. Basic is lighter, Signature is the best fit for most vehicles, and Elite reserves more time for heavier condition.</p></details>
         <details><summary>Do you clean pet hair?</summary><p>Yes. Pet hair can be cleaned, but heavy embedded hair may need extra time or a pet hair add-on so the appointment is set up correctly.</p></details>
         <details><summary>Do you remove stains?</summary><p>Spot treatment and extraction can improve many stains, but results depend on material, age, and severity. Severe or set-in stains should be quoted before the appointment.</p></details>
         <details><summary>Do you offer ceramic coating?</summary><p>Yes. Ceramic coating is available as a protection upgrade after the vehicle is cleaned and properly prepped. Paint condition determines the right prep path.</p></details>
@@ -351,7 +353,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"Which detail should I book?","acceptedAnswer":{"@type":"Answer","text":"Choose Basic for maintained vehicles, Signature for most first bookings, and Elite Reset for heavier buildup, pet use, neglected interiors, rougher exterior feel, or resale prep."}},
+    {"@type":"Question","name":"Which detail should I book?","acceptedAnswer":{"@type":"Answer","text":"If your vehicle is already maintained, Basic may be enough. If it needs a proper inside-and-out reset, start with Signature. If it has heavier buildup, pet mess, rough paint, or resale prep needs, Elite is usually the better fit."}},
     {"@type":"Question","name":"Do you come to my home or office?","acceptedAnswer":{"@type":"Answer","text":"Yes. Suds Auto Salon is mobile and details at homes, offices, apartments, and approved service locations when access and route timing work."}},
     {"@type":"Question","name":"How much does mobile detailing cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on the package, vehicle size, condition, and add-ons. The booking page shows package pricing, and a quote helps when the vehicle needs extra time or special treatment."}},
     {"@type":"Question","name":"Do I need to send photos?","acceptedAnswer":{"@type":"Answer","text":"No. You can book directly if you know the package. Photos are helpful when you are unsure, when the vehicle has pet hair, stains, odor, or when you want the most accurate recommendation."}},

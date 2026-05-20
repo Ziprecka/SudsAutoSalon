@@ -24,8 +24,8 @@
     "photo_proof": {
       "type": "suds-photo-proof",
       "settings": {
-        "heading": "Photos make the result easier to understand before you book.",
-        "subheading": "Real detailing photos help you see the difference between light upkeep, a deeper reset, targeted add-ons, and finish protection."
+        "heading": "Real Results From Recent Details",
+        "subheading": "See cleaner cabins, sharper finishes, targeted add-ons, and protection work from Suds Auto Salon."
       }
     },
     "process": {
@@ -39,8 +39,8 @@
     "testimonials": {
       "type": "suds-testimonials",
       "settings": {
-        "heading": "Real customer proof before the quote.",
-        "subheading": "Customer excerpts show why drivers trust Suds for careful mobile work, ceramic protection, recurring maintenance, and detail-oriented service."
+        "heading": "Reviewed by Seattle-Area Drivers",
+        "subheading": "Customer excerpts show why local drivers trust Suds for careful mobile work, ceramic protection, recurring maintenance, and detail-oriented service."
       }
     },
     "faq": {

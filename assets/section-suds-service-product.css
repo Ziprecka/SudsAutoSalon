@@ -414,7 +414,7 @@
 
 .suds-service-premium-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   align-items: stretch;
 }
@@ -608,7 +608,7 @@
 }
 
 .suds-service-trust-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .suds-service-card-grid article,
@@ -619,6 +619,37 @@
   border: 1px solid var(--suds-border);
   border-radius: 8px;
   background: var(--suds-cream);
+}
+
+.suds-service-card-grid--two {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+}
+
+.suds-service-card-grid ul,
+.suds-service-included-grid ul {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suds-service-card-grid li,
+.suds-service-included-grid li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.suds-service-card-grid li::before,
+.suds-service-included-grid li::before {
+  content: "";
+  position: absolute;
+  top: .62em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--suds-gold-deep);
 }
 
 .suds-service-section--dark .suds-service-steps article {
@@ -653,6 +684,20 @@
   margin-top: .55em;
   border-radius: 999px;
   background: var(--suds-gold-deep);
+}
+
+.suds-service-included-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.suds-service-included-grid article {
+  padding: 24px;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #ffffff;
 }
 
 .suds-service-inline-cta {
@@ -908,6 +953,7 @@
   .suds-service-package-grid,
   .suds-service-premium-grid,
   .suds-service-checks,
+  .suds-service-included-grid,
   .suds-service-results-grid,
   .suds-service-trust-grid,
   .suds-service-review-strip {

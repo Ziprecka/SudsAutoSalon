@@ -39,20 +39,20 @@
       {%- else -%}
         <article class="suds-photo-proof__item">
           <div>
-            <h3>Interior transformations</h3>
-            <p>Show dirty-to-clean cabin work: seats, mats, cupholders, pet hair, crumbs, stains, glass, and touchpoints.</p>
+            <h3>Interior resets</h3>
+            <p>Cleaner seats, mats, cupholders, glass, touchpoints, and cabin surfaces after daily-driver buildup.</p>
           </div>
         </article>
         <article class="suds-photo-proof__item">
           <div>
             <h3>Exterior gloss and protection</h3>
-            <p>Show paint enhancement, hand wash results, wheel cleanup, trim, glass, wax, sealant, or ceramic protection.</p>
+            <p>Cleaner paint, sharper wheels, clear glass, dressed trim, wax, sealant, or ceramic protection when the vehicle needs it.</p>
           </div>
         </article>
         <article class="suds-photo-proof__item">
           <div>
             <h3>Maintenance-ready vehicles</h3>
-            <p>Show the clean baseline that makes recurring monthly detailing feel valuable and easy to understand.</p>
+            <p>A clean baseline makes recurring mobile detailing easier to maintain and easier to enjoy.</p>
           </div>
         </article>
       {%- endif -%}
@@ -199,7 +199,7 @@
 
 {% schema %}
 {
-  "name": "Suds photo proof",
+  "name": "Suds results gallery",
   "settings": [
     {
       "type": "text",
@@ -211,13 +211,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Before-and-after proof sells the detail before the quote."
+      "default": "Real Results From Recent Details"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Before-and-after results show interior resets, pet hair removal, exterior gloss, ceramic protection, and the kind of transformation customers are actually booking."
+      "default": "See cleaner cabins, sharper finishes, pet hair cleanup, exterior gloss, ceramic protection, and the kind of reset Suds is built for."
     }
   ],
   "blocks": [
@@ -253,27 +253,27 @@
   ],
   "presets": [
     {
-      "name": "Suds photo proof",
+      "name": "Suds results gallery",
       "blocks": [
         {
           "type": "proof",
           "settings": {
             "heading": "Interior transformation",
-            "text": "Best for showing crumbs, dust, stains, pet hair, and neglected daily-driver buildup."
+            "text": "Cleaner seats, carpets, mats, cupholders, glass, and touchpoints after daily-driver buildup."
           }
         },
         {
           "type": "proof",
           "settings": {
             "heading": "Exterior gloss and protection",
-            "text": "Use clean exterior photos to sell wash, decontamination, paint enhancement, wax, and ceramic protection."
+            "text": "Wash, decontamination, paint enhancement, wax, and ceramic protection help the exterior look sharper and easier to maintain."
           }
         },
         {
           "type": "proof",
           "settings": {
             "heading": "Maintenance-ready finish",
-            "text": "Show the clean baseline that makes monthly maintenance easier to understand and easier to sell."
+            "text": "A clean baseline makes monthly maintenance easier to keep up with after the first reset."
           }
         }
       ]

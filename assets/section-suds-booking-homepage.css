@@ -240,6 +240,16 @@ body.template-index {
   box-shadow: 0 14px 35px rgba(0, 0, 0, .06);
 }
 
+p.suds-home-hero__eyebrow {
+  margin: 0 0 12px;
+  color: #8a6500;
+  font-size: 1.2rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .suds-home-review-pill span {
   color: #f5bc00;
   letter-spacing: 1px;

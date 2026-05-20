@@ -20,8 +20,8 @@
     "photo_proof": {
       "type": "suds-photo-proof",
       "settings": {
-        "heading": "Use real results to choose the right detail.",
-        "subheading": "Before-and-after results help show whether Basic, Signature, Elite Reset, ceramic coating, or maintenance is the right path."
+        "heading": "Real Results From Recent Details",
+        "subheading": "See cleaner cabins, sharper finishes, ceramic protection, and the detail level that fits your vehicle."
       }
     },
     "page_content": {
@@ -31,8 +31,8 @@
     "testimonials": {
       "type": "suds-testimonials",
       "settings": {
-        "heading": "Proof from customers who already trusted Suds with their vehicles.",
-        "subheading": "Review excerpts help new visitors understand the quality, convenience, and repeat-service value behind Suds Auto Salon."
+        "heading": "Reviewed by Seattle-Area Drivers",
+        "subheading": "Customer excerpts show the quality, convenience, and repeat-service value behind Suds Auto Salon."
       }
     },
     "process": {

@@ -1,6 +1,6 @@
 {%- liquid
   assign handle = page.handle | default: 'services'
-  assign included_title = 'What is included'
+  assign included_title = 'What you get'
   assign who = 'Busy drivers, families, commuters, pet owners, and vehicle owners who want mobile service matched to condition.'
   assign included = 'Interior cleaning, exterior hand wash, glass, wheels, tires, trim, and add-ons when the vehicle needs targeted work.'
   assign problems = 'Dust, crumbs, grime, dull exterior finish, pet hair, stains, odors, weather buildup, and vehicles that need to feel clean again.'
@@ -24,7 +24,7 @@
       assign who = 'Seattle-area drivers who want mobile detailing at home, work, apartments, condos, or approved parking locations without losing time to a shop drop-off.'
       assign included = 'Primary route areas include Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas when schedule and access make sense.'
       assign problems = 'Route planning helps avoid wasted travel, unclear service areas, parking surprises, and booking a package before the vehicle condition is understood.'
-      assign decision = 'Send your city, neighborhood, vehicle, and photos. Suds will confirm whether the location fits the route and recommend the right service level.'
+      assign decision = 'Send your city, neighborhood, vehicle, and photos. Suds will confirm whether the location fits the route and recommend the right detail.'
       assign expectation = 'If the route works, you get the best available booking path. If timing is tight, Suds may suggest a better route day or a nearby service window.'
     else
       assign city = page.title | remove: ' Mobile Detailing' | remove: 'Mobile Detailing ' | default: 'your area'
@@ -33,37 +33,37 @@
       assign card_two_title = 'Service at your location'
       assign card_three_title = 'What local detailing solves'
       assign who = city | append: ' drivers who want mobile detailing at home, work, apartments, condos, or approved parking locations without losing time to a shop drop-off.'
-      assign included = 'Suds can bring Basic, Signature, Elite Reset, interior detailing, exterior detailing, pet hair removal, odor treatment, ceramic coating, paint enhancement, and maintenance detailing to ' | append: city | append: ' when route timing and access work.'
+      assign included = 'Suds can bring Basic, Signature, Elite, ceramic coating, paint enhancement, pet hair removal, odor treatment, and maintenance detailing to ' | append: city | append: ' when route timing and access work.'
       assign problems = 'Mobile service helps with dirty interiors, pet hair, stains, rain and road film, family mess, resale prep, and the time problem of driving to a detail shop.'
-      assign decision = 'Send your ' | append: city | append: ' location, vehicle, goals, and photos. Suds will confirm route fit and recommend the right service level before you book.'
+      assign decision = 'Send your ' | append: city | append: ' location, vehicle, goals, and photos. Suds will confirm route fit and recommend the detail that matches your vehicle.'
       assign expectation = 'If your address fits the route, you get a clear booking path. If access or timing is tight, Suds may suggest a better route day, nearby window, or adjusted package.'
     endif
   else
     case handle
     when 'basic-detail'
-      assign who = 'Vehicles already in decent condition that need light upkeep, not a heavy rescue detail.'
-      assign included = 'Light interior cleanup, exterior wash, glass, wheels, tires, and tidy finish work.'
-      assign problems = 'Light dust, fingerprints, road film, crumbs, and general upkeep before the car gets out of hand.'
-      assign decision = 'Choose Basic when the vehicle is already clean enough that it does not need deep extraction, pet hair removal, odor work, or heavy grime removal.'
-      assign expectation = 'If photos show heavier condition, Suds may recommend Signature instead so the appointment has enough time to get the result you actually want.'
+      assign who = 'Maintained daily drivers that already stay fairly clean and need a lighter interior and exterior refresh.'
+      assign included = 'Light vacuuming, common touchpoint wipe-downs, interior glass, hand wash, wheel and tire faces, exterior glass, and a clean finish.'
+      assign problems = 'Light dust, fingerprints, road film, crumbs, and general upkeep before the vehicle gets out of hand.'
+      assign decision = 'Choose Basic when the vehicle is already maintained and does not need deep cleaning, heavy pet hair removal, odor work, or major grime removal.'
+      assign expectation = 'If photos show heavier condition, Suds may recommend Signature or Elite so the appointment has enough time to get the result you want.'
     when 'signature-detail'
-      assign who = 'Most first-time customers who want one strong mobile appointment for the interior and exterior.'
-      assign included = 'A deeper interior refresh, exterior hand wash, wheels, tires, glass, trim, and protection upgrade options.'
-      assign problems = 'Daily-driver buildup, family mess, light stains, dull exterior feel, and vehicles that need a real reset.'
-      assign decision = 'Choose Signature when Basic feels too light but the vehicle does not need the full heavy-reset treatment.'
-      assign expectation = 'This is the package Suds will usually recommend for a first booking because it creates a clean baseline for future maintenance.'
+      assign who = 'Most Seattle-area drivers booking Suds for the first time and wanting one proper inside-and-out reset.'
+      assign included = 'Full interior vacuuming, touchpoint and panel cleaning, upholstery and carpet cleaning for normal buildup, hand wash, wheels, tires, glass, and finish care.'
+      assign problems = 'Daily-driver buildup, family mess, light staining, dull exterior feel, and vehicles that need a proper reset.'
+      assign decision = 'Choose Signature when Basic feels too light but the vehicle does not need the deepest reset.'
+      assign expectation = 'Signature creates a clean baseline for future maintenance, protection upgrades, or a lighter next visit.'
     when 'elite-detail', 'elite-reset'
-      assign who = 'Family SUVs, pet vehicles, resale prep, neglected interiors, and vehicles that need more time.'
-      assign included = 'A heavier inside-and-out reset with deeper interior attention and add-on room for pet hair, odor, stains, and protection.'
-      assign problems = 'Heavy crumbs, grime, pet hair, spills, odor concerns, resale presentation, and neglected cabin areas.'
-      assign decision = 'Choose Elite Reset when the vehicle needs time, patience, and a more complete transformation instead of a quick refresh.'
-      assign expectation = 'Photos matter here. Suds uses them to plan time, add-ons, and whether stains, odor, pet hair, or protection should be handled together.'
+      assign who = 'Family vehicles, pet vehicles, work vehicles, resale prep, overdue interiors, and exteriors that feel rough or contaminated.'
+      assign included = 'A deeper interior reset, careful hand wash, wheel and tire cleaning, clay bar treatment, premium hand wax, and more time for heavier buildup.'
+      assign problems = 'Heavy crumbs, grime, pet hair, spills, odor concerns, rough exterior feel, resale presentation, and neglected cabin areas.'
+      assign decision = 'Choose Elite when the vehicle needs more time, deeper cleaning, and a stronger result than a light refresh.'
+      assign expectation = 'Photos help plan time, add-ons, and whether pet hair, staining, odor, paint enhancement, or ceramic protection should be handled separately.'
     when 'ceramic-coating'
-      assign who = 'Drivers who want a cleaner-looking finish, easier washing, stronger protection, and better gloss.'
-      assign included = 'Paint preparation, finish improvement as needed, ceramic coating application, and care guidance.'
+      assign who = 'Drivers who want longer-lasting gloss, slickness, easier washing, and stronger protection than wax after proper prep.'
+      assign included = 'Paint-safe wash and prep, surface decontamination, paint enhancement or correction when included, ceramic coating application, final inspection, and care guidance.'
       assign problems = 'Unprotected paint, weak gloss, difficult washing, road grime sticking quickly, and short-lived wax protection.'
-      assign decision = 'Choose ceramic when you want protection beyond a basic wax and you care about gloss, washability, and long-term appearance.'
-      assign expectation = 'Suds will inspect the paint first because ceramic results depend on preparation, paint condition, and realistic expectations.'
+      assign decision = 'Choose ceramic coating when you want protection beyond wax and care about gloss, washability, and long-term appearance.'
+      assign expectation = 'Suds inspects the paint first because coating results depend on preparation, paint condition, and realistic protection goals.'
     when 'paint-enhancement'
       assign who = 'Vehicles with dull paint, light defects, haze, or a finish that needs gloss before protection.'
       assign included = 'Wash, decontamination when needed, machine enhancement, gloss improvement, and protection recommendations.'
@@ -107,7 +107,7 @@
 <section class="suds-benefits">
   <div class="suds-benefits__wrap">
     <div class="suds-benefits__head">
-      <p class="suds-benefits__eyebrow">Service fit</p>
+      <p class="suds-benefits__eyebrow">Service guide</p>
       <h2>{{ section_heading }}</h2>
     </div>
     <div class="suds-benefits__grid">
@@ -128,7 +128,7 @@
     <div class="suds-benefits__links" aria-label="Related Suds Auto Salon pages">
       <a href="/pages/services">Services</a>
       <a href="/pages/signature-detail">Signature Detail</a>
-      <a href="/pages/elite-detail">Elite Reset</a>
+      <a href="/pages/elite-detail">Elite Detail</a>
       <a href="/pages/maintenance-detailing">Maintenance</a>
       <a href="/pages/contact-us">Request a Quote</a>
     </div>
