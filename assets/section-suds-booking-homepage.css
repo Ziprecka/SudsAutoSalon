@@ -12,6 +12,11 @@
   background: #ffffff;
   color: var(--suds-ink);
   letter-spacing: 0;
+  overflow-x: hidden;
+}
+
+body.template-index {
+  overflow-x: hidden;
 }
 
 .template-index .section-header {
@@ -934,7 +939,7 @@
 
 @media screen and (max-width: 860px) {
   .suds-home-shell {
-    width: min(100% - 32px, 1160px);
+    width: min(100% - 36px, 1160px);
   }
 
   .suds-home-transform__grid,
@@ -999,8 +1004,16 @@
   }
 
   .suds-home-hero p {
-    max-width: 340px;
+    max-width: 318px;
     font-size: 1.48rem;
+  }
+
+  .suds-home-section-title h2,
+  .suds-home-transform__copy h2,
+  .suds-home-dark-proof h2,
+  .suds-home-upgrade h2,
+  .suds-home-final h2 {
+    font-size: clamp(3.1rem, 8vw, 3.7rem);
   }
 
   .suds-home-hero__hint {
