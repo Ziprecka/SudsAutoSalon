@@ -67,8 +67,26 @@
 
   {%- liquid
     assign suds_service_product_page = false
-    if product.handle == 'basic-detail' or product.handle == 'mini-detail' or product.handle == 'signature-detail' or product.handle == 'interior-detail' or product.handle == 'elite-detail' or product.handle == 'full-detail'
-      assign suds_service_product_page = true
+    case product.handle
+      when 'basic-detail', 'mini-detail', 'signature-detail', 'interior-detail', 'elite-detail', 'full-detail'
+        assign suds_service_product_page = true
+    endcase
+
+    assign suds_detail_title = product.title | downcase
+    if suds_service_product_page == false
+      if suds_detail_title contains 'basic detail'
+        assign suds_service_product_page = true
+      elsif suds_detail_title contains 'mini detail'
+        assign suds_service_product_page = true
+      elsif suds_detail_title contains 'signature detail'
+        assign suds_service_product_page = true
+      elsif suds_detail_title contains 'interior detail'
+        assign suds_service_product_page = true
+      elsif suds_detail_title contains 'elite detail'
+        assign suds_service_product_page = true
+      elsif suds_detail_title contains 'full detail'
+        assign suds_service_product_page = true
+      endif
     endif
   -%}
 
