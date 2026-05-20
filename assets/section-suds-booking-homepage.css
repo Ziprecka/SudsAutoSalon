@@ -200,6 +200,8 @@
   object-position: center;
   filter: saturate(.9) contrast(.95);
   mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, .35) 14%, #000000 34%, #000000 76%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, .35) 14%, #000000 34%, #000000 76%, transparent 100%);
 }
 
 .suds-home-hero__content {
