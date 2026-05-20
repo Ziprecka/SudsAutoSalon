@@ -27,6 +27,7 @@
 .template-index .header {
   max-width: 1100px;
   margin: 14px auto 0;
+  padding: 10px 24px !important;
   border: 1px solid rgba(255, 255, 255, .72);
   border-radius: 18px;
   background: rgba(255, 255, 255, .72);
@@ -38,6 +39,15 @@
   border-radius: 999px;
   background: #0a0a0a;
   color: #ffffff !important;
+}
+
+.template-index .header__heading-logo-wrapper {
+  width: 78px !important;
+}
+
+.template-index .header__heading-logo {
+  width: 78px !important;
+  height: auto !important;
 }
 
 .suds-booking-home *,
@@ -125,7 +135,7 @@
 .suds-home-button--black,
 .suds-home-button--full {
   background: #000000;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .suds-home-button--blue {
@@ -157,7 +167,7 @@
 
 .suds-home-hero {
   position: relative;
-  min-height: 720px;
+  min-height: 660px;
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(220, 238, 250, .98) 0%, rgba(220, 238, 250, .84) 25%, rgba(246, 243, 238, .98) 92%, #f6f3ee 100%),
@@ -176,15 +186,15 @@
 
 .suds-home-hero__image {
   position: absolute;
-  inset: 120px 0 0;
+  inset: 330px 0 0;
   display: flex;
   justify-content: center;
-  opacity: .72;
+  opacity: .68;
 }
 
 .suds-home-hero__image img {
   width: min(1280px, 104vw);
-  height: min(520px, 62vh);
+  height: min(390px, 46vh);
   align-self: flex-end;
   object-fit: cover;
   object-position: center;
@@ -196,7 +206,7 @@
   position: relative;
   z-index: 2;
   display: flex;
-  min-height: 720px;
+  min-height: 660px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -224,10 +234,10 @@
 }
 
 .suds-home-hero h1 {
-  max-width: 860px;
+  max-width: 980px;
   margin: 26px auto 0;
   color: #000000;
-  font-size: clamp(5rem, 7vw, 8.4rem);
+  font-size: clamp(5rem, 7vw, 8.2rem);
   font-weight: 900;
   line-height: .92;
   letter-spacing: 0;
@@ -962,25 +972,25 @@
   }
 
   .suds-home-hero {
-    min-height: 660px;
+    min-height: 640px;
   }
 
   .suds-home-hero__content {
-    min-height: 660px;
+    min-height: 640px;
     padding-top: 34px;
   }
 
   .suds-home-hero h1 {
-    font-size: clamp(4.1rem, 13.4vw, 5.8rem);
+    font-size: clamp(4.2rem, 13vw, 5.6rem);
   }
 
   .suds-home-hero__image {
-    top: 210px;
+    top: 330px;
   }
 
   .suds-home-hero__image img {
     width: 122vw;
-    height: 410px;
+    height: 330px;
   }
 
   .suds-home-actions,
