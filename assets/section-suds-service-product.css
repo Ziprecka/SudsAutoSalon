@@ -12,7 +12,9 @@
 }
 
 .suds-service-hero {
-  background: var(--suds-black);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(242, 211, 107, .12), transparent 32%),
+    linear-gradient(135deg, #050505 0%, #0b0b0b 52%, #14110a 100%);
   color: #ffffff;
 }
 
@@ -26,9 +28,17 @@
 
 .suds-service-hero__wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, .9fr);
-  gap: 34px;
-  align-items: center;
+  grid-template-columns: minmax(0, .98fr) minmax(330px, .82fr);
+  gap: clamp(28px, 4vw, 54px);
+  align-items: start;
+  padding-top: clamp(34px, 4vw, 58px);
+  padding-bottom: clamp(34px, 4vw, 58px);
+}
+
+.suds-service-hero__copy {
+  display: grid;
+  align-content: start;
+  padding-top: clamp(0px, 1vw, 14px);
 }
 
 .suds-service-hero__eyebrow,
@@ -53,26 +63,26 @@
 }
 
 .suds-service-hero h1 {
-  max-width: 820px;
+  max-width: 720px;
   color: #ffffff;
-  font-size: clamp(3.7rem, 6vw, 6.7rem);
-  line-height: .97;
+  font-size: clamp(3.3rem, 4.9vw, 5.5rem);
+  line-height: 1;
   text-wrap: balance;
 }
 
 .suds-service-hero__lead {
-  max-width: 760px;
-  margin: 18px 0 0;
+  max-width: 680px;
+  margin: 16px 0 0;
   color: #eeeeee;
-  font-size: 1.8rem;
-  line-height: 1.55;
+  font-size: 1.68rem;
+  line-height: 1.5;
 }
 
 .suds-service-proofline {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 18px;
   color: #f6f0d2;
   font-size: 1.35rem;
   font-weight: 900;
@@ -92,14 +102,17 @@
 }
 
 .suds-service-hero__badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 8px;
+  margin-top: 18px;
 }
 
 .suds-service-hero__badges span {
-  padding: 7px 10px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 6px 10px;
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 999px;
   background: #111111;
@@ -110,12 +123,21 @@
 
 .suds-service-booking {
   max-width: 620px;
-  margin-top: 26px;
-  padding: 22px;
+  margin-top: 22px;
+  padding: 18px;
   border: 1px solid rgba(242, 211, 107, .52);
   border-radius: 8px;
   background: #15130d;
   box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+}
+
+.suds-service-booking__price {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
 }
 
 .suds-service-booking__price p,
@@ -136,12 +158,13 @@
 .suds-service-booking .price__regular,
 .suds-service-booking .price-item {
   color: #ffffff;
-  font-size: 2.65rem;
+  font-size: 2.35rem;
   font-weight: 900;
+  line-height: 1;
 }
 
 .suds-service-booking__fit {
-  margin-top: 8px;
+  margin-top: 12px;
   color: #f7f0d2;
   font-size: 1.48rem;
   line-height: 1.45;
@@ -149,11 +172,11 @@
 
 .suds-service-booking__product-info {
   display: block;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .suds-service-booking .product-form__submit {
-  min-height: 52px;
+  min-height: 50px;
   border-color: var(--suds-gold);
   background: var(--suds-gold);
   color: #080808;
@@ -199,14 +222,17 @@
 }
 
 .suds-service-booking__meta {
-  margin-top: 12px;
+  margin-top: 10px;
   color: #d9d9d9;
   font-size: 1.25rem;
   line-height: 1.4;
 }
 
 .suds-service-hero-media {
+  position: relative;
   min-width: 0;
+  max-width: 500px;
+  justify-self: end;
 }
 
 .suds-service-hero-media__featured,
@@ -217,11 +243,18 @@
   background: #111111;
 }
 
+.suds-service-hero-media__featured {
+  aspect-ratio: 4 / 5;
+  max-height: 520px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, .42);
+}
+
 .suds-service-hero-media__featured img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .suds-service-hero-media__empty {
@@ -254,10 +287,19 @@
 }
 
 .suds-service-hero-media__note {
-  margin-top: 12px;
-  color: #dedede;
+  position: absolute;
+  right: 14px;
+  bottom: 86px;
+  max-width: 260px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(242, 211, 107, .35);
+  border-radius: 8px;
+  background: rgba(8, 8, 8, .78);
+  color: #f5f0d6;
   font-size: 1.3rem;
   line-height: 1.45;
+  backdrop-filter: blur(8px);
 }
 
 .suds-service-nav {
@@ -538,6 +580,38 @@
   margin: 0;
 }
 
+.suds-service-review-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.suds-service-review-strip article {
+  padding: 20px;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.suds-service-review-strip p {
+  margin: 0;
+  color: #171717;
+  font-size: 1.55rem;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.suds-service-review-strip span {
+  display: block;
+  margin-top: 14px;
+  color: var(--suds-gold-deep);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
 .suds-service-faq {
   display: grid;
   gap: 10px;
@@ -616,7 +690,8 @@
   .suds-service-package-grid,
   .suds-service-checks,
   .suds-service-results-grid,
-  .suds-service-trust-grid {
+  .suds-service-trust-grid,
+  .suds-service-review-strip {
     grid-template-columns: 1fr;
   }
 
@@ -624,8 +699,14 @@
     align-items: start;
   }
 
-  .suds-service-hero-media__featured img {
+  .suds-service-hero-media__featured {
     aspect-ratio: 16 / 10;
+    max-height: none;
+  }
+
+  .suds-service-hero-media {
+    max-width: none;
+    justify-self: stretch;
   }
 
   .suds-service-trust-grid,
