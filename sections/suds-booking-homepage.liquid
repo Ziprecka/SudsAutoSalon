@@ -22,6 +22,13 @@
   assign booking_url = '/collections/mobile-details'
   assign quote_url = '/pages/contact-us'
 
+  assign stock_hero_image = 'https://images.pexels.com/photos/4870727/pexels-photo-4870727.jpeg?auto=compress&cs=tinysrgb&w=2200'
+  assign stock_basic_image = 'https://images.pexels.com/photos/5288711/pexels-photo-5288711.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  assign stock_signature_image = 'https://images.pexels.com/photos/4870727/pexels-photo-4870727.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  assign stock_elite_image = 'https://images.pexels.com/photos/6873087/pexels-photo-6873087.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  assign stock_coating_image = 'https://images.pexels.com/photos/30674510/pexels-photo-30674510.jpeg?auto=compress&cs=tinysrgb&w=1200'
+  assign stock_vehicle_image = 'https://images.pexels.com/photos/15822324/pexels-photo-15822324.jpeg?auto=compress&cs=tinysrgb&w=1200'
+
   assign hero_image = section.settings.hero_image
   if hero_image == blank and settings.brand_image != blank
     assign hero_image = settings.brand_image
@@ -69,7 +76,19 @@
 <main class="suds-booking-home">
   <section class="suds-home-hero" id="top">
     <div class="suds-home-hero__image" aria-hidden="true">
-      {% render 'suds-generated-visual', variant: 'detail-scene', mode: 'hero', label: 'Animated mobile detailing scene with two detailers wiping a vehicle' %}
+      {%- if hero_image != blank -%}
+        {{
+          hero_image
+          | image_url: width: 2200
+          | image_tag:
+            loading: 'eager',
+            widths: '900, 1400, 1800, 2200',
+            sizes: '100vw',
+            alt: ''
+        }}
+      {%- else -%}
+        <img src="{{ stock_hero_image }}" alt="" loading="eager">
+      {%- endif -%}
     </div>
 
     <div class="suds-home-shell suds-home-hero__content">
@@ -97,7 +116,7 @@
 
       <div class="suds-home-service-grid">
         <article class="suds-home-image-card">
-          {% render 'suds-generated-visual', variant: 'basic', mode: 'card', label: 'Generated Basic Detail visual for a maintained daily driver' %}
+          <img src="{{ stock_basic_image }}" loading="lazy" alt="Clean luxury vehicle interior for a maintained upkeep detail">
           <div class="suds-home-image-card__content">
             <h3>Basic Detail</h3>
             <p>Maintained vehicles that need a cleaner, fresher feel.</p>
@@ -106,7 +125,7 @@
         </article>
 
         <article class="suds-home-image-card">
-          {% render 'suds-generated-visual', variant: 'signature', mode: 'card', label: 'Generated Signature Detail visual for an interior and exterior reset' %}
+          <img src="{{ stock_signature_image }}" loading="lazy" alt="Hand washing a vehicle during a mobile detail">
           <div class="suds-home-image-card__content">
             <h3>Signature Detail</h3>
             <p>The best first booking for most daily drivers.</p>
@@ -115,7 +134,7 @@
         </article>
 
         <article class="suds-home-image-card">
-          {% render 'suds-generated-visual', variant: 'elite', mode: 'card', label: 'Generated Elite Detail visual for heavier buildup and deeper reset work' %}
+          <img src="{{ stock_elite_image }}" loading="lazy" alt="Detail brush cleaning foam around a vehicle headlight">
           <div class="suds-home-image-card__content">
             <h3>Elite Detail</h3>
             <p>Deeper reset work for vehicles that feel overdue.</p>
@@ -124,7 +143,7 @@
         </article>
 
         <article class="suds-home-image-card">
-          {% render 'suds-generated-visual', variant: 'coating', mode: 'card', label: 'Generated ceramic coating and paint protection visual' %}
+          <img src="{{ stock_coating_image }}" loading="lazy" alt="Glossy black vehicle paint reflection for ceramic coating protection">
           <div class="suds-home-image-card__content">
             <h3>Ceramic Coating</h3>
             <p>Gloss and protection upgrades after proper prep.</p>
@@ -159,7 +178,7 @@
       </div>
 
       <div class="suds-home-transform__media">
-        {% render 'suds-generated-visual', variant: 'detail-scene', mode: 'feature', label: 'Animated detailing scene showing two detailers wiping down a clean vehicle' %}
+        <img src="{{ stock_elite_image }}" loading="lazy" alt="Close-up detailing work on a black vehicle">
       </div>
     </div>
   </section>
@@ -180,7 +199,7 @@
       <div class="suds-home-package-grid">
         <article class="suds-home-package-card">
           <div class="suds-home-package-card__image">
-            {% render 'suds-generated-visual', variant: 'basic', mode: 'package', label: 'Basic Detail generated package visual' %}
+            <img src="{{ stock_basic_image }}" loading="lazy" alt="Clean luxury vehicle interior for Basic Detail upkeep">
             <h3>Basic Detail</h3>
           </div>
           <div class="suds-home-package-card__body">
@@ -206,7 +225,7 @@
 
         <article class="suds-home-package-card suds-home-package-card--featured">
           <div class="suds-home-package-card__image">
-            {% render 'suds-generated-visual', variant: 'signature', mode: 'package', label: 'Signature Detail generated package visual' %}
+            <img src="{{ stock_signature_image }}" loading="lazy" alt="Signature Detail visual showing hand wash and exterior reset work">
             <span>Most Popular</span>
             <h3>Signature Detail</h3>
           </div>
@@ -233,7 +252,7 @@
 
         <article class="suds-home-package-card">
           <div class="suds-home-package-card__image">
-            {% render 'suds-generated-visual', variant: 'elite', mode: 'package', label: 'Elite Detail generated package visual' %}
+            <img src="{{ stock_elite_image }}" loading="lazy" alt="Elite Detail visual showing detailed brush work on a vehicle">
             <h3>Elite Detail</h3>
           </div>
           <div class="suds-home-package-card__body">
@@ -267,10 +286,10 @@
         <p>Pricing and timing are matched to size, condition, and access.</p>
       </div>
       <div class="suds-home-vehicle-grid">
-        <article class="suds-home-vehicle-card suds-home-vehicle-card--car"><div class="suds-vehicle-spin" aria-hidden="true"><span></span></div><strong>Cars</strong></article>
-        <article class="suds-home-vehicle-card suds-home-vehicle-card--suv"><div class="suds-vehicle-spin" aria-hidden="true"><span></span></div><strong>SUVs</strong></article>
-        <article class="suds-home-vehicle-card suds-home-vehicle-card--truck"><div class="suds-vehicle-spin" aria-hidden="true"><span></span></div><strong>Trucks</strong></article>
-        <article class="suds-home-vehicle-card suds-home-vehicle-card--van"><div class="suds-vehicle-spin" aria-hidden="true"><span></span></div><strong>Vans</strong></article>
+        <article class="suds-home-vehicle-card"><img src="{{ stock_vehicle_image }}" loading="lazy" alt="Clean dark vehicle interior"><strong>Cars</strong></article>
+        <article class="suds-home-vehicle-card"><img src="{{ stock_signature_image }}" loading="lazy" alt="SUV exterior hand wash detail"><strong>SUVs</strong></article>
+        <article class="suds-home-vehicle-card"><img src="{{ stock_elite_image }}" loading="lazy" alt="Detailed front end cleaning on a larger vehicle"><strong>Trucks</strong></article>
+        <article class="suds-home-vehicle-card"><img src="{{ stock_basic_image }}" loading="lazy" alt="Mobile detailing visual for larger daily drivers"><strong>Vans</strong></article>
       </div>
     </div>
   </section>
@@ -287,7 +306,7 @@
       <h2>Make it shine without leaving home.</h2>
       <p>Suds Auto Salon brings professional mobile detailing to your driveway, office, or approved parking location in the Seattle area.</p>
       <div class="suds-home-dark-media">
-        {% render 'suds-generated-visual', variant: 'detail-scene', mode: 'wide', label: 'Animated generated visual of two detailers wiping down a car' %}
+        <img src="{{ stock_hero_image }}" loading="lazy" alt="Real hand wash detailing photo with soap on a vehicle window">
       </div>
       <div class="suds-home-actions suds-home-actions--center">
         <a class="suds-home-button suds-home-button--blue" href="{{ quote_url }}">Request a Quote</a>
@@ -310,11 +329,11 @@
           {%- endif -%}
         {%- endfor -%}
       {%- else -%}
-        <figure class="suds-home-mosaic__item">{% render 'suds-generated-visual', variant: 'basic', mode: 'mosaic', label: 'Generated interior upkeep visual' %}</figure>
-        <figure class="suds-home-mosaic__item suds-home-mosaic__item--wide">{% render 'suds-generated-visual', variant: 'signature', mode: 'mosaic', label: 'Generated daily driver reset visual' %}</figure>
-        <figure class="suds-home-mosaic__item">{% render 'suds-generated-visual', variant: 'elite', mode: 'mosaic', label: 'Generated elite detail reset visual' %}</figure>
-        <figure class="suds-home-mosaic__item suds-home-mosaic__item--tall">{% render 'suds-generated-visual', variant: 'coating', mode: 'mosaic', label: 'Generated ceramic coating visual' %}</figure>
-        <figure class="suds-home-mosaic__item">{% render 'suds-generated-visual', variant: 'detail-scene', mode: 'mosaic', label: 'Generated mobile detailing work visual' %}</figure>
+        <figure class="suds-home-mosaic__item"><img src="{{ stock_basic_image }}" loading="lazy" alt="Professional vehicle wash prep photo"></figure>
+        <figure class="suds-home-mosaic__item suds-home-mosaic__item--wide"><img src="{{ stock_signature_image }}" loading="lazy" alt="Foam hand wash on a dark vehicle window"></figure>
+        <figure class="suds-home-mosaic__item"><img src="{{ stock_elite_image }}" loading="lazy" alt="Brush detailing around a vehicle headlight"></figure>
+        <figure class="suds-home-mosaic__item suds-home-mosaic__item--tall"><img src="{{ stock_coating_image }}" loading="lazy" alt="Glossy paint reflection on a clean black vehicle"></figure>
+        <figure class="suds-home-mosaic__item"><img src="{{ stock_vehicle_image }}" loading="lazy" alt="Clean dark vehicle interior detail photo"></figure>
       {%- endif -%}
     </div>
 
