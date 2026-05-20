@@ -295,6 +295,7 @@
 
 .suds-home-image-card {
   position: relative;
+  height: 208px;
   min-height: 208px;
   overflow: hidden;
   border-radius: 8px;
@@ -311,7 +312,7 @@
 .suds-home-image-card img {
   width: 100%;
   height: 100%;
-  min-height: 208px;
+  min-height: 0;
   display: block;
   object-fit: cover;
   transition: transform .35s ease;
@@ -983,7 +984,8 @@
   }
 
   .suds-home-hero h1 {
-    font-size: clamp(4.2rem, 13vw, 5.6rem);
+    font-size: clamp(3.6rem, 10vw, 4.3rem);
+    max-width: 100%;
   }
 
   .suds-home-hero__image {
@@ -1016,6 +1018,10 @@
   .suds-home-service-grid,
   .suds-home-vehicle-grid {
     display: grid;
+  }
+
+  .suds-home-image-card {
+    height: 285px;
   }
 
   .suds-home-tabs {
