@@ -19,7 +19,7 @@
       endif
 
       assign show_dynamic_checkout = false
-      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false and force_hide_dynamic_checkout != true
         assign show_dynamic_checkout = true
       endif
     -%}
@@ -87,6 +87,8 @@
             <span>
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
+              {%- elsif button_label != blank -%}
+                {{ button_label }}
               {%- else -%}
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}

@@ -65,6 +65,16 @@
     >
   {%- endif -%}
 
+  {%- liquid
+    assign suds_service_product_page = false
+    if product.handle == 'basic-detail' or product.handle == 'signature-detail' or product.handle == 'elite-detail'
+      assign suds_service_product_page = true
+    endif
+  -%}
+
+  {%- if suds_service_product_page -%}
+    {% render 'suds-service-product', section: section %}
+  {%- else -%}
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
@@ -743,6 +753,7 @@
       }
     </script>
   </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
