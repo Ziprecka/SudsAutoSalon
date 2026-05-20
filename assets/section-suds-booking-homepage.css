@@ -1033,8 +1033,14 @@ body.template-index {
 
   .template-index .announcement-bar__message {
     white-space: normal;
+    overflow: visible;
     font-size: 1.2rem;
     line-height: 1.25;
+  }
+
+  .template-index .announcement-bar__message span {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .suds-home-hero__image {
