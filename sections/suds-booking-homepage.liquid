@@ -1,0 +1,480 @@
+{%- liquid
+  assign basic_product = all_products['basic-detail']
+  assign signature_product = all_products['signature-detail']
+  assign elite_product = all_products['elite-detail']
+
+  assign basic_url = '/products/basic-detail'
+  if basic_product != blank
+    assign basic_url = basic_product.url
+  endif
+
+  assign signature_url = '/products/signature-detail'
+  if signature_product != blank
+    assign signature_url = signature_product.url
+  endif
+
+  assign elite_url = '/products/elite-detail'
+  if elite_product != blank
+    assign elite_url = elite_product.url
+  endif
+
+  assign ceramic_url = '/pages/ceramic-coating'
+  assign booking_url = '/collections/mobile-details'
+  assign quote_url = '/pages/contact-us'
+
+  assign hero_image = section.settings.hero_image
+  if hero_image == blank and settings.brand_image != blank
+    assign hero_image = settings.brand_image
+  elsif hero_image == blank and signature_product.featured_image != blank
+    assign hero_image = signature_product.featured_image
+  elsif hero_image == blank and elite_product.featured_image != blank
+    assign hero_image = elite_product.featured_image
+  elsif hero_image == blank and basic_product.featured_image != blank
+    assign hero_image = basic_product.featured_image
+  endif
+
+  assign has_gallery_blocks = false
+  assign has_app_block = false
+  for block in section.blocks
+    if block.type == 'gallery_image' and block.settings.image != blank
+      assign has_gallery_blocks = true
+    elsif block.type == '@app'
+      assign has_app_block = true
+    endif
+  endfor
+-%}
+
+{{ 'section-suds-booking-homepage.css' | asset_url | stylesheet_tag }}
+
+<main class="suds-booking-home">
+  <section class="suds-home-hero" id="top">
+    <div class="suds-home-wrap">
+      <div>
+        <p class="suds-home-kicker">Seattle Mobile Detailing</p>
+        <h1>Private mobile detailing for Seattle drivers who want their car reset properly.</h1>
+        <p class="suds-home-lead">
+          Suds Auto Salon brings appointment-based interior and exterior detailing to your location. Built for daily-driver buildup, cleaner cabins, sharper finishes, and vehicles that feel cared for again.
+        </p>
+        <div class="suds-home-actions">
+          <a class="suds-home-button suds-home-button--gold" href="{{ booking_url }}">Schedule Your Detail</a>
+          <a class="suds-home-button suds-home-button--outline-light" href="#packages">Compare Packages</a>
+          <a class="suds-home-textlink" href="{{ quote_url }}">Get a quick recommendation</a>
+        </div>
+        <div class="suds-home-trust-pills" aria-label="Suds Auto Salon trust signals">
+          <span>Private mobile detailer</span>
+          <span>Seattle-area service</span>
+          <span>Interior + exterior packages</span>
+          <span>Appointment-based</span>
+          <span>Review-backed local business</span>
+        </div>
+      </div>
+
+      <aside class="suds-home-hero-card" aria-label="Suds Auto Salon mobile detailing preview">
+        <div class="suds-home-hero-image">
+          {%- if hero_image != blank -%}
+            {{
+              hero_image
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'eager',
+                fetchpriority: 'high',
+                widths: '540, 720, 960, 1200, 1400',
+                sizes: '(min-width: 990px) 40vw, 100vw',
+                alt: 'Suds Auto Salon mobile detailing result on a Seattle area vehicle'
+            }}
+          {%- else -%}
+            <div class="suds-home-gallery-item"><p>Suds Auto Salon mobile detailing</p></div>
+          {%- endif -%}
+        </div>
+        <div class="suds-home-hero-panel">
+          <span>Home or office appointments</span>
+          <span>Basic, Signature, and Elite details</span>
+          <span>Ceramic protection upgrades</span>
+          <span>Direct communication with Sam</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="suds-home-trust" aria-label="Suds Auto Salon service proof">
+    <div class="suds-home-wrap">
+      <div class="suds-home-trust-grid">
+        <span>Mobile service at home or office</span>
+        <span>Real customer reviews</span>
+        <span>Interior + exterior process</span>
+        <span>Local Seattle-area detailing</span>
+        <span>Direct communication with Sam</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">Main services</p>
+        <h2>Choose your detail.</h2>
+        <p>Start with the condition of the vehicle. Basic is for upkeep, Signature is the best first booking for most drivers, Elite is for heavier condition, and ceramic coating is the protection upgrade.</p>
+      </div>
+
+      <div class="suds-home-card-grid">
+        <article class="suds-home-card">
+          <h3>Basic Detail</h3>
+          <p>Lighter upkeep reset for maintained vehicles.</p>
+          <strong>Best for cleaner daily drivers</strong>
+          {%- if basic_product != blank -%}<div class="price">From {{ basic_product.price | money_without_trailing_zeros }}</div>{%- endif -%}
+          <a href="{{ basic_url }}">View Basic</a>
+        </article>
+
+        <article class="suds-home-card">
+          <h3>Signature Detail</h3>
+          <p>Best all-around reset for most daily drivers.</p>
+          <strong>Best first booking</strong>
+          {%- if signature_product != blank -%}<div class="price">From {{ signature_product.price | money_without_trailing_zeros }}</div>{%- endif -%}
+          <a href="{{ signature_url }}">View Signature</a>
+        </article>
+
+        <article class="suds-home-card">
+          <h3>Elite Detail</h3>
+          <p>Premium deep reset for heavier buildup and stronger improvement.</p>
+          <strong>Best for overdue vehicles</strong>
+          {%- if elite_product != blank -%}<div class="price">From {{ elite_product.price | money_without_trailing_zeros }}</div>{%- endif -%}
+          <a href="{{ elite_url }}">View Elite</a>
+        </article>
+
+        <article class="suds-home-card">
+          <h3>Ceramic Coating</h3>
+          <p>Gloss and protection upgrade for longer-lasting finish care.</p>
+          <strong>Best after prep or correction</strong>
+          <a href="{{ ceramic_url }}">View Ceramic Coating</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="suds-home-soft" id="gallery">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">Real results</p>
+        <h2>Real results from recent details.</h2>
+        <p>See the kind of interior and exterior reset Suds is built for: cleaner cabins, sharper finishes, wheel cleanup, and vehicles that feel cared for again.</p>
+      </div>
+
+      <div class="suds-home-gallery-layout">
+        <div class="suds-home-featured-photo">
+          {%- if hero_image != blank -%}
+            {{
+              hero_image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'lazy',
+                widths: '720, 960, 1200, 1600',
+                sizes: '(min-width: 990px) 58vw, 100vw',
+                alt: 'Clean exterior finish after Suds Auto Salon mobile detailing'
+            }}
+          {%- endif -%}
+        </div>
+
+        <div class="suds-home-gallery-list">
+          {%- if has_gallery_blocks -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'gallery_image' and block.settings.image != blank -%}
+                <figure class="suds-home-gallery-item" {{ block.shopify_attributes }}>
+                  {{
+                    block.settings.image
+                    | image_url: width: 720
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '280, 420, 560, 720',
+                      sizes: '(min-width: 990px) 20vw, 100vw',
+                      alt: block.settings.alt_text
+                  }}
+                  <p>{{ block.settings.caption }}</p>
+                </figure>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- if basic_product.featured_image != blank -%}
+              <figure class="suds-home-gallery-item">
+                {{ basic_product.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '280, 420, 560, 720', sizes: '(min-width: 990px) 20vw, 100vw', alt: 'Maintained vehicle after Basic Detail by Suds Auto Salon' }}
+                <p>Maintained vehicle upkeep</p>
+              </figure>
+            {%- endif -%}
+            {%- if signature_product.featured_image != blank -%}
+              <figure class="suds-home-gallery-item">
+                {{ signature_product.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '280, 420, 560, 720', sizes: '(min-width: 990px) 20vw, 100vw', alt: 'Daily driver after Signature Detail by Suds Auto Salon' }}
+                <p>Daily-driver reset</p>
+              </figure>
+            {%- endif -%}
+            {%- if elite_product.featured_image != blank -%}
+              <figure class="suds-home-gallery-item">
+                {{ elite_product.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '280, 420, 560, 720', sizes: '(min-width: 990px) 20vw, 100vw', alt: 'Overdue vehicle after Elite Detail by Suds Auto Salon' }}
+                <p>Deeper reset work</p>
+              </figure>
+            {%- endif -%}
+            <figure class="suds-home-gallery-item">
+              <p>Upload more Suds photos in the homepage section to build a stronger proof gallery.</p>
+            </figure>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">Package selector</p>
+        <h2>Choose the detail that fits your vehicle.</h2>
+        <p>Every main Suds detail covers the interior and exterior. The right choice depends on vehicle condition, time required, and how far the reset needs to go.</p>
+      </div>
+
+      <div class="suds-home-package-grid">
+        <article class="suds-home-package">
+          <h3>Basic Detail</h3>
+          <p>Lighter upkeep reset.</p>
+          <strong>Best for maintained vehicles that need a cleaner, fresher feel.</strong>
+          <ul>
+            <li>Hand wash</li>
+            <li>Vacuum and wipe-down</li>
+            <li>Glass and light reset</li>
+          </ul>
+          <a href="{{ basic_url }}">Schedule Basic</a>
+        </article>
+
+        <article class="suds-home-package suds-home-package--featured">
+          <span class="suds-home-package__badge">Most popular</span>
+          <h3>Signature Detail</h3>
+          <p>Best all-around reset.</p>
+          <strong>Best for most daily drivers needing proper interior and exterior cleaning.</strong>
+          <ul>
+            <li>Deeper interior cleaning</li>
+            <li>Exterior wash and wheels</li>
+            <li>Finish care</li>
+          </ul>
+          <a href="{{ signature_url }}">Schedule Signature</a>
+        </article>
+
+        <article class="suds-home-package">
+          <h3>Elite Detail</h3>
+          <p>Premium deep reset.</p>
+          <strong>Best for heavier buildup, rougher paint feel, and stronger improvement.</strong>
+          <ul>
+            <li>Interior deep clean</li>
+            <li>Clay bar and hand wax</li>
+            <li>Wheels, tires, and finish work</li>
+          </ul>
+          <a href="{{ elite_url }}">Schedule Elite</a>
+        </article>
+
+        <article class="suds-home-package">
+          <h3>Ceramic Coating</h3>
+          <p>Protection upgrade.</p>
+          <strong>Best for long-term gloss, easier washing, and stronger protection.</strong>
+          <ul>
+            <li>Paint prep guidance</li>
+            <li>Protection package options</li>
+            <li>Care recommendations</li>
+          </ul>
+          <a href="{{ ceramic_url }}">Explore Coating</a>
+        </article>
+      </div>
+
+      <div class="suds-home-inline-actions">
+        <a class="suds-home-button suds-home-button--dark" href="{{ booking_url }}">Schedule Your Detail</a>
+        <a class="suds-home-button suds-home-button--outline-dark" href="{{ quote_url }}">Ask Which Package Fits</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="suds-home-soft">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">Why Suds</p>
+        <h2>Why Seattle drivers choose Suds Auto Salon.</h2>
+      </div>
+
+      <div class="suds-home-why-grid">
+        <article class="suds-home-card"><h3>Private appointment-based service</h3><p>Your vehicle gets focused attention instead of assembly-line treatment.</p></article>
+        <article class="suds-home-card"><h3>Mobile convenience</h3><p>Service at your home or office so you do not waste time waiting at a shop.</p></article>
+        <article class="suds-home-card"><h3>Real detailing process</h3><p>Cleaning, decontamination, finish care, and visible improvement.</p></article>
+        <article class="suds-home-card"><h3>Local review-backed business</h3><p>Seattle-area service with direct communication and careful work.</p></article>
+        <article class="suds-home-card"><h3>Premium presentation</h3><p>A cleaner cabin, sharper exterior, and a vehicle you feel proud to drive.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">How booking works</p>
+        <h2>Simple mobile appointment flow.</h2>
+      </div>
+      <div class="suds-home-process-grid">
+        <article class="suds-home-process"><span>01</span><h3>Choose your detail</h3><p>Pick the package that matches your vehicle's condition.</p></article>
+        <article class="suds-home-process"><span>02</span><h3>Schedule online</h3><p>Reserve your appointment or request help choosing the right package.</p></article>
+        <article class="suds-home-process"><span>03</span><h3>Suds comes to you</h3><p>Mobile detailing at your home or office in the Seattle area.</p></article>
+        <article class="suds-home-process"><span>04</span><h3>Enjoy the reset</h3><p>Cleaner interior, sharper exterior, and better overall presentation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="suds-home-dark">
+    <div class="suds-home-wrap suds-home-split">
+      <div>
+        <p class="suds-home-kicker">Protection upgrade</p>
+        <h2>Want longer-lasting gloss and protection?</h2>
+        <p>If your vehicle needs more than a detail, ceramic coating and paint correction upgrades can add deeper gloss, stronger protection, and longer-lasting finish improvement.</p>
+      </div>
+      <div class="suds-home-upgrade">
+        <p>True defect removal requires paint correction. Sam can review the paint condition and recommend the right prep before coating.</p>
+        <a class="suds-home-button suds-home-button--gold" href="{{ ceramic_url }}">Explore Ceramic Coating</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">Reviews</p>
+        <h2>Reviewed by Seattle-area drivers.</h2>
+        <p>Real customer excerpts from Suds Auto Salon reviews and Google feedback.</p>
+      </div>
+      <div class="suds-home-review-grid">
+        <article class="suds-home-review"><p>"He's very detail oriented and doesn't miss anything."</p><span>Sue C.</span></article>
+        <article class="suds-home-review"><p>"The car looks showroom-ready and practically sparkles."</p><span>Paul P.</span></article>
+        <article class="suds-home-review"><p>"Clear pride and passion for his work."</p><span>Logan K.</span></article>
+      </div>
+      {%- if has_app_block -%}
+        <div class="suds-home-app-reviews">
+          {%- for block in section.blocks -%}
+            {%- if block.type == '@app' -%}
+              {% render block %}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="suds-home-app-reviews">
+          <p>Customer reviews load below when a review app block is connected in Shopify. Suds Auto Salon is trusted by local drivers for private mobile detailing at home or office.</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <section class="suds-home-soft" id="areas">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">Service areas</p>
+        <h2>Mobile detailing in Seattle and surrounding areas.</h2>
+        <p>Suds Auto Salon provides appointment-based mobile detailing throughout the Seattle area for customers who want professional interior and exterior detailing without driving to a shop.</p>
+      </div>
+      <div class="suds-home-area-grid">
+        <article class="suds-home-area">
+          <h3>Primary routes</h3>
+          <p>Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby areas when route timing works.</p>
+        </article>
+        <article class="suds-home-area">
+          <h3>Explore service areas</h3>
+          <div class="suds-home-area-links">
+            <a href="/pages/seattle-mobile-detailing">Seattle</a>
+            <a href="/pages/bellevue-mobile-detailing">Bellevue</a>
+            <a href="/pages/edmonds-mobile-detailing">Edmonds</a>
+            <a href="/pages/lynnwood-mobile-detailing">Lynnwood</a>
+            <a href="/pages/everett-mobile-detailing">Everett</a>
+            <a href="/pages/marysville-mobile-detailing">Marysville</a>
+            <a href="/pages/lake-stevens-mobile-detailing">Lake Stevens</a>
+            <a href="/pages/snohomish-mobile-detailing">Snohomish</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="suds-home-wrap">
+      <div class="suds-home-section-head">
+        <p class="suds-home-kicker">FAQ</p>
+        <h2>Answers before you book.</h2>
+      </div>
+      <div class="suds-home-faq">
+        <details><summary>What detail package should I choose?</summary><p>Choose Basic for maintained vehicles, Signature for most first bookings, and Elite for heavier buildup, pet use, rougher exterior feel, or resale prep.</p></details>
+        <details><summary>Do you come to my home or office?</summary><p>Yes. Suds Auto Salon is mobile and details at homes, offices, and approved parking locations when access and route timing work.</p></details>
+        <details><summary>How long does a detail take?</summary><p>Timing depends on vehicle size, condition, access, and add-ons. Elite takes longer than Basic because it is built for heavier condition.</p></details>
+        <details><summary>Do I need water or power available?</summary><p>Access needs depend on the location and service setup. Share parking and access details when booking so Sam can confirm what is needed.</p></details>
+        <details><summary>Does detailing remove scratches?</summary><p>Cleaning, clay, and wax can improve gloss and feel. Actual scratch removal requires paint correction and should be quoted separately.</p></details>
+        <details><summary>What if I have pet hair or heavy staining?</summary><p>Send photos before booking. Heavy pet hair, staining, odor, mold concerns, or unusual buildup may require more time or a different package.</p></details>
+        <details><summary>Can I add ceramic coating?</summary><p>Yes. Ceramic coating is a protection upgrade and is best quoted after the paint condition and prep needs are reviewed.</p></details>
+        <details><summary>How often should I detail my vehicle?</summary><p>Most daily drivers benefit from a proper reset first, then maintenance every month or two depending on use, parking, kids, pets, and commute.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="suds-home-final">
+    <div class="suds-home-wrap">
+      <h2>Ready to get your vehicle reset?</h2>
+      <p>Choose your detail, schedule your appointment, and get professional mobile detailing at your home or office in the Seattle area.</p>
+      <div class="suds-home-actions">
+        <a class="suds-home-button suds-home-button--gold" href="{{ booking_url }}">Schedule Your Detail</a>
+        <a class="suds-home-button suds-home-button--outline-light" href="#packages">Compare Packages</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What detail package should I choose?","acceptedAnswer":{"@type":"Answer","text":"Choose Basic for maintained vehicles, Signature for most first bookings, and Elite for heavier buildup, pet use, rougher exterior feel, or resale prep."}},
+    {"@type":"Question","name":"Do you come to my home or office?","acceptedAnswer":{"@type":"Answer","text":"Yes. Suds Auto Salon is mobile and details at homes, offices, and approved parking locations when access and route timing work."}},
+    {"@type":"Question","name":"Does detailing remove scratches?","acceptedAnswer":{"@type":"Answer","text":"Cleaning, clay, and wax can improve gloss and feel. Actual scratch removal requires paint correction and should be quoted separately."}},
+    {"@type":"Question","name":"Can I add ceramic coating?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ceramic coating is a protection upgrade and is best quoted after the paint condition and prep needs are reviewed."}}
+  ]
+}
+</script>
+
+{% schema %}
+{
+  "name": "Suds booking homepage",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gallery_image",
+      "name": "Gallery image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Interior reset"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text",
+          "default": "Suds Auto Salon mobile detailing result"
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Suds booking homepage"
+    }
+  ]
+}
+{% endschema %}

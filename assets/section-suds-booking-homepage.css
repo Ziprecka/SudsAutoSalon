@@ -1,0 +1,599 @@
+.suds-booking-home {
+  --suds-black: #070707;
+  --suds-ink: #111111;
+  --suds-muted: #4b4b4b;
+  --suds-soft: #f7f6f0;
+  --suds-border: #dfdccf;
+  --suds-gold: #f2d36b;
+  --suds-gold-deep: #8a6907;
+  background: #ffffff;
+  color: var(--suds-ink);
+}
+
+.suds-booking-home section {
+  scroll-margin-top: 90px;
+}
+
+.suds-home-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 20px;
+}
+
+.suds-home-kicker {
+  margin: 0 0 10px;
+  color: var(--suds-gold-deep);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.suds-home-hero {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(242, 211, 107, .16), transparent 34%),
+    linear-gradient(135deg, #050505 0%, #0a0a0a 50%, #141008 100%);
+  color: #ffffff;
+}
+
+.suds-home-hero .suds-home-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, .85fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  padding-top: clamp(44px, 6vw, 78px);
+  padding-bottom: clamp(44px, 6vw, 78px);
+}
+
+.suds-home-hero .suds-home-kicker,
+.suds-home-dark .suds-home-kicker {
+  color: var(--suds-gold);
+}
+
+.suds-home-hero h1 {
+  max-width: 840px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(4rem, 6.4vw, 7.2rem);
+  line-height: .94;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.suds-home-lead {
+  max-width: 760px;
+  margin: 22px 0 0;
+  color: #eeeeee;
+  font-size: 1.85rem;
+  line-height: 1.55;
+}
+
+.suds-home-actions,
+.suds-home-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.suds-home-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.suds-home-button--gold {
+  border-color: var(--suds-gold);
+  background: var(--suds-gold);
+  color: #080808;
+}
+
+.suds-home-button--dark {
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+}
+
+.suds-home-button--outline-light {
+  border-color: rgba(255, 255, 255, .48);
+  color: #ffffff;
+}
+
+.suds-home-button--outline-dark {
+  border-color: #111111;
+  color: #111111;
+}
+
+.suds-home-textlink {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  color: var(--suds-gold);
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.suds-home-trust-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.suds-home-trust-pills span {
+  padding: 7px 10px;
+  border: 1px solid rgba(242, 211, 107, .35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  color: #f8f1d2;
+  font-size: 1.22rem;
+  font-weight: 900;
+}
+
+.suds-home-hero-card {
+  align-self: stretch;
+}
+
+.suds-home-hero-image {
+  overflow: hidden;
+  border: 1px solid rgba(242, 211, 107, .38);
+  border-radius: 8px;
+  background: #111111;
+  box-shadow: 0 28px 72px rgba(0, 0, 0, .42);
+}
+
+.suds-home-hero-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.suds-home-hero-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.suds-home-hero-panel span {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 8px;
+  background: #141414;
+  color: #f2f2f2;
+  font-size: 1.28rem;
+  font-weight: 900;
+}
+
+.suds-home-trust {
+  border-bottom: 1px solid var(--suds-border);
+  background: #ffffff;
+}
+
+.suds-home-trust .suds-home-wrap {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.suds-home-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.suds-home-trust-grid span {
+  padding: 14px;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: var(--suds-soft);
+  color: #171717;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.suds-home-section-head {
+  max-width: 860px;
+}
+
+.suds-home-section-head h2,
+.suds-home-split h2,
+.suds-home-final h2 {
+  margin: 0;
+  color: var(--suds-ink);
+  font-size: clamp(3rem, 5vw, 5.6rem);
+  line-height: 1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.suds-home-section-head p,
+.suds-home-card p,
+.suds-home-area p,
+.suds-home-split p,
+.suds-home-faq p,
+.suds-home-upgrade p {
+  color: #292929;
+  font-size: 1.62rem;
+  line-height: 1.55;
+}
+
+.suds-home-card-grid,
+.suds-home-package-grid,
+.suds-home-why-grid,
+.suds-home-process-grid,
+.suds-home-area-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.suds-home-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.suds-home-card,
+.suds-home-package,
+.suds-home-area,
+.suds-home-process,
+.suds-home-faq details {
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.suds-home-card,
+.suds-home-package,
+.suds-home-area,
+.suds-home-process {
+  padding: 22px;
+}
+
+.suds-home-card h3,
+.suds-home-package h3,
+.suds-home-area h3,
+.suds-home-process h3 {
+  margin: 0 0 10px;
+  letter-spacing: 0;
+}
+
+.suds-home-card strong,
+.suds-home-package strong {
+  display: block;
+  margin-top: 16px;
+  color: var(--suds-gold-deep);
+  font-size: 1.28rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.suds-home-card .price,
+.suds-home-package .price {
+  margin-top: 16px;
+  color: #111111;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.suds-home-card a,
+.suds-home-package a,
+.suds-home-area a {
+  display: inline-flex;
+  margin-top: 16px;
+  color: #6d5206;
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.suds-home-soft {
+  background: var(--suds-soft);
+}
+
+.suds-home-gallery-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.suds-home-featured-photo,
+.suds-home-gallery-item {
+  overflow: hidden;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #111111;
+}
+
+.suds-home-featured-photo img,
+.suds-home-gallery-item img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.suds-home-featured-photo img {
+  aspect-ratio: 16 / 11;
+}
+
+.suds-home-gallery-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.suds-home-gallery-item img {
+  aspect-ratio: 4 / 3;
+}
+
+.suds-home-gallery-item p {
+  margin: 0;
+  padding: 12px;
+  background: #ffffff;
+  color: #171717;
+  font-size: 1.28rem;
+  font-weight: 900;
+}
+
+.suds-home-package-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.suds-home-package {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.suds-home-package--featured {
+  border-color: #b9931b;
+  background: #fffaf0;
+  box-shadow: inset 0 0 0 1px rgba(185, 147, 27, .18);
+}
+
+.suds-home-package__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.suds-home-package ul {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: #292929;
+  font-size: 1.42rem;
+  line-height: 1.45;
+}
+
+.suds-home-why-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.suds-home-process-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.suds-home-process span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--suds-gold-deep);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.suds-home-dark {
+  background: #0b0b0b;
+  color: #ffffff;
+}
+
+.suds-home-dark h2,
+.suds-home-dark p {
+  color: #ffffff;
+}
+
+.suds-home-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .7fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.suds-home-upgrade {
+  padding: 24px;
+  border: 1px solid rgba(242, 211, 107, .38);
+  border-radius: 8px;
+  background: #15130d;
+}
+
+.suds-home-upgrade p {
+  color: #eeeeee;
+}
+
+.suds-home-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.suds-home-review {
+  padding: 22px;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.suds-home-review p {
+  margin: 0;
+  color: #171717;
+  font-size: 1.58rem;
+  line-height: 1.48;
+  font-weight: 800;
+}
+
+.suds-home-review span {
+  display: block;
+  margin-top: 14px;
+  color: var(--suds-gold-deep);
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.suds-home-app-reviews {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.suds-home-area-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr);
+}
+
+.suds-home-area-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.suds-home-area-links a {
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #c9a83a;
+  border-radius: 999px;
+  color: #6d5206;
+  font-size: 1.35rem;
+  text-decoration: none;
+}
+
+.suds-home-faq {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.suds-home-faq summary {
+  cursor: pointer;
+  padding: 18px 20px;
+  color: #111111;
+  font-size: 1.65rem;
+  font-weight: 900;
+}
+
+.suds-home-faq p {
+  margin: 0;
+  padding: 0 20px 18px;
+}
+
+.suds-home-final {
+  background:
+    radial-gradient(circle at 16% 22%, rgba(242, 211, 107, .14), transparent 30%),
+    #0b0b0b;
+  color: #ffffff;
+  text-align: center;
+}
+
+.suds-home-final h2,
+.suds-home-final p {
+  color: #ffffff;
+}
+
+.suds-home-final p {
+  max-width: 760px;
+  margin: 16px auto 0;
+  font-size: 1.72rem;
+  line-height: 1.55;
+}
+
+.suds-home-final .suds-home-actions {
+  justify-content: center;
+}
+
+@media screen and (max-width: 1040px) {
+  .suds-home-card-grid,
+  .suds-home-package-grid,
+  .suds-home-why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .suds-home-trust-grid,
+  .suds-home-process-grid,
+  .suds-home-review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .suds-home-hero .suds-home-wrap,
+  .suds-home-gallery-layout,
+  .suds-home-split,
+  .suds-home-area-grid,
+  .suds-home-faq {
+    grid-template-columns: 1fr;
+  }
+
+  .suds-home-hero-image img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .suds-home-wrap {
+    padding: 46px 18px;
+  }
+
+  .suds-home-hero h1 {
+    font-size: clamp(3.3rem, 12vw, 4.8rem);
+  }
+
+  .suds-home-lead,
+  .suds-home-section-head p,
+  .suds-home-card p,
+  .suds-home-area p,
+  .suds-home-split p,
+  .suds-home-faq p,
+  .suds-home-upgrade p {
+    font-size: 1.5rem;
+  }
+
+  .suds-home-actions,
+  .suds-home-inline-actions {
+    flex-direction: column;
+  }
+
+  .suds-home-button,
+  .suds-home-textlink {
+    width: 100%;
+  }
+
+  .suds-home-textlink {
+    justify-content: center;
+  }
+
+  .suds-home-card-grid,
+  .suds-home-package-grid,
+  .suds-home-why-grid,
+  .suds-home-trust-grid,
+  .suds-home-process-grid,
+  .suds-home-review-grid,
+  .suds-home-gallery-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -2,7 +2,7 @@
   Suds mobile drawer navigation. Mirrors the simplified local-service site map.
 {% endcomment %}
 
-{%- assign suds_nav = 'Home|/|Services|/pages/services|Service Areas|/pages/service-areas|Reviews|/pages/reviews|About|/pages/about-us|Contact|/pages/contact-us|Book Now|/collections/mobile-details' | split: '|' -%}
+{%- assign suds_nav = 'Home|/|Services|/pages/services|Packages|/#packages|Gallery|/#gallery|Reviews|/pages/reviews|Service Areas|/pages/service-areas|Contact|/pages/contact-us|Book Now|/collections/mobile-details' | split: '|' -%}
 
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -29,7 +29,7 @@
                     <a
                       id="HeaderDrawer-suds-{{ label | handleize }}"
                       href="{{ url }}"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if request.path == url %} menu-drawer__menu-item--active{% endif %}"
+                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if label == 'Book Now' %} menu-drawer__menu-item--suds-book{% endif %}{% if request.path == url %} menu-drawer__menu-item--active{% endif %}"
                       {% if request.path == url %}
                         aria-current="page"
                       {% endif %}
