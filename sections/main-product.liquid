@@ -91,6 +91,12 @@
   -%}
 
   {%- if suds_service_product_page -%}
+    <style>
+      .section-{{ section.id }}-padding {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    </style>
     {% render 'suds-service-product', section: section %}
   {%- else -%}
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}

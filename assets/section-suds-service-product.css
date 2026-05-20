@@ -6,17 +6,55 @@
   --suds-border: #dedbd0;
   --suds-blue-soft: #dceefa;
   --suds-cream: #f8f7f2;
-  --suds-gold: #f2d36b;
+  --suds-gold: #ffdd00;
   --suds-gold-deep: #8c6b05;
-  background: #ffffff;
+  background: #050505;
   color: var(--suds-ink);
+  overflow-x: hidden;
 }
 
 .suds-service-hero {
-  background:
-    radial-gradient(circle at 78% 8%, rgba(242, 211, 107, .1), transparent 30%),
-    linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
+  position: relative;
+  display: grid;
+  min-height: clamp(620px, 78vh, 760px);
+  overflow: hidden;
+  align-items: end;
+  background: #050505;
   color: #ffffff;
+}
+
+.suds-service-hero__image,
+.suds-service-hero__shade {
+  position: absolute;
+  inset: 0;
+}
+
+.suds-service-hero__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.04) contrast(1.05);
+}
+
+.suds-service-product[data-suds-service-tier="basic"] .suds-service-hero__image img {
+  object-position: center;
+}
+
+.suds-service-product[data-suds-service-tier="signature"] .suds-service-hero__image img {
+  object-position: center 44%;
+}
+
+.suds-service-product[data-suds-service-tier="elite"] .suds-service-hero__image img {
+  object-position: center;
+}
+
+.suds-service-hero__shade {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .52) 54%, #050505 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .52) 42%, rgba(0, 0, 0, .18) 100%),
+    radial-gradient(circle at 50% 102%, rgba(255, 221, 0, .22), transparent 34%);
 }
 
 .suds-service-hero__wrap,
@@ -28,18 +66,16 @@
 }
 
 .suds-service-hero__wrap {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, .9fr);
-  gap: clamp(28px, 4vw, 54px);
-  align-items: center;
-  padding-top: clamp(44px, 5vw, 74px);
-  padding-bottom: clamp(44px, 5vw, 74px);
+  position: relative;
+  z-index: 2;
+  width: min(100% - 40px, 1180px);
+  padding: clamp(70px, 10vw, 120px) 0 clamp(82px, 10vw, 130px);
 }
 
 .suds-service-hero__copy {
   display: grid;
+  max-width: 760px;
   align-content: start;
-  padding-top: clamp(0px, 1vw, 14px);
 }
 
 .suds-service-hero__eyebrow,
@@ -66,8 +102,8 @@
 .suds-service-hero h1 {
   max-width: 720px;
   color: #ffffff;
-  font-size: clamp(3.5rem, 5vw, 5.9rem);
-  line-height: 1;
+  font-size: clamp(4.2rem, 7.4vw, 8.8rem);
+  line-height: .9;
   text-wrap: balance;
 }
 
@@ -75,8 +111,42 @@
   max-width: 680px;
   margin: 16px 0 0;
   color: #eeeeee;
-  font-size: 1.68rem;
+  font-size: clamp(1.6rem, 1.6vw, 2rem);
   line-height: 1.5;
+}
+
+.suds-service-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.suds-service-button {
+  display: inline-flex;
+  min-height: 52px;
+  min-width: 184px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 1.48rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.suds-service-button--gold {
+  border: 1px solid var(--suds-gold);
+  background: var(--suds-gold);
+  color: #050505;
+  box-shadow: 0 16px 42px rgba(255, 221, 0, .26);
+}
+
+.suds-service-button--dark {
+  border: 1px solid rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .14);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
 }
 
 .suds-service-proofline {
@@ -87,6 +157,31 @@
   color: #f6f0d2;
   font-size: 1.35rem;
   font-weight: 900;
+}
+
+.suds-service-hero__arrow {
+  position: absolute;
+  z-index: 3;
+  bottom: 22px;
+  left: 50%;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #ffffff;
+  line-height: 1;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.suds-service-hero__arrow svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
 }
 
 .suds-service-proofline a,
@@ -123,13 +218,12 @@
 }
 
 .suds-service-booking {
-  max-width: 620px;
   margin-top: 22px;
-  padding: 18px;
-  border: 1px solid rgba(242, 211, 107, .52);
-  border-radius: 8px;
-  background: #15130d;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .suds-service-booking__actions {
@@ -145,7 +239,7 @@
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, .14);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
 
 .suds-service-booking__price p,
@@ -173,7 +267,7 @@
 
 .suds-service-booking__fit {
   margin-top: 12px;
-  color: #f7f0d2;
+  color: #dfdfdf;
   font-size: 1.48rem;
   line-height: 1.45;
 }
@@ -229,78 +323,11 @@
   line-height: 1.4;
 }
 
-.suds-service-hero-media {
-  position: relative;
-  min-width: 0;
-  max-width: 560px;
-  justify-self: end;
-}
-
-.suds-service-hero-media__featured,
 .suds-service-results-grid figure {
   overflow: hidden;
   border: 1px solid rgba(242, 211, 107, .36);
   border-radius: 8px;
   background: #111111;
-}
-
-.suds-service-hero-media__featured {
-  aspect-ratio: 5 / 4;
-  max-height: 500px;
-  box-shadow: 0 26px 70px rgba(0, 0, 0, .42);
-}
-
-.suds-service-hero-media__featured img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.suds-service-hero-media__empty {
-  display: grid;
-  min-height: 340px;
-  place-items: center;
-  color: var(--suds-gold);
-  font-weight: 900;
-}
-
-.suds-service-hero-media__thumbs {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.suds-service-hero-media__thumb {
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .16);
-  border-radius: 6px;
-  background: #111111;
-}
-
-.suds-service-hero-media__thumb img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.suds-service-hero-media__note {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  max-width: 260px;
-  margin: 0;
-  padding: 12px 14px;
-  border: 1px solid rgba(242, 211, 107, .35);
-  border-radius: 8px;
-  background: rgba(8, 8, 8, .78);
-  color: #f5f0d6;
-  font-size: 1.3rem;
-  line-height: 1.45;
-  backdrop-filter: blur(8px);
 }
 
 .suds-service-nav {
@@ -331,6 +358,192 @@
 .suds-service-nav a:hover {
   border-color: #d4b854;
   color: #6d5206;
+}
+
+.suds-service-package-stage {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 28%, rgba(255, 221, 0, .12), transparent 24%),
+    radial-gradient(circle at 82% 32%, rgba(38, 210, 255, .1), transparent 26%),
+    #050505;
+  color: #ffffff;
+}
+
+.suds-service-package-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5, 5, 5, .96), rgba(5, 5, 5, .72) 44%, #050505);
+}
+
+.suds-service-package-stage .suds-service-section__wrap {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(66px, 8vw, 96px);
+  padding-bottom: clamp(70px, 8vw, 110px);
+}
+
+.suds-service-package-stage__head {
+  max-width: 860px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.suds-service-package-stage__head h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3.6rem, 5.5vw, 6.4rem);
+  line-height: .95;
+}
+
+.suds-service-package-stage__head p,
+.suds-service-package-stage__note {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: #cfcfcf;
+  font-size: 1.7rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.suds-service-premium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.suds-service-premium-card {
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid rgba(255, 221, 0, .18);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025)),
+    #151515;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .35);
+}
+
+.suds-service-premium-card.is-active {
+  border-color: var(--suds-gold);
+  box-shadow:
+    0 0 0 1px rgba(255, 221, 0, .38),
+    0 30px 80px rgba(255, 221, 0, .14);
+}
+
+.suds-service-premium-card__media {
+  position: relative;
+  overflow: hidden;
+  margin: 14px 14px 0;
+  border-radius: 10px;
+  background: #080808;
+}
+
+.suds-service-premium-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, .78) 100%);
+}
+
+.suds-service-premium-card__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.suds-service-premium-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px 24px 24px;
+}
+
+.suds-service-premium-card__label {
+  margin: 0 0 8px;
+  color: var(--suds-gold);
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.suds-service-premium-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.7rem, 3vw, 3.8rem);
+  line-height: .95;
+}
+
+.suds-service-premium-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.suds-service-premium-card li {
+  position: relative;
+  min-height: 22px;
+  padding-left: 28px;
+  color: #f4f4f4;
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.suds-service-premium-card li::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--suds-gold);
+}
+
+.suds-service-premium-card li::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  width: 8px;
+  height: 5px;
+  border-bottom: 2px solid #050505;
+  border-left: 2px solid #050505;
+  transform: rotate(-45deg);
+}
+
+.suds-service-premium-card__button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #050505;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.suds-service-premium-card__button:hover {
+  background: var(--suds-gold);
+  color: #050505;
+}
+
+.suds-service-premium-card .suds-service-booking {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .16);
 }
 
 .suds-service-section {
@@ -689,6 +902,7 @@
   .suds-service-card-grid,
   .suds-service-steps,
   .suds-service-package-grid,
+  .suds-service-premium-grid,
   .suds-service-checks,
   .suds-service-results-grid,
   .suds-service-trust-grid,
@@ -696,18 +910,24 @@
     grid-template-columns: 1fr;
   }
 
-  .suds-service-hero__wrap {
-    align-items: start;
+  .suds-service-hero {
+    min-height: 640px;
   }
 
-  .suds-service-hero-media__featured {
-    aspect-ratio: 16 / 10;
-    max-height: none;
+  .suds-service-hero__shade {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, .28) 0%, rgba(0, 0, 0, .62) 54%, #050505 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, .86) 0%, rgba(0, 0, 0, .42) 100%),
+      radial-gradient(circle at 50% 102%, rgba(255, 221, 0, .18), transparent 38%);
   }
 
-  .suds-service-hero-media {
-    max-width: none;
-    justify-self: stretch;
+  .suds-service-premium-grid {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .suds-service-premium-card__media img {
+    aspect-ratio: 16 / 8;
   }
 
   .suds-service-trust-grid,
@@ -723,18 +943,31 @@
     padding: 42px 18px;
   }
 
-  .suds-service-hero__wrap {
-    gap: 24px;
+  .suds-service-hero {
+    min-height: 620px;
   }
 
-  .suds-service-hero-media__note {
-    position: static;
-    max-width: none;
-    margin-top: 10px;
+  .suds-service-hero__wrap {
+    width: min(100% - 32px, 1180px);
+    padding: 76px 0 74px;
+  }
+
+  .suds-service-hero__image img {
+    object-position: center;
   }
 
   .suds-service-hero h1 {
-    font-size: clamp(3.2rem, 13vw, 4.7rem);
+    font-size: clamp(3.4rem, 12vw, 5rem);
+    line-height: .95;
+  }
+
+  .suds-service-hero__actions {
+    flex-direction: column;
+  }
+
+  .suds-service-button {
+    width: 100%;
+    min-width: 0;
   }
 
   .suds-service-hero__lead,
@@ -743,20 +976,21 @@
     font-size: 1.5rem;
   }
 
-  .suds-service-booking {
-    padding: 18px;
+  .suds-service-package-stage .suds-service-section__wrap {
+    padding-top: 52px;
+    padding-bottom: 62px;
   }
 
-  .suds-service-hero-media__thumbs {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scroll-snap-type: x mandatory;
+  .suds-service-premium-card__media {
+    margin: 10px 10px 0;
   }
 
-  .suds-service-hero-media__thumb {
-    min-width: 82px;
-    scroll-snap-align: start;
+  .suds-service-premium-card__body {
+    padding: 20px;
+  }
+
+  .suds-service-premium-card .suds-service-booking {
+    padding: 18px 0 0;
   }
 
   .suds-service-nav {
