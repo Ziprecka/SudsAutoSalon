@@ -591,32 +591,6 @@ body.template-index {
   line-height: 1;
 }
 
-.suds-home-card-script {
-  position: absolute;
-  z-index: 3;
-  right: 14px;
-  bottom: 16px;
-  color: var(--suds-gold);
-  font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: clamp(1.9rem, 2.2vw, 2.7rem);
-  font-weight: 900;
-  line-height: 1;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, .62);
-  transform: rotate(-7deg);
-}
-
-.suds-home-card-script--green {
-  color: #31e76b;
-}
-
-.suds-home-card-script--gold {
-  color: var(--suds-gold);
-}
-
-.suds-home-card-script--teal {
-  color: #27e9ff;
-}
-
 .suds-home-package-card__body {
   display: flex;
   flex: 1;

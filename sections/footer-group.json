@@ -39,7 +39,7 @@
           "type": "text",
           "settings": {
             "heading": "Contact",
-            "subtext": "<p><a href=\"/pages/contact-us\">Request a Quote</a><br><a href=\"sms:+14253618838\">Text Photos</a><br><a href=\"mailto:sudsautosalon@gmail.com\">sudsautosalon@gmail.com</a><br><a href=\"/pages/faq\">FAQ</a><br><a href=\"/pages/reviews\">Reviews</a><br><a href=\"/pages/about-us\">About</a></p>"
+            "subtext": "<p><a href=\"/collections/mobile-details\">Book Your Mobile Detail</a><br><a href=\"/pages/contact-us\">Request a Quote</a><br><a href=\"sms:+14253618838\">Text if you need help choosing</a><br><a href=\"mailto:sudsautosalon@gmail.com\">sudsautosalon@gmail.com</a><br><a href=\"/pages/faq\">FAQ</a><br><a href=\"/pages/reviews\">Reviews</a><br><a href=\"/pages/about-us\">About</a></p>"
           }
         }
       },

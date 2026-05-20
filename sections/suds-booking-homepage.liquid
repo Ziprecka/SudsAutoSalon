@@ -19,6 +19,7 @@
   endif
 
   assign ceramic_url = '/pages/ceramic-coating'
+  assign maintenance_url = '/pages/maintenance-detailing'
   assign booking_url = '/collections/mobile-details'
   assign quote_url = '/pages/contact-us'
 
@@ -108,7 +109,7 @@
         <a class="suds-home-button suds-home-button--gold" href="{{ booking_url }}">Schedule Your Detail</a>
         <a class="suds-home-button suds-home-button--black" href="#packages">Compare Packages</a>
       </div>
-      <a class="suds-home-hero__hint" href="{{ quote_url }}">Not sure what your vehicle needs? Request a quote with photos.</a>
+      <a class="suds-home-hero__hint" href="{{ quote_url }}">Not sure what your vehicle needs? Ask for help choosing.</a>
     </div>
   </section>
 
@@ -191,24 +192,25 @@
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
         <h2>Choose Your Detail Package</h2>
-        <p>Pick the lane that matches the vehicle. If you are not sure, request a quote and Suds will recommend the right level before you book.</p>
+        <p>Schedule the detail that fits the vehicle condition. Use a quote only when you are unsure or the vehicle needs special attention.</p>
       </div>
 
       <div class="suds-home-package-tabs" data-suds-package-tabs style="--suds-tab-index: 0;">
         <div class="suds-home-tabs" role="tablist" aria-label="Detail package categories">
-          <button class="is-active" type="button" role="tab" id="suds-tab-full" aria-selected="true" aria-controls="suds-panel-full" data-package-tab="full">Full Detail</button>
-          <button type="button" role="tab" id="suds-tab-exterior" aria-selected="false" aria-controls="suds-panel-exterior" data-package-tab="exterior">Exterior Only</button>
-          <button type="button" role="tab" id="suds-tab-interior" aria-selected="false" aria-controls="suds-panel-interior" data-package-tab="interior">Interior Only</button>
+          <button class="is-active" type="button" role="tab" id="suds-tab-details" aria-selected="true" aria-controls="suds-panel-details" data-package-tab="details">Full Details</button>
+          <button type="button" role="tab" id="suds-tab-maintenance" aria-selected="false" aria-controls="suds-panel-maintenance" data-package-tab="maintenance">Maintenance</button>
+          <button type="button" role="tab" id="suds-tab-protection" aria-selected="false" aria-controls="suds-panel-protection" data-package-tab="protection">Ceramic Protection</button>
         </div>
 
-        <div class="suds-home-package-grid is-active" id="suds-panel-full" role="tabpanel" aria-labelledby="suds-tab-full" data-package-panel="full">
+        <div class="suds-home-package-grid is-active" id="suds-panel-details" role="tabpanel" aria-labelledby="suds-tab-details" data-package-panel="details">
           <article class="suds-home-package-card">
             <div class="suds-home-package-card__image">
-              <img src="{{ stock_signature_image }}" loading="lazy" alt="Foam hand wash during a mobile full detail">
-              <h3>Full Maintenance</h3>
-              <span class="suds-home-card-script suds-home-card-script--green">Refresh</span>
+              <img src="{{ stock_basic_image }}" loading="lazy" alt="Clean interior detail view for Basic Detail upkeep">
+              <h3>Basic Detail</h3>
             </div>
             <div class="suds-home-package-card__body">
+              <p class="suds-home-package-card__position">Maintained vehicle upkeep</p>
+              {%- if basic_product != blank -%}<p class="suds-home-price">From {{ basic_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
               <h4>Interior</h4>
               <ul>
                 <li>Interior vacuum</li>
@@ -226,17 +228,18 @@
                 <li>Wax protection</li>
                 <li>Clean tires</li>
               </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
+              <a class="suds-home-button suds-home-button--full" href="{{ basic_url }}">Schedule Basic Detail</a>
             </div>
           </article>
 
           <article class="suds-home-package-card suds-home-package-card--featured">
             <div class="suds-home-package-card__image">
-              <img src="{{ stock_elite_image }}" loading="lazy" alt="Detail brush work during a premium mobile detail">
-              <h3>Gold Premium</h3>
-              <span class="suds-home-card-script suds-home-card-script--gold">Most Popular</span>
+              <img src="{{ stock_signature_image }}" loading="lazy" alt="Foam hand wash during Signature Detail service">
+              <h3>Signature Detail</h3>
             </div>
             <div class="suds-home-package-card__body">
+              <p class="suds-home-package-card__position">Best all-around reset</p>
+              {%- if signature_product != blank -%}<p class="suds-home-price">From {{ signature_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
               <h4>Interior</h4>
               <ul>
                 <li>Double vacuum interior</li>
@@ -257,17 +260,18 @@
                 <li>Detail rims</li>
                 <li>Detail tires</li>
               </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
+              <a class="suds-home-button suds-home-button--full" href="{{ signature_url }}">Schedule Signature Detail</a>
             </div>
           </article>
 
           <article class="suds-home-package-card">
             <div class="suds-home-package-card__image">
-              <img src="{{ stock_coating_image }}" loading="lazy" alt="Glossy black paint finish after premium detail work">
-              <h3>Masterpiece Detail</h3>
-              <span class="suds-home-card-script suds-home-card-script--teal">V.I.P.</span>
+              <img src="{{ stock_elite_image }}" loading="lazy" alt="Detail brush work during Elite Detail service">
+              <h3>Elite Detail</h3>
             </div>
             <div class="suds-home-package-card__body">
+              <p class="suds-home-package-card__position">Premium deep reset</p>
+              {%- if elite_product != blank -%}<p class="suds-home-price">From {{ elite_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
               <h4>Interior</h4>
               <ul>
                 <li>Double vacuum interior</li>
@@ -288,161 +292,161 @@
                 <li>Paint enhancement polish</li>
                 <li>Wax protection</li>
               </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
+              <a class="suds-home-button suds-home-button--full" href="{{ elite_url }}">Schedule Elite Detail</a>
             </div>
           </article>
         </div>
 
-        <div class="suds-home-package-grid" id="suds-panel-exterior" role="tabpanel" aria-labelledby="suds-tab-exterior" data-package-panel="exterior" hidden>
+        <div class="suds-home-package-grid" id="suds-panel-maintenance" role="tabpanel" aria-labelledby="suds-tab-maintenance" data-package-panel="maintenance" hidden>
           <article class="suds-home-package-card">
             <div class="suds-home-package-card__image">
-              <img src="{{ stock_signature_image }}" loading="lazy" alt="Foam hand wash during an exterior mobile detail">
-              <h3>Exterior Refresh</h3>
-              <span class="suds-home-card-script suds-home-card-script--green">Clean</span>
+              <img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Clean maintained interior after routine detailing">
+              <h3>Monthly Maintenance</h3>
             </div>
             <div class="suds-home-package-card__body">
-              <h4>Wash</h4>
-              <ul>
-                <li>Foam pre-rinse</li>
-                <li>Hand wash</li>
-                <li>Exterior glass</li>
-                <li>Door jamb wipe</li>
-              </ul>
-              <h4>Finish</h4>
-              <ul>
-                <li>Wheel faces</li>
-                <li>Tires cleaned</li>
-                <li>Spray protection</li>
-                <li>Final towel dry</li>
-              </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
-            </div>
-          </article>
-
-          <article class="suds-home-package-card suds-home-package-card--featured">
-            <div class="suds-home-package-card__image">
-              <img src="{{ stock_polish_image }}" loading="lazy" alt="Machine polishing a dark vehicle hood for gloss enhancement">
-              <h3>Gloss Enhancement</h3>
-              <span class="suds-home-card-script suds-home-card-script--gold">Popular</span>
-            </div>
-            <div class="suds-home-package-card__body">
-              <h4>Wash</h4>
-              <ul>
-                <li>Professional hand wash</li>
-                <li>Wheel wells</li>
-                <li>Detail rims</li>
-                <li>Clean tires</li>
-              </ul>
-              <h4>Finish</h4>
-              <ul>
-                <li>Clay where needed</li>
-                <li>Spot polish review</li>
-                <li>Hand wax protection</li>
-                <li>Trim and tire dressing</li>
-              </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
-            </div>
-          </article>
-
-          <article class="suds-home-package-card">
-            <div class="suds-home-package-card__image">
-              <img src="{{ stock_coating_image }}" loading="lazy" alt="Clean black paint reflection for ceramic protection service">
-              <h3>Ceramic Protection</h3>
-              <span class="suds-home-card-script suds-home-card-script--teal">Protect</span>
-            </div>
-            <div class="suds-home-package-card__body">
-              <h4>Prep</h4>
-              <ul>
-                <li>Thorough exterior wash</li>
-                <li>Paint inspection</li>
-                <li>Decontamination review</li>
-                <li>Prep wipe</li>
-              </ul>
-              <h4>Protection</h4>
-              <ul>
-                <li>Ceramic coating quote</li>
-                <li>Gloss-focused finish</li>
-                <li>Easier maintenance</li>
-                <li>Aftercare guidance</li>
-              </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="suds-home-package-grid" id="suds-panel-interior" role="tabpanel" aria-labelledby="suds-tab-interior" data-package-panel="interior" hidden>
-          <article class="suds-home-package-card">
-            <div class="suds-home-package-card__image">
-              <img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Clean luxury vehicle cabin after interior detailing">
-              <h3>Interior Refresh</h3>
-              <span class="suds-home-card-script suds-home-card-script--green">Fresh</span>
-            </div>
-            <div class="suds-home-package-card__body">
-              <h4>Cabin</h4>
+              <p class="suds-home-package-card__position">After the vehicle has been reset</p>
+              <h4>Interior</h4>
               <ul>
                 <li>Interior vacuum</li>
                 <li>Wipe all surfaces</li>
-                <li>Cupholders and console</li>
-                <li>Interior glass</li>
-              </ul>
-              <h4>Finish</h4>
-              <ul>
                 <li>Floor mats</li>
-                <li>Door panels</li>
-                <li>Door jambs</li>
-                <li>Detail trunk</li>
+                <li>Windows &amp; mirrors</li>
               </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Quick hand wash</li>
+                <li>Clean rims</li>
+                <li>Clean tires</li>
+                <li>Light protection upkeep</li>
+              </ul>
+              <a class="suds-home-button suds-home-button--full" href="{{ maintenance_url }}">View Maintenance Plan</a>
             </div>
           </article>
 
           <article class="suds-home-package-card suds-home-package-card--featured">
             <div class="suds-home-package-card__image">
-              <img src="{{ stock_dashboard_detail_image }}" loading="lazy" alt="Close-up of clean dashboard vents and interior controls">
-              <h3>Deep Interior Reset</h3>
-              <span class="suds-home-card-script suds-home-card-script--gold">Deeper</span>
+              <img src="{{ stock_vehicle_image }}" loading="lazy" alt="Clean vehicle cabin for recurring maintenance detail service">
+              <h3>Bi-Monthly Upkeep</h3>
             </div>
             <div class="suds-home-package-card__body">
-              <h4>Cabin</h4>
+              <p class="suds-home-package-card__position">Steady care for daily drivers</p>
+              <h4>Interior</h4>
               <ul>
-                <li>Double vacuum interior</li>
-                <li>Clean &amp; protect plastic</li>
-                <li>Detail floor mats &amp; shine</li>
-                <li>Dirty touchpoints</li>
+                <li>Vacuum maintenance</li>
+                <li>Touchpoint wipe-down</li>
+                <li>Glass and mirrors</li>
+                <li>Trunk check</li>
               </ul>
-              <h4>Problem Areas</h4>
+              <h4>Exterior</h4>
               <ul>
-                <li>Stains (spot treatment)</li>
-                <li>Crumb and dust buildup</li>
-                <li>Seat cracks and crevices</li>
-                <li>Odor source review</li>
+                <li>Professional hand wash</li>
+                <li>Wheel face cleanup</li>
+                <li>Tire dressing</li>
+                <li>Protection check</li>
               </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
+              <a class="suds-home-button suds-home-button--full" href="{{ maintenance_url }}">View Maintenance Plan</a>
             </div>
           </article>
 
           <article class="suds-home-package-card">
             <div class="suds-home-package-card__image">
-              <img src="{{ stock_cabin_image }}" loading="lazy" alt="Clean vehicle cockpit ready for interior detail service">
-              <h3>Pet &amp; Family Cleanup</h3>
-              <span class="suds-home-card-script suds-home-card-script--teal">Reset</span>
+              <img src="{{ stock_signature_image }}" loading="lazy" alt="Mobile maintenance hand wash for a regularly serviced vehicle">
+              <h3>Route Refresh</h3>
             </div>
             <div class="suds-home-package-card__body">
-              <h4>Cabin</h4>
+              <p class="suds-home-package-card__position">Route-friendly recurring service</p>
+              <h4>Interior</h4>
               <ul>
-                <li>Deep vacuum pass</li>
-                <li>Pet hair review</li>
-                <li>Floor mat cleaning</li>
-                <li>Trunk and cargo area</li>
+                <li>Light cabin reset</li>
+                <li>Surface wipe-down</li>
+                <li>Glass clarity</li>
+                <li>Mat attention</li>
               </ul>
-              <h4>Add-On Review</h4>
+              <h4>Exterior</h4>
               <ul>
-                <li>Heavy pet hair</li>
-                <li>Stain extraction quote</li>
-                <li>Odor treatment quote</li>
-                <li>Family SUV reset</li>
+                <li>Hand wash upkeep</li>
+                <li>Wheels and tires</li>
+                <li>Door jamb wipe</li>
+                <li>Finish inspection</li>
               </ul>
-              <a class="suds-home-button suds-home-button--full" href="{{ quote_url }}">Get Free Quote</a>
+              <a class="suds-home-button suds-home-button--full" href="{{ maintenance_url }}">View Maintenance Plan</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="suds-home-package-grid" id="suds-panel-protection" role="tabpanel" aria-labelledby="suds-tab-protection" data-package-panel="protection" hidden>
+          <article class="suds-home-package-card">
+            <div class="suds-home-package-card__image">
+              <img src="{{ stock_coating_image }}" loading="lazy" alt="Glossy black paint reflection for ceramic coating protection">
+              <h3>Ceramic Coating</h3>
+            </div>
+            <div class="suds-home-package-card__body">
+              <p class="suds-home-package-card__position">Longer-lasting gloss and protection</p>
+              <h4>Prep</h4>
+              <ul>
+                <li>Exterior wash</li>
+                <li>Paint inspection</li>
+                <li>Decontamination review</li>
+                <li>Prep recommendation</li>
+              </ul>
+              <h4>Protection</h4>
+              <ul>
+                <li>Ceramic protection</li>
+                <li>Gloss improvement path</li>
+                <li>Easier washing</li>
+                <li>Aftercare guidance</li>
+              </ul>
+              <a class="suds-home-button suds-home-button--full" href="{{ ceramic_url }}">View Ceramic Coating</a>
+            </div>
+          </article>
+
+          <article class="suds-home-package-card suds-home-package-card--featured">
+            <div class="suds-home-package-card__image">
+              <img src="{{ stock_polish_image }}" loading="lazy" alt="Machine polishing a dark vehicle hood for paint enhancement">
+              <h3>Paint Enhancement</h3>
+            </div>
+            <div class="suds-home-package-card__body">
+              <p class="suds-home-package-card__position">Finish improvement before protection</p>
+              <h4>Paint</h4>
+              <ul>
+                <li>Paint condition review</li>
+                <li>Clay where needed</li>
+                <li>Gloss-focused polish</li>
+                <li>Light defect improvement</li>
+              </ul>
+              <h4>Finish</h4>
+              <ul>
+                <li>Cleaner reflections</li>
+                <li>Protection pairing</li>
+                <li>Trim review</li>
+                <li>Coating readiness</li>
+              </ul>
+              <a class="suds-home-button suds-home-button--full" href="{{ ceramic_url }}">View Paint Enhancement</a>
+            </div>
+          </article>
+
+          <article class="suds-home-package-card">
+            <div class="suds-home-package-card__image">
+              <img src="{{ stock_signature_image }}" loading="lazy" alt="Foam hand wash maintaining a protected vehicle finish">
+              <h3>Protection Maintenance</h3>
+            </div>
+            <div class="suds-home-package-card__body">
+              <p class="suds-home-package-card__position">For coated or freshly protected vehicles</p>
+              <h4>Care</h4>
+              <ul>
+                <li>Safe hand wash</li>
+                <li>Wheel cleanup</li>
+                <li>Protection check</li>
+                <li>Glass and trim care</li>
+              </ul>
+              <h4>Result</h4>
+              <ul>
+                <li>Maintain gloss</li>
+                <li>Reduce buildup</li>
+                <li>Aftercare notes</li>
+                <li>Next-service guidance</li>
+              </ul>
+              <a class="suds-home-button suds-home-button--full" href="{{ ceramic_url }}">View Protection Options</a>
             </div>
           </article>
         </div>
@@ -490,8 +494,8 @@
         <img src="{{ stock_hero_image }}" loading="lazy" alt="Real hand wash detailing photo with soap on a vehicle window">
       </div>
       <div class="suds-home-actions suds-home-actions--center">
-        <a class="suds-home-button suds-home-button--blue" href="{{ quote_url }}">Request a Quote</a>
-        <a class="suds-home-button suds-home-button--gray" href="{{ booking_url }}">Book Now</a>
+        <a class="suds-home-button suds-home-button--blue" href="{{ booking_url }}">Schedule Your Detail</a>
+        <a class="suds-home-button suds-home-button--gray" href="{{ quote_url }}">Request a Quote</a>
       </div>
     </div>
 
@@ -620,7 +624,7 @@
         <details><summary>How long does a detail take?</summary><p>Timing depends on vehicle size, condition, access, and add-ons. Elite takes longer than Basic because it is built for heavier condition.</p></details>
         <details><summary>Do I need water or power available?</summary><p>Access needs depend on the location and service setup. Share parking and access details when booking so the setup can be confirmed.</p></details>
         <details><summary>Does detailing remove scratches?</summary><p>Cleaning, clay, and wax can improve gloss and feel. Actual scratch removal requires paint correction and should be quoted separately.</p></details>
-        <details><summary>What if I have pet hair or heavy staining?</summary><p>Send photos before booking. Heavy pet hair, staining, odor, mold concerns, or unusual buildup may require more time or a different package.</p></details>
+        <details><summary>What if I have pet hair or heavy staining?</summary><p>You can still schedule a detail, but heavy pet hair, staining, odor, mold concerns, or unusual buildup may require more time or a different package. Request guidance first if you are unsure which tier fits.</p></details>
         <details><summary>Can I add ceramic coating?</summary><p>Yes. Ceramic coating is a protection upgrade and is best quoted after the paint condition and prep needs are reviewed.</p></details>
         <details><summary>How often should I detail my vehicle?</summary><p>Most daily drivers benefit from a proper reset first, then maintenance every month or two depending on use, parking, kids, pets, and commute.</p></details>
       </div>

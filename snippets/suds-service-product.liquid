@@ -30,17 +30,17 @@
   endif
 
   assign headline = product.title | append: ' Mobile Detail'
-  assign subheadline = 'Private mobile detailing at your home or office, matched to the condition of the vehicle before you book.'
+  assign subheadline = 'Private mobile detailing at your home or office. Schedule the package that fits your vehicle, or request guidance if you are unsure.'
   assign position = 'Inside-and-out mobile detailing for Seattle-area drivers.'
   assign best_for = 'Daily drivers, commuters, families, and vehicles that need a cleaner baseline.'
-  assign not_for = 'Heavy pet hair, odor, mold concerns, or restoration-level work without a photo review first.'
+  assign not_for = 'Heavy pet hair, odor, mold concerns, or restoration-level work without package guidance first.'
   assign included_one = 'Interior surfaces, seats, mats, carpets, glass, and the touchpoints that collect daily grime.'
   assign included_two = 'Exterior hand wash, wheels, tires, glass, trim attention, and a cleaner finish.'
   assign included_three = 'Straight package guidance before the appointment when the vehicle needs more than the selected tier.'
   assign wash_reason = 'A car wash mostly touches the outside. A detail deals with the parts you actually live with: dusty vents, dirty touchpoints, crumbs, body oils, road film, wheels, glass, and a finish that needs more than a rinse.'
-  assign heavy_note = 'If the vehicle is beyond this tier, send photos first. Suds will tell you before you book the wrong appointment.'
+  assign heavy_note = 'If the vehicle is beyond this tier, Suds will point you to the right package before the appointment.'
   assign faq_time = 'Timing depends on vehicle size, condition, parking access, and add-ons. Suds confirms the appointment window before the detail.'
-  assign package_question = 'If you are unsure, send photos. Suds will recommend the lightest package that can still do the job properly.'
+  assign package_question = 'Schedule directly when you know the package. If you are unsure, request guidance and Suds will recommend the lightest package that can still do the job properly.'
 
   case service_tier
     when 'basic'
@@ -52,7 +52,7 @@
       assign included_one = 'Interior wipe-down of touchpoints, plastics, cupholders, glass, mats, and normal dust.'
       assign included_two = 'Exterior hand wash, wheels, tires, exterior glass, and a clean finished look.'
       assign included_three = 'A lighter appointment that keeps a maintained vehicle sharp without charging for work it does not need.'
-      assign heavy_note = 'If photos show heavier buildup, Suds will point you to Signature or Elite before you waste the appointment.'
+      assign heavy_note = 'If the vehicle has heavier buildup, Suds will point you to Signature or Elite before the appointment.'
       assign faq_time = 'Basic is the shortest Suds package because it is meant for maintained vehicles. Vehicle size and access still affect the appointment window.'
       assign package_question = 'Choose Basic when the car is already decent and needs upkeep, not a rescue detail.'
     when 'signature'
@@ -83,6 +83,19 @@
   endcase
 
   assign featured_image = product.featured_image
+  assign service_image_url = ''
+  assign service_image_alt = product.title | append: ' mobile detailing service'
+  case service_tier
+    when 'basic'
+      assign service_image_url = 'https://images.pexels.com/photos/5288711/pexels-photo-5288711.jpeg?auto=compress&cs=tinysrgb&w=1400'
+      assign service_image_alt = 'Clean vehicle interior for Basic Detail upkeep'
+    when 'signature'
+      assign service_image_url = 'https://images.pexels.com/photos/4870727/pexels-photo-4870727.jpeg?auto=compress&cs=tinysrgb&w=1400'
+      assign service_image_alt = 'Foam hand wash for Signature Detail mobile service'
+    when 'elite'
+      assign service_image_url = 'https://images.pexels.com/photos/6873087/pexels-photo-6873087.jpeg?auto=compress&cs=tinysrgb&w=1400'
+      assign service_image_alt = 'Detail brush work for Elite Detail mobile service'
+  endcase
   assign clean_description_text = product.description | strip_html | strip
   assign show_product_description = true
   if clean_description_text == blank
@@ -185,15 +198,17 @@
           </product-info>
           <div class="suds-service-booking__actions">
             <a href="#compare">Compare Packages</a>
-            <a href="/pages/contact-us">Ask About This Package</a>
+            <a href="/pages/contact-us">Need help choosing?</a>
           </div>
-          <p class="suds-service-booking__meta">Mobile appointment service for Seattle and nearby areas.</p>
+          <p class="suds-service-booking__meta">Book online now. Photos are optional and only needed when the vehicle condition is unclear.</p>
         </div>
       </div>
 
       <div class="suds-service-hero-media" aria-label="{{ product.title | escape }} photo gallery">
         <div class="suds-service-hero-media__featured">
-          {%- if featured_image != blank -%}
+          {%- if service_image_url != blank -%}
+            <img src="{{ service_image_url }}" loading="eager" fetchpriority="high" alt="{{ service_image_alt | escape }}">
+          {%- elsif featured_image != blank -%}
             {%- assign featured_alt = featured_image.alt | default: product.title | escape -%}
             {{
               featured_image
@@ -227,7 +242,7 @@
             {%- endfor -%}
           </div>
         {%- endif -%}
-        <div class="suds-service-hero-media__note">Photos help Suds confirm the right package before the appointment.</div>
+        <div class="suds-service-hero-media__note">Schedule first when you know the package. Ask for guidance only if the condition is unclear.</div>
       </div>
     </div>
   </section>
@@ -258,7 +273,7 @@
           <p>{{ not_for }}</p>
         </article>
         <article>
-          <h3>Send photos when</h3>
+          <h3>Ask first when</h3>
           <p>{{ heavy_note }}</p>
         </article>
       </div>
@@ -299,28 +314,13 @@
     <div class="suds-service-section__wrap">
       <div class="suds-service-section__head">
         <p class="suds-service-kicker">Real results</p>
-        <h2>Real Suds results</h2>
-        <p>Use these photos to judge the kind of finish, cabin cleanup, and exterior presentation this package is meant to deliver.</p>
+        <h2>What this package is built to improve</h2>
+        <p>Clean cabin presentation, sharper exterior finish, better wheels and glass, and a vehicle that feels easier to keep up with.</p>
       </div>
       <div class="suds-service-results-grid">
-        {%- if product.images.size > 0 -%}
-          {%- for image in product.images limit: 6 -%}
-            {%- assign result_alt = image.alt | default: product.title | escape -%}
-            <figure>
-              {{
-                image
-                | image_url: width: 720
-                | image_tag:
-                  loading: 'lazy',
-                  widths: '280, 420, 560, 720',
-                  sizes: '(min-width: 990px) 31vw, 100vw',
-                  alt: result_alt
-              }}
-            </figure>
-          {%- endfor -%}
-        {%- else -%}
-          <div class="suds-service-results-grid__empty">Add Suds vehicle photos to this product in Shopify to fill this results gallery.</div>
-        {%- endif -%}
+        <figure><img src="{{ service_image_url }}" loading="lazy" alt="{{ service_image_alt | escape }}"></figure>
+        <figure><img src="https://images.pexels.com/photos/18471360/pexels-photo-18471360.jpeg?auto=compress&cs=tinysrgb&w=900" loading="lazy" alt="Clean dashboard vents and interior detail surfaces"></figure>
+        <figure><img src="https://images.pexels.com/photos/30674510/pexels-photo-30674510.jpeg?auto=compress&cs=tinysrgb&w=900" loading="lazy" alt="Glossy black vehicle paint after detail protection"></figure>
       </div>
     </div>
   </section>
@@ -452,7 +452,7 @@
         <details><summary>Do you come to my location?</summary><p>Yes. Suds details at homes, offices, and approved parking locations when the route and access work.</p></details>
         <details><summary>Is this a maintenance wash?</summary><p>No. This is a detail package. Maintenance is for vehicles that have already been reset and need regular upkeep.</p></details>
         <details><summary>Does this remove scratches?</summary><p>Cleaning, clay, and wax can improve gloss and feel. Actual scratch removal requires paint correction and should be quoted separately.</p></details>
-        <details><summary>What if my vehicle has pet hair, stains, or heavy buildup?</summary><p>Send photos before booking. Heavy pet hair, staining, odor, mold concerns, or unusual buildup can require more time or a different package.</p></details>
+        <details><summary>What if my vehicle has pet hair, stains, or heavy buildup?</summary><p>You can still book, but heavy pet hair, staining, odor, mold concerns, or unusual buildup can require more time or a different package. If you are unsure, request guidance before scheduling.</p></details>
         <details><summary>What should I remove before the appointment?</summary><p>Remove personal items, valuables, child seats if possible, and anything you do not want moved.</p></details>
         <details><summary>Do I need water or power available?</summary><p>It depends on the location and setup. Share parking and access details when booking so the service setup can be confirmed.</p></details>
         <details><summary>What package should I choose?</summary><p>{{ package_question }}</p></details>
@@ -464,11 +464,10 @@
   <section class="suds-service-final" id="book">
     <div class="suds-service-final__wrap">
       <h2>Ready to get your vehicle back in shape?</h2>
-      <p>Schedule the detail, or send photos first if you want Suds to confirm the right package before you book.</p>
+      <p>Schedule the detail that fits your vehicle. If the condition is unusual, request guidance before booking.</p>
       <div class="suds-service-final__actions">
         <a href="#suds-service-booking-{{ section.id }}">Schedule This Detail</a>
         <a href="/pages/contact-us">Request a Quote</a>
-        <a href="sms:+14253618838">Text Photos for a Faster Quote</a>
       </div>
     </div>
   </section>
@@ -554,7 +553,7 @@
       "name": "What if my vehicle has pet hair, stains, or heavy buildup?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Send photos before booking. Heavy pet hair, staining, odor, mold concerns, or unusual buildup can require more time or a different package."
+        "text": "You can still book, but heavy pet hair, staining, odor, mold concerns, or unusual buildup can require more time or a different package. If you are unsure, request guidance before scheduling."
       }
     },
     {
