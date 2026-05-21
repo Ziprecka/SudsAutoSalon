@@ -20,7 +20,7 @@
 
   assign ceramic_url = '/pages/ceramic-coating'
   assign maintenance_url = '/pages/monthly-maintenance-plan'
-  assign booking_url = '/collections/mobile-details'
+  assign booking_url = signature_url
   assign quote_url = '/pages/contact-us'
 
   assign stock_hero_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c2f80beb-6530-4420-8472-a92faccbe0f9.jpg?v=1779266080'
@@ -209,23 +209,12 @@
       </div>
 
       <div class="suds-home-results-grid" aria-label="Suds Auto Salon detailing result examples">
-        {%- if has_gallery_blocks -%}
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'gallery_image' and block.settings.image != blank -%}
-              <figure class="suds-home-result-card" {{ block.shopify_attributes }}>
-                {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(min-width: 990px) 33vw, 100vw', alt: block.settings.alt_text }}
-                <figcaption>{{ block.settings.caption }}</figcaption>
-              </figure>
-            {%- endif -%}
-          {%- endfor -%}
-        {%- else -%}
-          <figure class="suds-home-result-card"><img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console detailing during a daily-driver reset"><figcaption>Interior reset for daily-driver buildup</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_basic_image }}" loading="lazy" alt="Vacuum detail work removing daily debris from a vehicle cabin"><figcaption>Pet hair and interior cleanup</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint for exterior gloss improvement"><figcaption>Gloss and protection upgrade</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_vehicle_image }}" loading="lazy" alt="Wheel and tire cleanup on a black vehicle"><figcaption>Wheel and tire cleanup</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Steam cleaning an interior door panel during a family vehicle detail"><figcaption>Family vehicle detail</figcaption></figure>
-          <figure class="suds-home-result-card"><img src="{{ stock_polish_image }}" loading="lazy" alt="Paint polishing for exterior wash, clay, and wax finish work"><figcaption>Exterior wash, clay, and wax finish</figcaption></figure>
-        {%- endif -%}
+        <figure class="suds-home-result-card"><img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console detailing during a daily-driver reset"><figcaption>Interior reset for daily-driver buildup</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ stock_basic_image }}" loading="lazy" alt="Vacuum detail work removing daily debris from a vehicle cabin"><figcaption>Pet hair and interior cleanup</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint for exterior gloss improvement"><figcaption>Gloss and protection upgrade</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ stock_vehicle_image }}" loading="lazy" alt="Wheel and tire cleanup on a black vehicle"><figcaption>Wheel and tire cleanup</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Steam cleaning an interior door panel during a family vehicle detail"><figcaption>Family vehicle detail</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ stock_polish_image }}" loading="lazy" alt="Paint polishing for exterior wash, clay, and wax finish work"><figcaption>Exterior wash, clay, and wax finish</figcaption></figure>
       </div>
     </div>
   </section>
@@ -348,6 +337,45 @@
     </div>
   </section>
 
+  {%- if has_gallery_blocks or request.design_mode -%}
+    <section class="suds-home-results suds-home-results--bottom" id="real-photo-proof">
+      <div class="suds-home-shell">
+        <div class="suds-home-section-title suds-home-section-title--center">
+          <h2>Real Suds Photo Proof</h2>
+          <p>Recent Suds Auto Salon details, from specialty vehicles to interior resets, exterior gloss, wheels, and family vehicle cleanup.</p>
+        </div>
+
+        {%- if has_gallery_blocks -%}
+          <div class="suds-home-proof-track" aria-label="Suds Auto Salon real detailing photo proof">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'gallery_image' and block.settings.image != blank -%}
+                <figure class="suds-home-result-card" {{ block.shopify_attributes }}>
+                  {{
+                    block.settings.image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '360, 540, 720, 900, 1200',
+                      sizes: '(min-width: 990px) 36vw, 84vw',
+                      alt: block.settings.alt_text
+                  }}
+                  {%- if block.settings.caption != blank -%}
+                    <figcaption>{{ block.settings.caption }}</figcaption>
+                  {%- endif -%}
+                </figure>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          <p class="suds-home-results-note">Swipe or scroll to see more recent Suds details.</p>
+        {%- else -%}
+          <div class="suds-home-proof-empty">
+            <p>Add real Suds photos to this homepage section in Shopify. Put the Ferrari photo in the first gallery block for the strongest proof image.</p>
+          </div>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- endif -%}
+
   <section class="suds-home-final">
     <div class="suds-home-shell">
       <p class="suds-home-final__eyebrow">Owner-operator walk-through</p>
@@ -404,7 +432,7 @@
   "blocks": [
     {
       "type": "gallery_image",
-      "name": "Gallery image",
+      "name": "Real photo proof image",
       "settings": [
         {
           "type": "image_picker",

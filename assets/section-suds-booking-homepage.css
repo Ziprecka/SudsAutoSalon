@@ -505,10 +505,61 @@ p.suds-home-hero__eyebrow {
   background: #ffffff;
 }
 
+.suds-home-results--bottom {
+  border-top: 1px solid rgba(0, 0, 0, .06);
+  background: #ffffff;
+}
+
 .suds-home-results-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.suds-home-proof-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 36%);
+  gap: 16px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 4px 4px 18px;
+  scroll-padding-inline: 4px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.suds-home-proof-track .suds-home-result-card {
+  min-height: 390px;
+  scroll-snap-align: start;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .14);
+}
+
+.suds-home-proof-track .suds-home-result-card img {
+  min-height: 390px;
+}
+
+.suds-home-results-note,
+.suds-home-proof-empty p {
+  margin: 18px auto 0;
+  color: #333333;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.suds-home-proof-empty {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px dashed rgba(0, 0, 0, .22);
+  border-radius: 14px;
+  background: #f6f3ee;
+}
+
+.suds-home-proof-empty p {
+  margin: 0;
 }
 
 .suds-home-result-card {
@@ -1562,6 +1613,19 @@ p.suds-home-hero__eyebrow {
   .suds-home-result-card,
   .suds-home-result-card img {
     min-height: 235px;
+  }
+
+  .suds-home-proof-track {
+    grid-auto-columns: minmax(260px, 84vw);
+    margin-right: -18px;
+    margin-left: -18px;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .suds-home-proof-track .suds-home-result-card,
+  .suds-home-proof-track .suds-home-result-card img {
+    min-height: 310px;
   }
 
   .suds-booking-home {
