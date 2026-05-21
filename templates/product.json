@@ -47,6 +47,10 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "trustify_reviews_app_stars_block_BEzpzy": {
+          "type": "shopify://apps/trustify-reviews/blocks/app-stars-block/60d505af-e468-47cf-a184-a06ccd6703ac",
+          "settings": {}
         }
       },
       "block_order": [
@@ -56,7 +60,8 @@
         "variant_picker",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "trustify_reviews_app_stars_block_BEzpzy"
       ],
       "settings": {
         "enable_sticky_info": false,
