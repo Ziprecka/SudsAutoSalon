@@ -385,8 +385,9 @@
 .suds-service-package-stage .suds-service-section__wrap {
   position: relative;
   z-index: 1;
-  padding-top: clamp(66px, 8vw, 96px);
-  padding-bottom: clamp(70px, 8vw, 110px);
+  max-width: 1240px;
+  padding-top: clamp(42px, 6vw, 72px);
+  padding-bottom: clamp(56px, 7vw, 90px);
 }
 
 .suds-service-package-stage__head {
@@ -395,11 +396,23 @@
   text-align: center;
 }
 
-.suds-service-package-stage__head h2 {
+.suds-service-package-stage__eyebrow {
+  margin: 0 0 12px;
+  color: var(--suds-gold);
+  font-size: 1.2rem;
+  font-weight: 950;
+  letter-spacing: .07em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.suds-service-package-stage__head h1 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(3.6rem, 5.5vw, 6.4rem);
+  font-size: clamp(4.2rem, 6vw, 7.2rem);
   line-height: .95;
+  letter-spacing: 0;
+  text-wrap: balance;
 }
 
 .suds-service-package-stage__head p,
@@ -410,6 +423,28 @@
   font-size: 1.7rem;
   line-height: 1.5;
   text-align: center;
+}
+
+.suds-service-package-stage__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.suds-service-package-stage__badges span {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 221, 0, .25);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .06);
+  color: #f6f0d2;
+  font-size: 1.24rem;
+  font-weight: 900;
+  line-height: 1.15;
 }
 
 .suds-service-premium-grid {
@@ -491,6 +526,10 @@
   font-size: 1.55rem;
   font-weight: 950;
   line-height: 1.2;
+}
+
+.suds-service-premium-card:not(.is-active) .suds-service-premium-card__price {
+  color: #e6e6e6;
 }
 
 .suds-service-premium-card ul {
@@ -984,6 +1023,10 @@
     margin: 0 auto;
   }
 
+  .suds-service-premium-card.is-active {
+    order: -1;
+  }
+
   .suds-service-premium-card__media img {
     aspect-ratio: 16 / 8;
   }
@@ -1035,8 +1078,27 @@
   }
 
   .suds-service-package-stage .suds-service-section__wrap {
-    padding-top: 52px;
+    padding-top: 34px;
     padding-bottom: 62px;
+  }
+
+  .suds-service-package-stage__head {
+    margin-bottom: 24px;
+  }
+
+  .suds-service-package-stage__head h1 {
+    font-size: clamp(3.4rem, 10vw, 4.6rem);
+  }
+
+  .suds-service-package-stage__badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .suds-service-package-stage__badges span {
+    justify-content: center;
+    text-align: center;
   }
 
   .suds-service-premium-card__media {

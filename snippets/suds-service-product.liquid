@@ -196,48 +196,18 @@
 {{ 'section-suds-service-product.css' | asset_url | stylesheet_tag }}
 
 <div class="suds-service-product" data-suds-service-product="{{ package_key }}" data-suds-service-tier="{{ service_tier }}">
-  <section class="suds-service-hero" id="overview">
-    <div class="suds-service-hero__image" aria-hidden="true">
-      <img src="{{ hero_image_url }}" loading="eager" fetchpriority="high" alt="">
-    </div>
-    <div class="suds-service-hero__shade" aria-hidden="true"></div>
-    <div class="suds-service-hero__wrap">
-      <div class="suds-service-hero__copy">
-        <p class="suds-service-hero__eyebrow">Seattle Mobile Detailing</p>
-        <h1>{{ headline }}</h1>
-        <p class="suds-service-hero__lead">{{ subheadline }}</p>
-        <div class="suds-service-hero__actions">
-          <a class="suds-service-button suds-service-button--gold" href="#suds-service-booking-{{ section.id }}">Schedule This Detail</a>
-          <a class="suds-service-button suds-service-button--dark" href="#included">See What's Included</a>
-        </div>
-        <div class="suds-service-proofline">
-          <a href="#reviews">Read local reviews</a>
-          <span>Mobile at home or office</span>
-          <span>Interior + exterior</span>
-        </div>
-      </div>
-    </div>
-    <a class="suds-service-hero__arrow" href="#suds-service-packages" aria-label="View package details">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6 9l6 6 6-6" />
-      </svg>
-    </a>
-  </section>
-
-  <nav class="suds-service-nav" aria-label="{{ product.title | escape }} page navigation">
-    <a href="#overview">Overview</a>
-    <a href="#suds-service-packages">Packages</a>
-    <a href="#included">Included</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#faq">FAQ</a>
-    <a href="#suds-service-booking-{{ section.id }}">Book</a>
-  </nav>
-
   <section class="suds-service-package-stage" id="suds-service-packages">
     <div class="suds-service-section__wrap">
       <div class="suds-service-package-stage__head">
-        <h2>Compare Detail Packages</h2>
-        <p>Not every vehicle needs the same level of work. Use this guide to choose the right starting point.</p>
+        <p class="suds-service-package-stage__eyebrow">Seattle Mobile Detailing</p>
+        <h1>Compare Detail Packages</h1>
+        <p>Choose the package that matches your vehicle's condition. The current package is highlighted with the booking button ready inside the card.</p>
+        <div class="suds-service-package-stage__badges" aria-label="Suds Auto Salon trust signals">
+          <span>Mobile at home or office</span>
+          <span>Interior + exterior packages</span>
+          <span>Private Seattle-area detailer</span>
+          <span>Book online when you know the package</span>
+        </div>
       </div>
       <div class="suds-service-premium-grid">
         <article class="suds-service-premium-card {% if service_tier == 'basic' %}is-active{% endif %}">
@@ -376,6 +346,16 @@
       <p class="suds-service-package-stage__note">Schedule directly when you know the package. Request a quote if pet hair, odor, staining, access, or paint condition may change the right recommendation.</p>
     </div>
   </section>
+
+  <nav class="suds-service-nav" aria-label="{{ product.title | escape }} page navigation">
+    <a href="#suds-service-packages">Packages</a>
+    <a href="#best-for">Best For</a>
+    <a href="#included">Included</a>
+    <a href="#value">Value</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#suds-service-booking-{{ section.id }}">Book</a>
+  </nav>
 
   <section class="suds-service-section" id="best-for">
     <div class="suds-service-section__wrap">
