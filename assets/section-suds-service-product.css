@@ -535,9 +535,24 @@
 .suds-service-premium-card ul {
   display: grid;
   gap: 10px;
-  margin: 20px 0 24px;
+  margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.suds-service-premium-card__includes {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 26px;
+}
+
+.suds-service-premium-card__includes h4 {
+  margin: 4px 0 0;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 .suds-service-premium-card li {

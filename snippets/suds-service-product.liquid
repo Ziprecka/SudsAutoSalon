@@ -95,24 +95,20 @@
   assign exterior_list = exterior_items | split: '|'
 
   assign featured_image = product.featured_image
-  assign wheel_service_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_b52468ed-4ba5-4ee9-94ba-541c2b16683b.jpg?v=1779266082'
-  assign paint_towel_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c2f80beb-6530-4420-8472-a92faccbe0f9.jpg?v=1779266080'
-  assign steam_interior_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_fcc641e4-314c-48e8-ad61-9ecdacfcecd9.jpg?v=1779266078'
-  assign door_detail_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_ad58bc49-9ae2-42c1-8558-4cf7ea1be591.jpg?v=1779266059'
-  assign wheel_towel_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_9cb5a499-13f3-42cd-a162-7b3e5d9b0269.jpg?v=1779266058'
-  assign polisher_image_url = 'https://images.pexels.com/photos/5233258/pexels-photo-5233258.jpeg?auto=compress&cs=tinysrgb&w=2200'
-  assign elite_polish_hero_image_url = 'https://images.pexels.com/photos/5233259/pexels-photo-5233259.jpeg?auto=compress&cs=tinysrgb&w=2200'
-  assign vacuum_interior_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6648c2c3-acdf-423f-b835-b6e7f93d2e14.jpg?v=1779266055'
-  assign console_brush_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6ecb2b24-4ebc-4baa-872d-352805ac81a7.jpg?v=1779266049'
-  assign red_protection_image_url = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download.jpg?v=1779266040'
-  assign basic_service_image_url = vacuum_interior_image_url
-  assign signature_service_image_url = console_brush_image_url
-  assign elite_service_image_url = polisher_image_url
-  assign finish_service_image_url = red_protection_image_url
-  assign cabin_service_image_url = steam_interior_image_url
-  assign basic_hero_image_url = 'https://images.pexels.com/photos/5288711/pexels-photo-5288711.jpeg?auto=compress&cs=tinysrgb&w=2200'
-  assign signature_hero_image_url = 'https://images.pexels.com/photos/4870727/pexels-photo-4870727.jpeg?auto=compress&cs=tinysrgb&w=2200'
-  assign elite_hero_image_url = elite_polish_hero_image_url
+  assign real_basic_image_url = 'https://sudsautosalon.com/cdn/shop/files/IMG_1565.jpg?v=1778041942&width=1000'
+  assign real_basic_alt_image_url = 'https://sudsautosalon.com/cdn/shop/files/IMG_1564.jpg?v=1778041938&width=1000'
+  assign real_signature_image_url = 'https://sudsautosalon.com/cdn/shop/files/aligned_combined_before_after_new.jpg?v=1715324600&width=1200'
+  assign real_signature_alt_image_url = 'https://sudsautosalon.com/cdn/shop/files/IMG_7377.jpg?v=1776311579&width=1000'
+  assign real_elite_image_url = 'https://sudsautosalon.com/cdn/shop/files/IMG_8131.jpg?v=1719604825&width=1000'
+  assign real_elite_alt_image_url = 'https://sudsautosalon.com/cdn/shop/files/IMG_6974.jpg?v=1719605082&width=1000'
+  assign finish_service_image_url = real_elite_alt_image_url
+  assign cabin_service_image_url = real_signature_alt_image_url
+  assign basic_service_image_url = real_basic_image_url
+  assign signature_service_image_url = real_signature_image_url
+  assign elite_service_image_url = real_elite_image_url
+  assign basic_hero_image_url = real_basic_image_url
+  assign signature_hero_image_url = real_signature_image_url
+  assign elite_hero_image_url = real_elite_image_url
   assign service_image_url = ''
   assign hero_image_url = ''
   assign service_image_alt = product.title | append: ' mobile detailing service'
@@ -216,14 +212,25 @@
             <p class="suds-service-premium-card__label">Lighter upkeep refresh</p>
             <h3>Basic Detail</h3>
             {%- if basic_product != blank -%}<p class="suds-service-premium-card__price">Starting at {{ basic_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
-            <ul>
-              <li>For maintained vehicles</li>
-              <li>Lighter interior refresh</li>
-              <li>Hand wash and dry</li>
-              <li>Wheel and tire faces</li>
-              <li>Interior and exterior glass</li>
-              <li>Cleaner, fresher feel</li>
-            </ul>
+            <div class="suds-service-premium-card__includes">
+              <h4>Interior</h4>
+              <ul>
+                <li>Interior vacuum</li>
+                <li>Wipe all surfaces</li>
+                <li>Light spot attention</li>
+                <li>Windows and mirrors</li>
+                <li>Door jambs</li>
+                <li>Floor mats</li>
+                <li>Detail trunk</li>
+              </ul>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Quick hand wash</li>
+                <li>Wax protection</li>
+                <li>Clean rims</li>
+                <li>Clean tires</li>
+              </ul>
+            </div>
             {%- if service_tier == 'basic' -%}
               <div class="suds-service-booking" id="suds-service-booking-{{ section.id }}">
                 <div class="suds-service-booking__price">
@@ -254,14 +261,28 @@
             <p class="suds-service-premium-card__label">Best first booking</p>
             <h3>Signature Detail</h3>
             {%- if signature_product != blank -%}<p class="suds-service-premium-card__price">Starting at {{ signature_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
-            <ul>
-              <li>For most daily drivers</li>
-              <li>Proper inside-and-out reset</li>
-              <li>Full interior vacuum</li>
-              <li>Touchpoint and panel cleaning</li>
-              <li>Careful hand wash</li>
-              <li>Sharper exterior presentation</li>
-            </ul>
+            <div class="suds-service-premium-card__includes">
+              <h4>Interior</h4>
+              <ul>
+                <li>Double vacuum interior</li>
+                <li>Clean and protect plastics</li>
+                <li>Spot-treatment attention</li>
+                <li>Detail floor mats</li>
+                <li>Wipe all surfaces</li>
+                <li>Windows and mirrors</li>
+                <li>Detail trunk</li>
+                <li>Door jambs</li>
+              </ul>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Professional hand wash</li>
+                <li>Wax protection</li>
+                <li>Detail rims</li>
+                <li>Light spot polish when appropriate</li>
+                <li>Wheel wells</li>
+                <li>Detail tires</li>
+              </ul>
+            </div>
             {%- if service_tier == 'signature' -%}
               <div class="suds-service-booking" id="suds-service-booking-{{ section.id }}">
                 <div class="suds-service-booking__price">
@@ -292,14 +313,28 @@
             <p class="suds-service-premium-card__label">Premium deep reset</p>
             <h3>Elite Detail</h3>
             {%- if elite_product != blank -%}<p class="suds-service-premium-card__price">Starting at {{ elite_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
-            <ul>
-              <li>For heavier buildup</li>
-              <li>Family, pet, and work vehicles</li>
-              <li>Deeper interior reset</li>
-              <li>Clay bar decontamination</li>
-              <li>Premium hand wax</li>
-              <li>Strongest non-coating detail</li>
-            </ul>
+            <div class="suds-service-premium-card__includes">
+              <h4>Interior</h4>
+              <ul>
+                <li>Double vacuum interior</li>
+                <li>Clean and protect plastics</li>
+                <li>Spot-treatment attention</li>
+                <li>Detail floor mats</li>
+                <li>Wipe all surfaces</li>
+                <li>Windows and mirrors</li>
+                <li>Detail trunk</li>
+                <li>Door jambs</li>
+              </ul>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Professional hand wash</li>
+                <li>Wheel wells and door jambs</li>
+                <li>Clay bar exterior</li>
+                <li>Gloss-focused finish work</li>
+                <li>Dress trim and tires</li>
+                <li>Wax protection</li>
+              </ul>
+            </div>
             {%- if service_tier == 'elite' -%}
               <div class="suds-service-booking" id="suds-service-booking-{{ section.id }}">
                 <div class="suds-service-booking__price">
@@ -324,7 +359,7 @@
 
         <article class="suds-service-premium-card">
           <div class="suds-service-premium-card__media">
-            <img src="{{ red_protection_image_url }}" loading="lazy" alt="Ceramic coating application for longer-lasting gloss and protection">
+            <img src="{{ finish_service_image_url }}" loading="lazy" alt="Glossy exterior finish after Suds Auto Salon detailing">
           </div>
           <div class="suds-service-premium-card__body">
             <p class="suds-service-premium-card__label">Protection upgrade</p>
@@ -430,8 +465,8 @@
       </div>
       <div class="suds-service-results-grid">
         <figure><img src="{{ service_image_url }}" loading="lazy" alt="{{ service_image_alt | escape }}"></figure>
-        <figure><img src="{{ cabin_service_image_url }}" loading="lazy" alt="Steam cleaning an interior door panel during mobile detailing"></figure>
-        <figure><img src="{{ finish_service_image_url }}" loading="lazy" alt="Applying protection to glossy red vehicle paint"></figure>
+        <figure><img src="{{ cabin_service_image_url }}" loading="lazy" alt="Real Suds Auto Salon mobile detailing photo proof"></figure>
+        <figure><img src="{{ finish_service_image_url }}" loading="lazy" alt="Real exterior detail result from Suds Auto Salon"></figure>
       </div>
     </div>
   </section>

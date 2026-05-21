@@ -24,15 +24,12 @@
   assign quote_url = '/pages/contact-us'
 
   assign stock_hero_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c2f80beb-6530-4420-8472-a92faccbe0f9.jpg?v=1779266080'
-  assign stock_basic_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6648c2c3-acdf-423f-b835-b6e7f93d2e14.jpg?v=1779266055'
-  assign stock_signature_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6ecb2b24-4ebc-4baa-872d-352805ac81a7.jpg?v=1779266049'
-  assign stock_elite_image = 'https://images.pexels.com/photos/5233258/pexels-photo-5233258.jpeg?auto=compress&cs=tinysrgb&w=2200'
-  assign stock_coating_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download.jpg?v=1779266040'
-  assign stock_vehicle_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_b52468ed-4ba5-4ee9-94ba-541c2b16683b.jpg?v=1779266082'
-  assign stock_interior_alt_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_fcc641e4-314c-48e8-ad61-9ecdacfcecd9.jpg?v=1779266078'
-  assign stock_cabin_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_ad58bc49-9ae2-42c1-8558-4cf7ea1be591.jpg?v=1779266059'
-  assign stock_dashboard_detail_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_6ecb2b24-4ebc-4baa-872d-352805ac81a7.jpg?v=1779266049'
-  assign stock_polish_image = 'https://images.pexels.com/photos/5233259/pexels-photo-5233259.jpeg?auto=compress&cs=tinysrgb&w=2200'
+  assign real_basic_image = 'https://sudsautosalon.com/cdn/shop/files/IMG_1565.jpg?v=1778041942&width=1000'
+  assign real_basic_alt_image = 'https://sudsautosalon.com/cdn/shop/files/IMG_1564.jpg?v=1778041938&width=1000'
+  assign real_signature_image = 'https://sudsautosalon.com/cdn/shop/files/aligned_combined_before_after_new.jpg?v=1715324600&width=1200'
+  assign real_signature_alt_image = 'https://sudsautosalon.com/cdn/shop/files/IMG_7377.jpg?v=1776311579&width=1000'
+  assign real_elite_image = 'https://sudsautosalon.com/cdn/shop/files/IMG_8131.jpg?v=1719604825&width=1000'
+  assign real_elite_alt_image = 'https://sudsautosalon.com/cdn/shop/files/IMG_6974.jpg?v=1719605082&width=1000'
 
   assign hero_image = section.settings.hero_image
   if hero_image == blank and settings.brand_image != blank
@@ -145,54 +142,102 @@
       <div class="suds-home-ladder">
         <article class="suds-home-ladder-card">
           <div class="suds-home-ladder-card__image">
-            <img src="{{ stock_basic_image }}" loading="lazy" alt="Interior vacuum detail work for Basic Detail upkeep">
+            <img src="{{ real_basic_image }}" loading="lazy" alt="Real Suds Auto Salon Basic Detail photo proof">
           </div>
           <div class="suds-home-ladder-card__body">
             <p>Already maintained</p>
             <h3>Basic Detail</h3>
             {%- if basic_product != blank -%}<strong>Starting at {{ basic_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
             <span>Best for cleaner vehicles that need light upkeep, not heavy correction.</span>
-            <ul>
-              <li>Vacuum, wipe-down, glass</li>
-              <li>Hand wash, tires, exterior glass</li>
-              <li>Approx. 2 hours depending on size</li>
-            </ul>
+            <div class="suds-home-ladder-card__includes">
+              <h4>Interior</h4>
+              <ul>
+                <li>Interior vacuum</li>
+                <li>Wipe all surfaces</li>
+                <li>Light spot attention</li>
+                <li>Windows and mirrors</li>
+                <li>Door jambs</li>
+                <li>Floor mats</li>
+                <li>Detail trunk</li>
+              </ul>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Quick hand wash</li>
+                <li>Wax protection</li>
+                <li>Clean rims</li>
+                <li>Clean tires</li>
+              </ul>
+            </div>
             <a href="{{ basic_url }}">Book Basic Detail</a>
           </div>
         </article>
 
         <article class="suds-home-ladder-card suds-home-ladder-card--featured">
           <div class="suds-home-ladder-card__image">
-            <img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console brush cleaning during Signature Detail service">
+            <img src="{{ real_signature_image }}" loading="lazy" alt="Real before and after interior detail proof from Suds Auto Salon">
           </div>
           <div class="suds-home-ladder-card__body">
             <p>Most booked</p>
             <h3>Signature Detail</h3>
             {%- if signature_product != blank -%}<strong>Starting at {{ signature_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
             <span>The best first booking for most daily drivers with normal grime and buildup.</span>
-            <ul>
-              <li>Deeper interior reset and touchpoints</li>
-              <li>Hand wash, wheels, trim, finish care</li>
-              <li>Approx. 3-5 hours depending on condition</li>
-            </ul>
+            <div class="suds-home-ladder-card__includes">
+              <h4>Interior</h4>
+              <ul>
+                <li>Double vacuum interior</li>
+                <li>Clean and protect plastics</li>
+                <li>Spot-treatment attention</li>
+                <li>Detail floor mats</li>
+                <li>Wipe all surfaces</li>
+                <li>Windows and mirrors</li>
+                <li>Detail trunk</li>
+                <li>Door jambs</li>
+              </ul>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Professional hand wash</li>
+                <li>Wax protection</li>
+                <li>Detail rims</li>
+                <li>Light spot polish when appropriate</li>
+                <li>Wheel wells</li>
+                <li>Detail tires</li>
+              </ul>
+            </div>
             <a href="{{ signature_url }}">Book Signature</a>
           </div>
         </article>
 
         <article class="suds-home-ladder-card">
           <div class="suds-home-ladder-card__image">
-            <img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint during Elite Detail mobile detailing">
+            <img src="{{ real_elite_image }}" loading="lazy" alt="Real Suds Auto Salon Elite Detail photo proof">
           </div>
           <div class="suds-home-ladder-card__body">
             <p>Heavy reset</p>
             <h3>Elite Detail</h3>
             {%- if elite_product != blank -%}<strong>Starting at {{ elite_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
             <span>For pet vehicles, family SUVs, resale prep, rougher paint feel, and vehicles needing more time.</span>
-            <ul>
-              <li>Deep interior cleaning and stain attention</li>
-              <li>Clay, wax, wheels, tires, finish work</li>
-              <li>Approx. 5-8 hours depending on condition</li>
-            </ul>
+            <div class="suds-home-ladder-card__includes">
+              <h4>Interior</h4>
+              <ul>
+                <li>Double vacuum interior</li>
+                <li>Clean and protect plastics</li>
+                <li>Spot-treatment attention</li>
+                <li>Detail floor mats</li>
+                <li>Wipe all surfaces</li>
+                <li>Windows and mirrors</li>
+                <li>Detail trunk</li>
+                <li>Door jambs</li>
+              </ul>
+              <h4>Exterior</h4>
+              <ul>
+                <li>Professional hand wash</li>
+                <li>Wheel wells and door jambs</li>
+                <li>Clay bar exterior</li>
+                <li>Gloss-focused finish work</li>
+                <li>Dress trim and tires</li>
+                <li>Wax protection</li>
+              </ul>
+            </div>
             <a href="{{ elite_url }}">Book Elite Detail</a>
           </div>
         </article>
@@ -209,12 +254,12 @@
       </div>
 
       <div class="suds-home-results-grid" aria-label="Suds Auto Salon detailing result examples">
-        <figure class="suds-home-result-card"><img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console detailing during a daily-driver reset"><figcaption>Interior reset for daily-driver buildup</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ stock_basic_image }}" loading="lazy" alt="Vacuum detail work removing daily debris from a vehicle cabin"><figcaption>Pet hair and interior cleanup</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint for exterior gloss improvement"><figcaption>Gloss and protection upgrade</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ stock_vehicle_image }}" loading="lazy" alt="Wheel and tire cleanup on a black vehicle"><figcaption>Wheel and tire cleanup</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ stock_interior_alt_image }}" loading="lazy" alt="Steam cleaning an interior door panel during a family vehicle detail"><figcaption>Family vehicle detail</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ stock_polish_image }}" loading="lazy" alt="Paint polishing for exterior wash, clay, and wax finish work"><figcaption>Exterior wash, clay, and wax finish</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_elite_image }}" loading="lazy" alt="Ferrari detail proof from Suds Auto Salon"><figcaption>Ferrari detail proof</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_signature_image }}" loading="lazy" alt="Before and after interior detail proof by Suds Auto Salon"><figcaption>Interior before and after reset</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_elite_alt_image }}" loading="lazy" alt="Exterior detail result from Suds Auto Salon"><figcaption>Exterior gloss and finish</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_signature_alt_image }}" loading="lazy" alt="Real mobile detailing photo proof by Suds Auto Salon"><figcaption>Daily-driver cleanup</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_basic_image }}" loading="lazy" alt="Basic Detail real result from Suds Auto Salon"><figcaption>Maintained vehicle refresh</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_basic_alt_image }}" loading="lazy" alt="Interior and exterior mobile detail proof by Suds Auto Salon"><figcaption>Clean upkeep detail</figcaption></figure>
       </div>
     </div>
   </section>
