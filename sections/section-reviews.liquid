@@ -1,9 +1,21 @@
 <section class="suds-reviews">
   <div class="suds-reviews__wrap">
     <div>
-      <p class="suds-reviews__eyebrow">Why trust Suds Auto Salon</p>
-      <h2>Private mobile detailing with direct communication and careful work.</h2>
-      <p>Suds is built around direct recommendations, careful mobile work, and a cleaner experience than dropping your vehicle at a high-volume shop.</p>
+      <p class="suds-reviews__eyebrow">Google reviews</p>
+      <h2>Real reviews from Seattle-area Suds customers.</h2>
+      <p>Current Google reviews and customer feedback appear here so visitors can see real proof before they book.</p>
+    </div>
+    <div class="suds-reviews__judge">
+      {% render 'suds-judgeme-widgets',
+        widget: 'all_reviews',
+        heading: 'All Suds Auto Salon reviews',
+        subheading: 'Current Google reviews from Suds Auto Salon customers.'
+      %}
+      {% render 'suds-judgeme-widgets',
+        widget: 'carousel',
+        heading: 'Featured Google reviews',
+        subheading: 'A quick look at recent reviews from Suds customers.'
+      %}
     </div>
     <div class="suds-reviews__grid">
       <article><h3>Private service</h3><p>You are working with an owner-operated mobile detailer, not a rotating crew or anonymous volume shop.</p></article>
@@ -19,6 +31,7 @@
   .suds-reviews__eyebrow { margin: 0 0 10px; color: #8c6b05; font-weight: 800; text-transform: uppercase; }
   .suds-reviews h2 { max-width: 840px; margin: 0; font-size: clamp(2.8rem, 4vw, 4.8rem); line-height: 1; letter-spacing: 0; }
   .suds-reviews p { max-width: 820px; color: #292929; font-size: 1.6rem; line-height: 1.55; }
+  .suds-reviews__judge { margin-top: 30px; }
   .suds-reviews__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
   .suds-reviews article { padding: 22px; border: 1px solid #e0ddcf; border-radius: 8px; background: #fff; }
   .suds-reviews h3 { margin: 0 0 10px; letter-spacing: 0; }

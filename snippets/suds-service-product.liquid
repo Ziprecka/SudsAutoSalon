@@ -148,14 +148,11 @@
 
   assign variant_picker_block = blank
   assign buy_buttons_block = blank
-  assign has_app_block = false
   for block in section.blocks
     if block.type == 'variant_picker'
       assign variant_picker_block = block
     elsif block.type == 'buy_buttons'
       assign buy_buttons_block = block
-    elsif block.type == '@app'
-      assign has_app_block = true
     endif
   endfor
 
@@ -202,6 +199,7 @@
         <p class="suds-service-package-stage__eyebrow">Seattle Mobile Detailing</p>
         <h1>Compare Detail Packages</h1>
         <p>Choose the package that matches your vehicle's condition. The current package is highlighted with the booking button ready inside the card.</p>
+        {% render 'suds-judgeme-widgets', widget: 'product_badge', product: product, review_link: '#reviews' %}
         <div class="suds-service-package-stage__badges" aria-label="Suds Auto Salon trust signals">
           <span>Mobile at home or office</span>
           <span>Interior + exterior packages</span>
@@ -489,8 +487,19 @@
       <div class="suds-service-section__head">
         <p class="suds-service-kicker">Reviews</p>
         <h2>Reviewed by Seattle-area drivers</h2>
-        <p>Customer reviews load below. Suds Auto Salon is trusted by local drivers for private mobile detailing at home or office.</p>
+        <p>Customer reviews help show the real Suds experience: careful work, mobile convenience, and drivers who book again.</p>
       </div>
+      {% render 'suds-judgeme-widgets',
+        widget: 'product_widget',
+        product: product,
+        heading: 'Reviews for this detail',
+        subheading: 'Current customer reviews appear here when available for this package.'
+      %}
+      {% render 'suds-judgeme-widgets',
+        widget: 'carousel',
+        heading: 'More Google reviews from Suds customers',
+        subheading: 'Recent customer feedback from Google.'
+      %}
       <div class="suds-service-review-strip" aria-label="Suds Auto Salon customer review excerpts">
         <article>
           <p>"He's very detail oriented and doesn't miss anything."</p>
@@ -505,19 +514,6 @@
           <span>Logan Kirkendall</span>
         </article>
       </div>
-      {%- if has_app_block -%}
-        <div class="suds-service-reviews-app">
-          {%- for block in section.blocks -%}
-            {%- if block.type == '@app' -%}
-              {% render block %}
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
-      {%- else -%}
-        <div class="suds-service-reviews-app">
-          <p>Customer reviews load here when the review app block is connected in Shopify.</p>
-        </div>
-      {%- endif -%}
     </div>
   </section>
 

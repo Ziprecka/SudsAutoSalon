@@ -266,8 +266,13 @@
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
         <h2>Reviewed by Seattle-Area Drivers</h2>
-        <p>Real customer excerpts from recent Suds Auto Salon reviews.</p>
+        <p>Current Google reviews and recent customer excerpts give visitors proof before they book.</p>
       </div>
+      {% render 'suds-judgeme-widgets',
+        widget: 'carousel',
+        heading: 'Google reviews from Suds customers',
+        subheading: 'Current customer reviews from Google.'
+      %}
       <div class="suds-home-review-grid">
         <article><strong>Sue Coccia</strong><p>"We have used Sam 4 or 5 times and will use him again."</p></article>
         <article><strong>Paul P.</strong><p>"Mobile service is a huge convenience. The car looks showroom-ready and practically sparkles."</p></article>
@@ -283,10 +288,6 @@
               {% render block %}
             {%- endif -%}
           {%- endfor -%}
-        </div>
-      {%- else -%}
-        <div class="suds-home-app-reviews">
-          <p>Customer reviews load below when a review app block is connected in Shopify. Suds Auto Salon is trusted by local drivers for private mobile detailing at home or office.</p>
         </div>
       {%- endif -%}
     </div>
