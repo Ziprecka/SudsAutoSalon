@@ -180,6 +180,14 @@
   flex-grow: 1;
 }
 
+.footer-block__newsletter-copy {
+  max-width: 42rem;
+  margin: 0 auto 1.4rem;
+  color: rgba(var(--color-foreground), 0.78);
+  font-size: 1.4rem;
+  line-height: 1.45;
+}
+
 .newsletter-form__field-wrapper {
   max-width: 36rem;
 }
@@ -189,6 +197,10 @@
   .footer-block__newsletter:not(:only-child) {
     text-align: left;
     margin-right: auto;
+  }
+
+  .footer-block__newsletter:not(:only-child) .footer-block__newsletter-copy {
+    margin-left: 0;
   }
 
   .footer-block__newsletter:not(:only-child) .footer__newsletter {

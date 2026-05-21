@@ -247,6 +247,7 @@
           <div class="suds-service-premium-card__body">
             <p class="suds-service-premium-card__label">Lighter upkeep refresh</p>
             <h3>Basic Detail</h3>
+            {%- if basic_product != blank -%}<p class="suds-service-premium-card__price">Starting at {{ basic_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
             <ul>
               <li>For maintained vehicles</li>
               <li>Lighter interior refresh</li>
@@ -284,6 +285,7 @@
           <div class="suds-service-premium-card__body">
             <p class="suds-service-premium-card__label">Best first booking</p>
             <h3>Signature Detail</h3>
+            {%- if signature_product != blank -%}<p class="suds-service-premium-card__price">Starting at {{ signature_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
             <ul>
               <li>For most daily drivers</li>
               <li>Proper inside-and-out reset</li>
@@ -321,6 +323,7 @@
           <div class="suds-service-premium-card__body">
             <p class="suds-service-premium-card__label">Premium deep reset</p>
             <h3>Elite Detail</h3>
+            {%- if elite_product != blank -%}<p class="suds-service-premium-card__price">Starting at {{ elite_product.price | money_without_trailing_zeros }}</p>{%- endif -%}
             <ul>
               <li>For heavier buildup</li>
               <li>Family, pet, and work vehicles</li>
@@ -615,6 +618,39 @@
       {%- endfor -%}
     ]
   }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ product.title | append: " mobile detailing" | json }},
+  "serviceType": "Mobile car detailing",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Suds Auto Salon",
+    "url": {{ shop.url | json }},
+    "telephone": "+1-425-361-8838"
+  },
+  "areaServed": [
+    "Seattle, WA",
+    "Bellevue, WA",
+    "Edmonds, WA",
+    "Lynnwood, WA",
+    "Everett, WA",
+    "Marysville, WA",
+    "Lake Stevens, WA",
+    "Snohomish, WA"
+  ],
+  "description": {{ subheadline | strip_html | json }},
+  "offers": {
+    "@type": "Offer",
+    "price": {{ product.selected_or_first_available_variant.price | divided_by: 100.0 | json }},
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "availability": "https://schema.org/{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+    "url": {{ request.origin | append: product.url | json }}
+  }
+}
 </script>
 
 <script type="application/ld+json">

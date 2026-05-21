@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "suds-refund-policy",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

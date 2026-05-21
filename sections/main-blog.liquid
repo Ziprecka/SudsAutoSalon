@@ -17,11 +17,19 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
+  <div class="main-blog suds-blog page-width section-{{ section.id }}-padding">
+    <header class="suds-blog__hero{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <p>Seattle Car Care Guides</p>
+      <h1 class="title--primary">
+        {{ blog.title | escape }}
+      </h1>
+      <div>
+        Straight answers on mobile detailing, ceramic coating, pet hair, stains, maintenance, and Pacific Northwest car care from Suds Auto Salon.
+      </div>
+      <a href="/collections/mobile-details">Book Mobile Detailing</a>
+    </header>
 
+    {%- if blog.articles.size > 0 -%}
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -43,6 +51,13 @@
         </div>
       {%- endfor -%}
     </div>
+    {%- else -%}
+      <div class="suds-blog__empty">
+        <h2>Car care articles are coming here.</h2>
+        <p>Need help now? Choose a detail package or request a quote and Suds will point you to the right starting point.</p>
+        <a href="/pages/contact-us">Request a Quote</a>
+      </div>
+    {%- endif -%}
 
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}

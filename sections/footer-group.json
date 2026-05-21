@@ -25,7 +25,7 @@
           "type": "text",
           "settings": {
             "heading": "Main services",
-            "subtext": "<p><a href=\"/pages/basic-detail\">Basic Detail</a><br><a href=\"/pages/signature-detail\">Signature Detail</a><br><a href=\"/pages/elite-detail\">Elite Detail</a><br><a href=\"/pages/ceramic-coating\">Ceramic Coating</a><br><a href=\"/pages/maintenance-detailing\">Maintenance Detailing</a></p>"
+            "subtext": "<p><a href=\"/products/basic-detail\">Basic Detail</a><br><a href=\"/products/signature-detail\">Signature Detail</a><br><a href=\"/products/elite-detail\">Elite Detail</a><br><a href=\"/pages/ceramic-coating\">Ceramic Coating</a><br><a href=\"/pages/monthly-maintenance-plan\">Maintenance Detailing</a></p>"
           }
         },
         "areas": {
@@ -51,8 +51,8 @@
       ],
       "settings": {
         "color_scheme": "accent-1",
-        "newsletter_enable": false,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_enable": true,
+        "newsletter_heading": "Get the Free PNW Car Care Cheat Sheet",
         "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": false,

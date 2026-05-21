@@ -19,7 +19,7 @@
   endif
 
   assign ceramic_url = '/pages/ceramic-coating'
-  assign maintenance_url = '/pages/maintenance-detailing'
+  assign maintenance_url = '/pages/monthly-maintenance-plan'
   assign booking_url = '/collections/mobile-details'
   assign quote_url = '/pages/contact-us'
 
@@ -99,23 +99,23 @@
     <div class="suds-home-shell suds-home-hero__content">
       <p class="suds-home-hero__eyebrow">Seattle Mobile Detailing</p>
       <div class="suds-home-review-pill">
-        <strong>Review-backed local business</strong>
+        <strong>5-star Google reviews</strong>
       </div>
-      <h1>Private Mobile Detailing for Seattle Drivers Who Want Their Car Reset Properly</h1>
+      <h1>Seattle's Private Mobile Car Detail &mdash; At Your Driveway, Done Right.</h1>
       <p>
-        Suds Auto Salon brings appointment-based interior and exterior detailing to your home or office &mdash; built for daily-driver buildup, cleaner cabins, sharper finishes, and a simpler way to care for your vehicle.
+        Interior resets, ceramic coating, pet hair, and odor support handled by Sam, owner-operator. Serving Seattle, Bellevue, Edmonds, Lynnwood, Everett, and the Eastside.
       </p>
       <div class="suds-home-actions suds-home-actions--center">
-        <a class="suds-home-button suds-home-button--gold" href="{{ quote_url }}">Request a Quote</a>
-        <a class="suds-home-button suds-home-button--black" href="{{ booking_url }}">Book Your Mobile Detail</a>
+        <a class="suds-home-button suds-home-button--gold" href="{{ booking_url }}">Book My Detail &rarr;</a>
+        <a class="suds-home-button suds-home-button--black" href="{{ quote_url }}">Request a Quote</a>
       </div>
-      <a class="suds-home-hero__hint" href="{{ quote_url }}">Not sure what to book? Send photos and Sam will recommend the right package.</a>
+      <a class="suds-home-hero__hint" href="sms:+14253618838">Text photos to (425) 361-8838 for a quote if you want help choosing.</a>
 
       <div class="suds-home-trust-pills" aria-label="Suds Auto Salon trust signals">
+        <span>Licensed WA LLC</span>
         <span>Private mobile detailer</span>
         <span>Seattle-area service</span>
         <span>At your home or office</span>
-        <span>Review-backed local business</span>
         <span>Interior + exterior packages</span>
       </div>
     </div>
@@ -138,8 +138,8 @@
   <section class="suds-home-packages" id="packages">
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
-        <h2>Choose the Detail That Fits Your Vehicle</h2>
-        <p>Every vehicle comes in with a different level of buildup. Start with the package that matches your condition, or send photos for a recommendation.</p>
+        <h2>Pick Your Package</h2>
+        <p>Clear starting prices, fewer choices, and a simple path: choose the package that matches the condition of your vehicle.</p>
       </div>
 
       <div class="suds-home-ladder">
@@ -148,11 +148,16 @@
             <img src="{{ stock_basic_image }}" loading="lazy" alt="Interior vacuum detail work for Basic Detail upkeep">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>Clean upkeep for maintained vehicles.</p>
+            <p>Already maintained</p>
             <h3>Basic Detail</h3>
-            <span>Best for vehicles that already stay fairly clean and need a lighter interior and exterior refresh.</span>
-            {%- if basic_product != blank -%}<strong>From {{ basic_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
-            <a href="{{ basic_url }}">View Basic Detail</a>
+            {%- if basic_product != blank -%}<strong>Starting at {{ basic_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
+            <span>Best for cleaner vehicles that need light upkeep, not heavy correction.</span>
+            <ul>
+              <li>Vacuum, wipe-down, glass</li>
+              <li>Hand wash, tires, exterior glass</li>
+              <li>Approx. 2 hours depending on size</li>
+            </ul>
+            <a href="{{ basic_url }}">Book Basic Detail</a>
           </div>
         </article>
 
@@ -161,11 +166,16 @@
             <img src="{{ stock_signature_image }}" loading="lazy" alt="Interior console brush cleaning during Signature Detail service">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>The best first booking for most daily drivers.</p>
+            <p>Most booked</p>
             <h3>Signature Detail</h3>
-            <span>Best for vehicles that need a proper inside-and-out reset without jumping into heavy restoration.</span>
-            {%- if signature_product != blank -%}<strong>From {{ signature_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
-            <a href="{{ signature_url }}">View Signature Detail</a>
+            {%- if signature_product != blank -%}<strong>Starting at {{ signature_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
+            <span>The best first booking for most daily drivers with normal grime and buildup.</span>
+            <ul>
+              <li>Deeper interior reset and touchpoints</li>
+              <li>Hand wash, wheels, trim, finish care</li>
+              <li>Approx. 3-5 hours depending on condition</li>
+            </ul>
+            <a href="{{ signature_url }}">Book Signature</a>
           </div>
         </article>
 
@@ -174,26 +184,20 @@
             <img src="{{ stock_elite_image }}" loading="lazy" alt="Machine polishing black paint during Elite Detail mobile detailing">
           </div>
           <div class="suds-home-ladder-card__body">
-            <p>A premium reset for heavier buildup.</p>
+            <p>Heavy reset</p>
             <h3>Elite Detail</h3>
-            <span>Best for vehicles with more interior grime, rougher exterior feel, pet mess, family use, or resale prep needs.</span>
-            {%- if elite_product != blank -%}<strong>From {{ elite_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
-            <a href="{{ elite_url }}">View Elite Detail</a>
-          </div>
-        </article>
-
-        <article class="suds-home-ladder-card">
-          <div class="suds-home-ladder-card__image">
-            <img src="{{ stock_coating_image }}" loading="lazy" alt="Ceramic coating wipe-on application for longer paint protection">
-          </div>
-          <div class="suds-home-ladder-card__body">
-            <p>Gloss and protection that lasts longer than wax.</p>
-            <h3>Ceramic Coating</h3>
-            <span>Best for drivers who want stronger paint protection, easier washing, and a deeper finish after proper prep.</span>
-            <a href="{{ ceramic_url }}">View Ceramic Coating</a>
+            {%- if elite_product != blank -%}<strong>Starting at {{ elite_product.price | money_without_trailing_zeros }}</strong>{%- endif -%}
+            <span>For pet vehicles, family SUVs, resale prep, rougher paint feel, and vehicles needing more time.</span>
+            <ul>
+              <li>Deep interior cleaning and stain attention</li>
+              <li>Clay, wax, wheels, tires, finish work</li>
+              <li>Approx. 5-8 hours depending on condition</li>
+            </ul>
+            <a href="{{ elite_url }}">Book Elite Detail</a>
           </div>
         </article>
       </div>
+      <a class="suds-home-package-help" href="sms:+14253618838">Not sure? Text Sam a photo &rarr;</a>
     </div>
   </section>
 
@@ -261,10 +265,10 @@
         <h2>How Suds Mobile Detailing Works</h2>
       </div>
       <div class="suds-home-process-grid">
-        <article><span>01</span><h3>Send your vehicle details</h3><p>Share the vehicle, location, condition, and photos if possible.</p></article>
-        <article><span>02</span><h3>Get the right recommendation</h3><p>Sam helps match your vehicle to the right detail or add-on.</p></article>
-        <article><span>03</span><h3>Get service at your location</h3><p>Suds comes to your home, office, or approved service location.</p></article>
-        <article><span>04</span><h3>Enjoy the reset</h3><p>Cleaner interior, sharper exterior, and a vehicle that feels easier to maintain.</p></article>
+        <article><span>01</span><h3>Book online or send details</h3><p>Choose your package, or share the vehicle, city, and photos if you want help deciding.</p></article>
+        <article><span>02</span><h3>Confirm the package and price</h3><p>Sam confirms the right starting point before the appointment so the job is set up correctly.</p></article>
+        <article><span>03</span><h3>Suds comes to your location</h3><p>Mobile detailing is handled at your home, office, or approved service location.</p></article>
+        <article><span>04</span><h3>Walk through the result</h3><p>You see the reset, approve the work, and can ask about maintenance or protection upgrades.</p></article>
       </div>
     </div>
   </section>
@@ -273,12 +277,15 @@
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
         <h2>Reviewed by Seattle-Area Drivers</h2>
-        <p>Real customer excerpts from Suds Auto Salon reviews.</p>
+        <p>Real customer excerpts from recent Suds Auto Salon reviews.</p>
       </div>
       <div class="suds-home-review-grid">
-        <article><p>"He came to my house with all that he needed. Highly recommend Sam and Suds Auto Salon."</p></article>
-        <article><p>"He got old stains out of the seats and thoroughly cleaned every nook and cranny."</p></article>
-        <article><p>"My car interior was done with great detail, it looks better than when I got it at the dealer."</p></article>
+        <article><strong>Sue Coccia</strong><p>"We have used Sam 4 or 5 times and will use him again."</p></article>
+        <article><strong>Paul P.</strong><p>"Mobile service is a huge convenience. The car looks showroom-ready and practically sparkles."</p></article>
+        <article><strong>Eric Matza</strong><p>"Sam did a great job. He was professional and made both cars shine."</p></article>
+        <article><strong>Jonathan Carvalho</strong><p>"Sam went above and beyond helping get stains off the exterior trim."</p></article>
+        <article><strong>Kelli Marshall</strong><p>"He did a fantastic job. Looking forward to working with him again."</p></article>
+        <article><strong>Logan Kirkendall</strong><p>"Amazing attention to the small details and clear pride in his work."</p></article>
       </div>
       {%- if has_app_block -%}
         <div class="suds-home-app-reviews">
@@ -323,29 +330,41 @@
       </div>
       <div class="suds-home-faq">
         <details><summary>Which detail should I book?</summary><p>If your vehicle is already maintained, Basic may be enough. If it needs a proper inside-and-out reset, start with Signature. If it has heavier buildup, pet mess, rough paint, or resale prep needs, Elite is usually the better fit.</p></details>
-        <details><summary>Do you come to my home or office?</summary><p>Yes. Suds Auto Salon is mobile and details at homes, offices, apartments, and approved service locations when access and route timing work.</p></details>
-        <details><summary>How much does mobile detailing cost?</summary><p>Pricing depends on the package, vehicle size, condition, and add-ons. The booking page shows package pricing, and a quote helps when the vehicle needs extra time or special treatment.</p></details>
-        <details><summary>Do I need to send photos?</summary><p>No. You can book directly if you know the package. Photos are helpful when you are unsure, when the vehicle has pet hair, stains, odor, or when you want the most accurate recommendation.</p></details>
-        <details><summary>How long does a detail take?</summary><p>Timing depends on vehicle size, condition, access, and add-ons. Basic is lighter, Signature is the best fit for most vehicles, and Elite reserves more time for heavier condition.</p></details>
-        <details><summary>Do you clean pet hair?</summary><p>Yes. Pet hair can be cleaned, but heavy embedded hair may need extra time or a pet hair add-on so the appointment is set up correctly.</p></details>
-        <details><summary>Do you remove stains?</summary><p>Spot treatment and extraction can improve many stains, but results depend on material, age, and severity. Severe or set-in stains should be quoted before the appointment.</p></details>
-        <details><summary>Do you offer ceramic coating?</summary><p>Yes. Ceramic coating is available as a protection upgrade after the vehicle is cleaned and properly prepped. Paint condition determines the right prep path.</p></details>
-        <details><summary>What areas do you serve?</summary><p>Suds serves Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby areas when scheduling and route timing work.</p></details>
-        <details><summary>Is this a car wash or a full detail?</summary><p>This is mobile detailing, not a tunnel wash. Suds handles interior and exterior cleaning with package depth matched to the condition of the vehicle.</p></details>
+        <details><summary>How much does mobile car detailing cost in Seattle?</summary><p>Mobile car detailing in Seattle starts with Basic, Signature, and Elite package pricing. Suds uses the live booking prices shown on the package cards, then adjusts only when vehicle size, heavy condition, pet hair, odor, or add-ons require more time.</p></details>
+        <details><summary>Do you come to my house?</summary><p>Yes. Suds Auto Salon provides car detailing at home, offices, apartments, and approved service locations across the Seattle area when access and route timing work.</p></details>
+        <details><summary>How long does a full detail take?</summary><p>A full mobile detail can take a few hours or most of the day depending on package, vehicle size, access, and condition. Basic is lighter, Signature fits most daily drivers, and Elite reserves more time for heavier buildup.</p></details>
+        <details><summary>Do you remove pet hair?</summary><p>Yes. Suds can clean pet hair from seats, carpets, mats, and cargo areas. Heavy embedded pet hair may require extra time or a pet hair add-on so the appointment is priced and scheduled correctly.</p></details>
+        <details><summary>Can you get coffee, vomit, grease, or other stains out of car seats?</summary><p>Stain extraction can improve many spills and normal buildup, but results depend on the material, age, and severity. Severe stains, biological messes, or grease-heavy areas should be quoted before the appointment.</p></details>
+        <details><summary>Do you offer ceramic coating in Seattle?</summary><p>Yes. Ceramic coating is available for Seattle-area drivers who want longer-lasting gloss, slickness, and easier maintenance than wax. The vehicle needs proper cleaning and prep before coating.</p></details>
+        <details><summary>What's the difference between a car wash and a detail?</summary><p>A car wash mainly cleans the exterior surface. A detail goes deeper into interior grime, touchpoints, carpets, wheels, road film, paint contamination, and finish care.</p></details>
+        <details><summary>Do you need access to water or power?</summary><p>Water and power needs can depend on the service and appointment location. Share your address or location details when booking so Sam can confirm what is needed.</p></details>
+        <details><summary>What happens if it rains?</summary><p>Seattle weather is part of mobile detailing. Light rain does not always stop an appointment, but severe weather, unsafe conditions, or lack of covered access may require rescheduling.</p></details>
+        <details><summary>How often should I detail my car in the Pacific Northwest?</summary><p>Most Seattle-area vehicles benefit from a reset a few times per year, with maintenance every month or two if the vehicle sees commuting, kids, pets, outdoor parking, or frequent rain grime.</p></details>
+        <details><summary>Do you detail Teslas and EVs?</summary><p>Yes. Suds details Teslas, EVs, hybrids, daily drivers, SUVs, trucks, and family vehicles. The package still depends on size, condition, and the result you want.</p></details>
+        <details><summary>Do you offer a monthly maintenance plan?</summary><p>Yes. Maintenance detailing is available after an initial reset for drivers who want priority upkeep and a cleaner vehicle without starting over every few months.</p></details>
+        <details><summary>How do I book?</summary><p>Use the Book My Detail button to choose a package and schedule. If you are unsure, request a quote or text photos for a package recommendation first.</p></details>
+        <details><summary>Are you licensed and insured?</summary><p>Suds Auto Salon is a licensed Washington LLC. If you need current insurance details for an apartment, office, or commercial location, ask before booking.</p></details>
       </div>
     </div>
   </section>
 
   <section class="suds-home-final">
     <div class="suds-home-shell">
-      <h2>Ready for a Cleaner Vehicle Without the Shop Drop-Off?</h2>
-      <p>Send your vehicle, city, and photos. Sam will recommend the right Suds package based on condition, goals, and the result you want.</p>
+      <p class="suds-home-final__eyebrow">Owner-operator walk-through</p>
+      <h2>If You're Not Happy, Sam Looks at It With You. Period.</h2>
+      <p>Every detail ends with a walk-through. If something reasonable was missed, Suds addresses it on the spot when possible before the appointment is wrapped.</p>
       <div class="suds-home-actions suds-home-actions--center">
-        <a class="suds-home-button suds-home-button--gold" href="{{ quote_url }}">Request a Quote</a>
-        <a class="suds-home-button suds-home-button--black" href="{{ booking_url }}">Book Your Mobile Detail</a>
+        <a class="suds-home-button suds-home-button--gold" href="{{ booking_url }}">Book My Mobile Detail &rarr;</a>
+        <a class="suds-home-button suds-home-button--black" href="{{ quote_url }}">Request a Quote</a>
       </div>
+      <a class="suds-home-final__text" href="sms:+14253618838">Or text (425) 361-8838 with photos</a>
     </div>
   </section>
+
+  <nav class="suds-home-mobile-bar" aria-label="Quick mobile booking actions">
+    <a href="tel:+14253618838">Call</a>
+    <a href="{{ booking_url }}">Book</a>
+  </nav>
 </main>
 
 <script type="application/ld+json">
@@ -354,11 +373,20 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Which detail should I book?","acceptedAnswer":{"@type":"Answer","text":"If your vehicle is already maintained, Basic may be enough. If it needs a proper inside-and-out reset, start with Signature. If it has heavier buildup, pet mess, rough paint, or resale prep needs, Elite is usually the better fit."}},
-    {"@type":"Question","name":"Do you come to my home or office?","acceptedAnswer":{"@type":"Answer","text":"Yes. Suds Auto Salon is mobile and details at homes, offices, apartments, and approved service locations when access and route timing work."}},
-    {"@type":"Question","name":"How much does mobile detailing cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on the package, vehicle size, condition, and add-ons. The booking page shows package pricing, and a quote helps when the vehicle needs extra time or special treatment."}},
-    {"@type":"Question","name":"Do I need to send photos?","acceptedAnswer":{"@type":"Answer","text":"No. You can book directly if you know the package. Photos are helpful when you are unsure, when the vehicle has pet hair, stains, odor, or when you want the most accurate recommendation."}},
-    {"@type":"Question","name":"Do you offer ceramic coating?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ceramic coating is available as a protection upgrade after the vehicle is cleaned and properly prepped. Paint condition determines the right prep path."}},
-    {"@type":"Question","name":"Is this a car wash or a full detail?","acceptedAnswer":{"@type":"Answer","text":"This is mobile detailing, not a tunnel wash. Suds handles interior and exterior cleaning with package depth matched to the condition of the vehicle."}}
+    {"@type":"Question","name":"How much does mobile car detailing cost in Seattle?","acceptedAnswer":{"@type":"Answer","text":"Mobile car detailing in Seattle starts with Basic, Signature, and Elite package pricing. Suds uses the live booking prices shown on the package cards, then adjusts only when vehicle size, heavy condition, pet hair, odor, or add-ons require more time."}},
+    {"@type":"Question","name":"Do you come to my house?","acceptedAnswer":{"@type":"Answer","text":"Yes. Suds Auto Salon provides car detailing at home, offices, apartments, and approved service locations across the Seattle area when access and route timing work."}},
+    {"@type":"Question","name":"How long does a full detail take?","acceptedAnswer":{"@type":"Answer","text":"A full mobile detail can take a few hours or most of the day depending on package, vehicle size, access, and condition. Basic is lighter, Signature fits most daily drivers, and Elite reserves more time for heavier buildup."}},
+    {"@type":"Question","name":"Do you remove pet hair?","acceptedAnswer":{"@type":"Answer","text":"Yes. Suds can clean pet hair from seats, carpets, mats, and cargo areas. Heavy embedded pet hair may require extra time or a pet hair add-on so the appointment is priced and scheduled correctly."}},
+    {"@type":"Question","name":"Can you get coffee, vomit, grease, or other stains out of car seats?","acceptedAnswer":{"@type":"Answer","text":"Stain extraction can improve many spills and normal buildup, but results depend on the material, age, and severity. Severe stains, biological messes, or grease-heavy areas should be quoted before the appointment."}},
+    {"@type":"Question","name":"Do you offer ceramic coating in Seattle?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ceramic coating is available for Seattle-area drivers who want longer-lasting gloss, slickness, and easier maintenance than wax. The vehicle needs proper cleaning and prep before coating."}},
+    {"@type":"Question","name":"What's the difference between a car wash and a detail?","acceptedAnswer":{"@type":"Answer","text":"A car wash mainly cleans the exterior surface. A detail goes deeper into interior grime, touchpoints, carpets, wheels, road film, paint contamination, and finish care."}},
+    {"@type":"Question","name":"Do you need access to water or power?","acceptedAnswer":{"@type":"Answer","text":"Water and power needs can depend on the service and appointment location. Share your address or location details when booking so Sam can confirm what is needed."}},
+    {"@type":"Question","name":"What happens if it rains?","acceptedAnswer":{"@type":"Answer","text":"Seattle weather is part of mobile detailing. Light rain does not always stop an appointment, but severe weather, unsafe conditions, or lack of covered access may require rescheduling."}},
+    {"@type":"Question","name":"How often should I detail my car in the Pacific Northwest?","acceptedAnswer":{"@type":"Answer","text":"Most Seattle-area vehicles benefit from a reset a few times per year, with maintenance every month or two if the vehicle sees commuting, kids, pets, outdoor parking, or frequent rain grime."}},
+    {"@type":"Question","name":"Do you detail Teslas and EVs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Suds details Teslas, EVs, hybrids, daily drivers, SUVs, trucks, and family vehicles. The package still depends on size, condition, and the result you want."}},
+    {"@type":"Question","name":"Do you offer a monthly maintenance plan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Maintenance detailing is available after an initial reset for drivers who want priority upkeep and a cleaner vehicle without starting over every few months."}},
+    {"@type":"Question","name":"How do I book?","acceptedAnswer":{"@type":"Answer","text":"Use the Book My Detail button to choose a package and schedule. If you are unsure, request a quote or text photos for a package recommendation first."}},
+    {"@type":"Question","name":"Are you licensed and insured?","acceptedAnswer":{"@type":"Answer","text":"Suds Auto Salon is a licensed Washington LLC. If you need current insurance details for an apartment, office, or commercial location, ask before booking."}}
   ]
 }
 </script>

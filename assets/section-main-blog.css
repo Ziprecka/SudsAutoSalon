@@ -5,6 +5,85 @@
   row-gap: var(--grid-mobile-vertical-spacing);
 }
 
+.suds-blog {
+  color: #101010;
+}
+
+.suds-blog__hero {
+  margin-bottom: 34px;
+  padding: clamp(34px, 6vw, 64px);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 221, 0, .16), rgba(255, 255, 255, 0) 38%),
+    #080808;
+  color: #ffffff;
+}
+
+.suds-blog__hero p {
+  margin: 0 0 10px;
+  color: #ffdd00;
+  font-size: 1.25rem;
+  font-weight: 950;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.suds-blog__hero .title--primary {
+  max-width: 900px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3.6rem, 6vw, 6.6rem);
+  line-height: .96;
+  letter-spacing: 0;
+}
+
+.suds-blog__hero div {
+  max-width: 760px;
+  margin-top: 18px;
+  color: #eeeeee;
+  font-size: 1.65rem;
+  line-height: 1.55;
+}
+
+.suds-blog__hero a,
+.suds-blog__empty a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #ffdd00;
+  color: #050505;
+  font-size: 1.45rem;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.suds-blog__empty {
+  max-width: 760px;
+  padding: 32px;
+  border: 1px solid #e5deca;
+  border-radius: 14px;
+  background: #f8f7f2;
+}
+
+.suds-blog__empty h2 {
+  margin: 0;
+  color: #101010;
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  line-height: 1;
+}
+
+.suds-blog__empty p {
+  margin: 14px 0 0;
+  color: #292929;
+  font-size: 1.55rem;
+  line-height: 1.55;
+}
+
 .blog-articles .card-wrapper {
   width: 100%;
 }

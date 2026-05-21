@@ -63,6 +63,11 @@
               <span itemprop="name">{{ article.author }}</span>
             </span>
           {%- endif -%}
+          {%- if article.excerpt != blank -%}
+            <div class="suds-article__excerpt" itemprop="description">
+              {{ article.excerpt }}
+            </div>
+          {%- endif -%}
         </header>
 
       {%- when 'content' -%}
@@ -102,6 +107,14 @@
         <a class="suds-article-cta__button suds-article-cta__button--secondary" href="/pages/contact-us">Request a Quote</a>
         <a class="suds-article-cta__text" href="sms:+14253618838">Send Photos if You Need a Recommendation</a>
       </div>
+    </div>
+  </section>
+
+  <section class="suds-article-author">
+    <div class="suds-article-author__wrap">
+      <p class="suds-article-author__eyebrow">Written for Seattle-area drivers</p>
+      <h2>About Suds Auto Salon</h2>
+      <p>Suds Auto Salon is a private mobile detailing service serving Seattle, Edmonds, Bellevue, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby areas. The goal is simple: help drivers choose the right detail, book with less friction, and keep their vehicle easier to maintain.</p>
     </div>
   </section>
   {%- if blog.comments_enabled? -%}

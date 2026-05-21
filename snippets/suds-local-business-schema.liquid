@@ -6,48 +6,103 @@
   elsif settings.brand_image != blank
     assign schema_logo = settings.brand_image | image_url: width: 1200
   endif
+
+  assign basic_product = all_products['basic-detail']
+  assign signature_product = all_products['signature-detail']
+  assign elite_product = all_products['elite-detail']
+  assign ceramic_product = all_products['ceramic-coating']
 -%}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  "@id": "{{ shop.url }}/#suds-auto-salon",
+  "@type": ["LocalBusiness", "AutomotiveBusiness"],
+  "@id": {{ shop.url | append: "/#suds-auto-salon" | json }},
   "name": "Suds Auto Salon",
-  "url": "{{ shop.url }}",
-  "description": "Premium private mobile auto detailing at homes and offices across Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas.",
+  "url": {{ shop.url | json }},
+  "description": "Private mobile auto detailing at homes, offices, apartments, and approved service locations across Seattle, Bellevue, Edmonds, Lynnwood, Everett, Marysville, Lake Stevens, Snohomish, and nearby PNW areas.",
   {%- if schema_logo != blank %}
-  "logo": "https:{{ schema_logo }}",
-  "image": "https:{{ schema_logo }}",
+  "logo": {{ schema_logo | prepend: "https:" | json }},
+  "image": {{ schema_logo | prepend: "https:" | json }},
   {%- endif %}
-  "telephone": "+14253618838",
+  "telephone": "+1-425-361-8838",
   "email": "sudsautosalon@gmail.com",
-  "areaServed": [
-    "Seattle WA",
-    "Bellevue WA",
-    "Edmonds WA",
-    "Lynnwood WA",
-    "Everett WA",
-    "Marysville WA",
-    "Lake Stevens WA",
-    "Snohomish WA"
-  ],
   "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "655 Maple St",
+    "addressLocality": "Edmonds",
+    "addressRegion": "WA",
+    "postalCode": "98020",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Seattle, WA",
+    "Bellevue, WA",
+    "Edmonds, WA",
+    "Lynnwood, WA",
+    "Everett, WA",
+    "Marysville, WA",
+    "Lake Stevens, WA",
+    "Snohomish, WA",
+    "Mukilteo, WA",
+    "Mill Creek, WA",
+    "Bothell, WA",
+    "Kirkland, WA",
+    "Mountlake Terrace, WA",
+    "Shoreline, WA",
+    "Lake Forest Park, WA"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
   "sameAs": [
-    "https://www.facebook.com/profile.php?id=100092750222276",
-    "https://www.instagram.com/sudsautosalon/"
+    "https://www.yelp.com/biz/suds-auto-salon-edmonds-3",
+    "https://www.instagram.com/sudsautosalon/",
+    "https://www.facebook.com/profile.php?id=100092750222276"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+14253618838",
+    "telephone": "+1-425-361-8838",
     "contactType": "customer service",
     "areaServed": "US-WA",
     "availableLanguage": "English"
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "9"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Sue Coccia"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "We have used Sam 4 or 5 times and will use him again. He's very detail oriented and doesn't miss anything."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Paul P."},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "Sam does a fantastic job. Mobile service is a huge convenience and the car always looks showroom-ready."
+    },
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Logan Kirkendall"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "reviewBody": "Sam demonstrated amazing attention to the small details and shows clear pride and passion for his work."
+    }
+  ],
   "potentialAction": {
     "@type": "ReserveAction",
-    "target": "{{ shop.url }}/pages/contact-us"
+    "target": {{ shop.url | append: "/collections/mobile-details" | json }}
   },
-  "mainEntityOfPage": "{{ current_url }}"
+  "mainEntityOfPage": {{ current_url | json }}
 }
 </script>
 
@@ -56,18 +111,112 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "{{ shop.url }}/#website",
+  "@id": {{ shop.url | append: "/#website" | json }},
   "name": "Suds Auto Salon",
-  "url": "{{ shop.url }}",
+  "url": {{ shop.url | json }},
   {%- if schema_logo != blank %}
-  "image": "https:{{ schema_logo }}",
+  "image": {{ schema_logo | prepend: "https:" | json }},
   {%- endif %}
-  "publisher": { "@id": "{{ shop.url }}/#suds-auto-salon" },
+  "publisher": { "@id": {{ shop.url | append: "/#suds-auto-salon" | json }} },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "{{ shop.url }}/search?q={search_term_string}",
+    "target": {{ shop.url | append: "/search?q={search_term_string}" | json }},
     "query-input": "required name=search_term_string"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Suds Auto Salon mobile detailing packages",
+  "itemListElement": [
+    {%- if basic_product != blank -%}
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "name": "Basic Mobile Detail",
+        "serviceType": "Mobile car detailing",
+        "provider": { "@id": {{ shop.url | append: "/#suds-auto-salon" | json }} },
+        "areaServed": "Seattle Metro, WA",
+        "description": "A lighter interior and exterior mobile detail for maintained Seattle-area vehicles.",
+        "offers": {
+          "@type": "Offer",
+          "price": {{ basic_product.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "availability": "https://schema.org/InStock",
+          "url": {{ shop.url | append: basic_product.url | json }}
+        }
+      }
+    },
+    {%- endif -%}
+    {%- if signature_product != blank -%}
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "name": "Signature Mobile Detail",
+        "serviceType": "Mobile car detailing",
+        "provider": { "@id": {{ shop.url | append: "/#suds-auto-salon" | json }} },
+        "areaServed": "Seattle Metro, WA",
+        "description": "Inside-and-out mobile car detailing for most Seattle-area daily drivers.",
+        "offers": {
+          "@type": "Offer",
+          "price": {{ signature_product.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "availability": "https://schema.org/InStock",
+          "url": {{ shop.url | append: signature_product.url | json }}
+        }
+      }
+    },
+    {%- endif -%}
+    {%- if elite_product != blank -%}
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "name": "Elite Mobile Detail",
+        "serviceType": "Mobile car detailing",
+        "provider": { "@id": {{ shop.url | append: "/#suds-auto-salon" | json }} },
+        "areaServed": "Seattle Metro, WA",
+        "description": "Premium interior and exterior mobile detailing for heavier buildup, pet vehicles, family SUVs, and resale prep.",
+        "offers": {
+          "@type": "Offer",
+          "price": {{ elite_product.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "availability": "https://schema.org/InStock",
+          "url": {{ shop.url | append: elite_product.url | json }}
+        }
+      }
+    }{%- if ceramic_product != blank -%},{%- endif -%}
+    {%- endif -%}
+    {%- if ceramic_product != blank -%}
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Service",
+        "name": "Ceramic Coating",
+        "serviceType": "Ceramic coating",
+        "provider": { "@id": {{ shop.url | append: "/#suds-auto-salon" | json }} },
+        "areaServed": "Seattle Metro, WA",
+        "description": "Ceramic coating and paint protection for longer-lasting gloss, slickness, and easier maintenance.",
+        "offers": {
+          "@type": "Offer",
+          "price": {{ ceramic_product.price | divided_by: 100.0 | json }},
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "availability": "https://schema.org/InStock",
+          "url": {{ shop.url | append: ceramic_product.url | json }}
+        }
+      }
+    }
+    {%- endif -%}
+  ]
 }
 </script>
 {%- endif -%}

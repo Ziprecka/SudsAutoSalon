@@ -485,6 +485,14 @@
   line-height: .95;
 }
 
+.suds-service-premium-card__price {
+  margin: 12px 0 0;
+  color: #ffffff;
+  font-size: 1.55rem;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
 .suds-service-premium-card ul {
   display: grid;
   gap: 10px;
