@@ -46,6 +46,27 @@
             "caption": "Gloss and finish improvement",
             "alt_text": "Glossy vehicle finish after Suds Auto Salon detail"
           }
+        },
+        "instagram_reel_1": {
+          "type": "instagram_reel",
+          "settings": {
+            "reel_url": "https://www.instagram.com/p/DYpKHHFBFTd/",
+            "caption": "Watch a recent Suds Auto Salon detail"
+          }
+        },
+        "instagram_reel_2": {
+          "type": "instagram_reel",
+          "settings": {
+            "reel_url": "https://www.instagram.com/p/DYBdkwHBp4R/",
+            "caption": "Watch Suds mobile detailing work"
+          }
+        },
+        "instagram_reel_3": {
+          "type": "instagram_reel",
+          "settings": {
+            "reel_url": "https://www.instagram.com/p/C7dB_06RvKZ/",
+            "caption": "Watch Suds before-and-after proof"
+          }
         }
       },
       "block_order": [
@@ -53,7 +74,10 @@
         "gallery_interior",
         "gallery_exterior",
         "gallery_wheels",
-        "gallery_gloss"
+        "gallery_gloss",
+        "instagram_reel_1",
+        "instagram_reel_2",
+        "instagram_reel_3"
       ],
       "settings": {}
     }
