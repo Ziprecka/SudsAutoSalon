@@ -38,14 +38,14 @@ body.template-index {
   margin: 14px auto 0;
   padding: 10px 24px !important;
   border: 1px solid rgba(255, 255, 255, .72);
-  border-radius: 18px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, .72);
   box-shadow: 0 18px 55px rgba(25, 65, 90, .1);
   backdrop-filter: blur(14px);
 }
 
 .template-index .header__menu-item--suds-book span {
-  border-radius: 999px;
+  border-radius: 8px;
   background: #0a0a0a;
   color: #ffffff !important;
 }
@@ -232,12 +232,13 @@ body.template-index {
   gap: 12px;
   max-width: 100%;
   padding: 8px 28px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .76);
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .82);
   color: #080808;
   font-size: 1.45rem;
   line-height: 1;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, .06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .04);
 }
 
 p.suds-home-hero__eyebrow {
@@ -288,6 +289,7 @@ p.suds-home-hero__eyebrow {
 .suds-home-transform,
 .suds-home-packages,
 .suds-home-results,
+.suds-home-instagram,
 .suds-home-addons,
 .suds-home-vehicles,
 .suds-home-why,
@@ -327,9 +329,20 @@ p.suds-home-hero__eyebrow {
   min-height: 100%;
   padding: 18px;
   border: 1px solid rgba(180, 132, 0, .22);
-  border-radius: 14px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, .94);
   box-shadow: 0 18px 50px rgba(0, 0, 0, .08);
+}
+
+.suds-home-proof-strip strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #8a6500;
+  font-size: 1.18rem;
+  font-weight: 950;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .suds-home-proof-strip p {
@@ -356,13 +369,13 @@ p.suds-home-hero__eyebrow {
   justify-content: center;
   padding: 8px 12px;
   border: 1px solid rgba(0, 0, 0, .1);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .78);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .7);
   color: #0b0b0b;
   font-size: 1.24rem;
   font-weight: 900;
   line-height: 1.15;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .05);
+  box-shadow: none;
 }
 
 .suds-home-ladder {
@@ -377,7 +390,7 @@ p.suds-home-hero__eyebrow {
   overflow: hidden;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, .06);
-  border-radius: 16px;
+  border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 16px 42px rgba(0, 0, 0, .06);
 }
@@ -390,7 +403,7 @@ p.suds-home-hero__eyebrow {
 .suds-home-ladder-card__image {
   overflow: hidden;
   margin: 12px 12px 0;
-  border-radius: 12px;
+  border-radius: 8px;
   background: #111111;
 }
 
@@ -506,7 +519,7 @@ p.suds-home-hero__eyebrow {
   justify-content: center;
   margin-top: auto;
   padding: 13px 18px;
-  border-radius: 999px;
+  border-radius: 8px;
   background: #050505;
   color: #ffffff;
   font-size: 1.38rem;
@@ -595,7 +608,7 @@ p.suds-home-hero__eyebrow {
   overflow: hidden;
   min-height: 260px;
   margin: 0;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #111111;
 }
 
@@ -627,6 +640,107 @@ p.suds-home-hero__eyebrow {
   font-weight: 950;
   line-height: 1.1;
   text-shadow: 0 3px 16px rgba(0, 0, 0, .75);
+}
+
+.suds-home-instagram {
+  background: #f6f3ee;
+}
+
+.suds-home-instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.suds-home-instagram-grid a {
+  position: relative;
+  display: flex;
+  min-height: 330px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 8px;
+  background: #111111;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .12);
+}
+
+.suds-home-instagram-grid a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .02) 12%, rgba(0, 0, 0, .82) 100%);
+}
+
+.suds-home-instagram-grid img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.92) contrast(1.05);
+  transition: transform .35s ease;
+}
+
+.suds-home-instagram-grid a:hover img {
+  transform: scale(1.035);
+}
+
+.suds-home-instagram-grid span,
+.suds-home-instagram-grid strong {
+  position: relative;
+  z-index: 2;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.suds-home-instagram-grid span {
+  margin-bottom: 8px;
+  color: var(--suds-gold);
+  font-size: 1.18rem;
+  font-weight: 950;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.suds-home-instagram-grid strong {
+  margin-bottom: 22px;
+  color: #ffffff;
+  font-size: clamp(2.4rem, 2.8vw, 3.4rem);
+  font-weight: 950;
+  line-height: .96;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, .7);
+}
+
+.suds-home-instagram-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.suds-home-instagram-embeds {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.suds-home-instagram-embed {
+  overflow: hidden;
+  border: 1px solid var(--suds-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.suds-home-instagram-embed .instagram-media {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
 }
 
 .suds-home-addons {
@@ -1349,7 +1463,7 @@ p.suds-home-hero__eyebrow {
 .suds-home-area-links a {
   padding: 11px 16px;
   border: 1px solid #b88a00;
-  border-radius: 999px;
+  border-radius: 8px;
   color: #6b4f00;
   font-size: 1.4rem;
   font-weight: 900;
@@ -1481,6 +1595,8 @@ p.suds-home-hero__eyebrow {
   .suds-home-review-grid,
   .suds-home-faq,
   .suds-home-results-grid,
+  .suds-home-instagram-grid,
+  .suds-home-instagram-embeds,
   .suds-home-proof-strip .suds-home-shell {
     grid-template-columns: 1fr;
   }
@@ -1509,7 +1625,7 @@ p.suds-home-hero__eyebrow {
 @media screen and (max-width: 640px) {
   .template-index .header {
     margin-top: 8px;
-    border-radius: 14px;
+    border-radius: 10px;
   }
 
   .suds-home-hero {

@@ -22,6 +22,13 @@
   assign maintenance_url = '/pages/monthly-maintenance-plan'
   assign booking_url = signature_url
   assign quote_url = '/pages/contact-us'
+  assign instagram_url = section.settings.instagram_reels_url
+  if instagram_url == blank
+    assign instagram_url = settings.social_instagram_link
+  endif
+  if instagram_url == blank
+    assign instagram_url = 'https://www.instagram.com/sudsautosalon/'
+  endif
 
   assign stock_hero_image = 'https://cdn.shopify.com/s/files/1/0755/7713/1295/files/download_c2f80beb-6530-4420-8472-a92faccbe0f9.jpg?v=1779266080'
   assign real_basic_image = 'https://sudsautosalon.com/cdn/shop/files/IMG_1565.jpg?v=1778041942&width=1000'
@@ -63,10 +70,13 @@
   endif
 
   assign has_gallery_blocks = false
+  assign has_instagram_reel_blocks = false
   assign has_app_block = false
   for block in section.blocks
     if block.type == 'gallery_image' and block.settings.image != blank
       assign has_gallery_blocks = true
+    elsif block.type == 'instagram_reel' and block.settings.reel_url != blank
+      assign has_instagram_reel_blocks = true
     elsif block.type == '@app'
       assign has_app_block = true
     endif
@@ -121,12 +131,15 @@
   <section class="suds-home-proof-strip" aria-label="Suds Auto Salon customer proof">
     <div class="suds-home-shell">
       <article>
+        <strong>Home service</strong>
         <p>"He came to my house with all that he needed. Highly recommend Sam and Suds Auto Salon."</p>
       </article>
       <article>
+        <strong>Interior results</strong>
         <p>"He got old stains out of the seats and thoroughly cleaned every nook and cranny."</p>
       </article>
       <article>
+        <strong>Detailed work</strong>
         <p>"My car interior was done with great detail, it looks better than when I got it at the dealer."</p>
       </article>
     </div>
@@ -250,17 +263,71 @@
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
         <h2>Real Results From Recent Details</h2>
-        <p>See the kind of interior and exterior work Suds is built for &mdash; cleaner cabins, sharper finishes, and vehicles that feel cared for again.</p>
+        <p>Actual Suds Auto Salon work on customer vehicles &mdash; cleaner interiors, sharper finishes, and photo proof that matches the service.</p>
       </div>
 
       <div class="suds-home-results-grid" aria-label="Suds Auto Salon detailing result examples">
-        <figure class="suds-home-result-card"><img src="{{ real_elite_image }}" loading="lazy" alt="Ferrari detail proof from Suds Auto Salon"><figcaption>Ferrari detail proof</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ real_signature_image }}" loading="lazy" alt="Before and after interior detail proof by Suds Auto Salon"><figcaption>Interior before and after reset</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ real_elite_alt_image }}" loading="lazy" alt="Exterior detail result from Suds Auto Salon"><figcaption>Exterior gloss and finish</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ real_signature_alt_image }}" loading="lazy" alt="Real mobile detailing photo proof by Suds Auto Salon"><figcaption>Daily-driver cleanup</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ real_basic_image }}" loading="lazy" alt="Basic Detail real result from Suds Auto Salon"><figcaption>Maintained vehicle refresh</figcaption></figure>
-        <figure class="suds-home-result-card"><img src="{{ real_basic_alt_image }}" loading="lazy" alt="Interior and exterior mobile detail proof by Suds Auto Salon"><figcaption>Clean upkeep detail</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_elite_image }}" loading="lazy" alt="Black Rivian exterior after Suds Auto Salon mobile detail"><figcaption>Exterior finish and wheel cleanup</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_signature_image }}" loading="lazy" alt="Tesla interior before and after cleanup by Suds Auto Salon"><figcaption>Interior before-and-after cleanup</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_elite_alt_image }}" loading="lazy" alt="Clean Rivian rear interior after Suds Auto Salon detail"><figcaption>Luxury interior reset</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_signature_alt_image }}" loading="lazy" alt="BMW wagon exterior after mobile detail by Suds Auto Salon"><figcaption>Exterior gloss on a daily driver</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_basic_image }}" loading="lazy" alt="Subaru interior after Basic Detail by Suds Auto Salon"><figcaption>Clean cabin refresh</figcaption></figure>
+        <figure class="suds-home-result-card"><img src="{{ real_basic_alt_image }}" loading="lazy" alt="Blue Subaru exterior after Suds Auto Salon mobile detail"><figcaption>Maintained vehicle exterior</figcaption></figure>
       </div>
+    </div>
+  </section>
+
+  <section class="suds-home-instagram" id="instagram">
+    <div class="suds-home-shell">
+      <div class="suds-home-section-title suds-home-section-title--center">
+        <h2>Watch Suds Work on Instagram</h2>
+        <p>See real detailing clips, before-and-after videos, and behind-the-scenes mobile work from Suds Auto Salon.</p>
+      </div>
+
+      {%- if has_instagram_reel_blocks -%}
+        <div class="suds-home-instagram-embeds" aria-label="Suds Auto Salon Instagram reels">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'instagram_reel' and block.settings.reel_url != blank -%}
+              <article class="suds-home-instagram-embed" {{ block.shopify_attributes }}>
+                <blockquote
+                  class="instagram-media"
+                  data-instgrm-permalink="{{ block.settings.reel_url }}"
+                  data-instgrm-version="14">
+                  <a href="{{ block.settings.reel_url }}">
+                    {%- if block.settings.caption != blank -%}
+                      {{ block.settings.caption }}
+                    {%- else -%}
+                      Watch this Suds Auto Salon reel on Instagram
+                    {%- endif -%}
+                  </a>
+                </blockquote>
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <script async src="//www.instagram.com/embed.js"></script>
+      {%- else -%}
+        <div class="suds-home-instagram-grid" aria-label="Suds Auto Salon Instagram proof links">
+          <a href="{{ instagram_url }}" target="_blank" rel="noopener">
+            <img src="{{ real_signature_image }}" loading="lazy" alt="Interior before and after detail proof from Suds Auto Salon">
+            <span>Interior resets</span>
+            <strong>Watch cleanup clips</strong>
+          </a>
+          <a href="{{ instagram_url }}" target="_blank" rel="noopener">
+            <img src="{{ real_elite_image }}" loading="lazy" alt="Exterior mobile detailing result from Suds Auto Salon">
+            <span>Exterior work</span>
+            <strong>See recent results</strong>
+          </a>
+          <a href="{{ instagram_url }}" target="_blank" rel="noopener">
+            <img src="{{ real_basic_image }}" loading="lazy" alt="Clean vehicle interior after Suds Auto Salon detail">
+            <span>Mobile details</span>
+            <strong>Follow the work</strong>
+          </a>
+        </div>
+        <div class="suds-home-instagram-cta">
+          <a class="suds-home-button suds-home-button--black" href="{{ instagram_url }}" target="_blank" rel="noopener">Open Suds Instagram</a>
+        </div>
+      {%- endif -%}
     </div>
   </section>
 
@@ -311,7 +378,7 @@
     <div class="suds-home-shell">
       <div class="suds-home-section-title suds-home-section-title--center">
         <h2>Reviewed by Seattle-Area Drivers</h2>
-        <p>Current Google reviews and recent customer excerpts give visitors proof before they book.</p>
+        <p>Recent Google reviews from customers who booked mobile detailing with Suds Auto Salon.</p>
       </div>
       {% render 'suds-judgeme-widgets',
         widget: 'carousel',
@@ -415,7 +482,7 @@
           <p class="suds-home-results-note">Swipe or scroll to see more recent Suds details.</p>
         {%- else -%}
           <div class="suds-home-proof-empty">
-            <p>Add real Suds photos to this homepage section in Shopify. Put the Ferrari photo in the first gallery block for the strongest proof image.</p>
+            <p>More approved Suds work photos can be added here as new details are photographed.</p>
           </div>
         {%- endif -%}
       </div>
@@ -473,6 +540,11 @@
       "type": "image_picker",
       "id": "hero_image",
       "label": "Hero image"
+    },
+    {
+      "type": "url",
+      "id": "instagram_reels_url",
+      "label": "Instagram reels link"
     }
   ],
   "blocks": [
@@ -496,6 +568,23 @@
           "id": "alt_text",
           "label": "Alt text",
           "default": "Suds Auto Salon mobile detailing result"
+        }
+      ]
+    },
+    {
+      "type": "instagram_reel",
+      "name": "Instagram reel embed",
+      "settings": [
+        {
+          "type": "url",
+          "id": "reel_url",
+          "label": "Reel URL"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Fallback link text",
+          "default": "Watch this Suds detail reel"
         }
       ]
     },

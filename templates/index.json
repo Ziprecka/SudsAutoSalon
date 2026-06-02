@@ -15,14 +15,14 @@
         "gallery_ferrari": {
           "type": "gallery_image",
           "settings": {
-            "caption": "Ferrari detail proof",
-            "alt_text": "Ferrari after a Suds Auto Salon mobile detail"
+            "caption": "Customer vehicle exterior finish",
+            "alt_text": "Exterior finish after a Suds Auto Salon mobile detail"
           }
         },
         "gallery_interior": {
           "type": "gallery_image",
           "settings": {
-            "caption": "Interior reset",
+            "caption": "Interior before-and-after cleanup",
             "alt_text": "Interior car detailing photo proof by Suds Auto Salon"
           }
         },
